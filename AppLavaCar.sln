@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLavaCar", "AppLavaCar\AppLavaCar.csproj", "{DEBB5681-F134-433F-B866-03B2B9DFCA9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEBB5681-F134-433F-B866-03B2B9DFCA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBB5681-F134-433F-B866-03B2B9DFCA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBB5681-F134-433F-B866-03B2B9DFCA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBB5681-F134-433F-B866-03B2B9DFCA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {903229BD-3B06-490D-A2F2-037A280DE531}
+	EndGlobalSection
+EndGlobal
