@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AppLavaCar.Controller
 {
@@ -14,6 +15,22 @@ namespace AppLavaCar.Controller
     {
         MySqlConnection conn = new MySqlConnection("server=sql.freedb.tech;port=3306;database=freedb_DbProvisorio;user id=freedb_PipsProvisorio;password=8Jc4zG&SThRn#H4;charset=utf8");
 
+        public void AlterarSenha(string senha, int cpf)
+        {
+            string sql = "UPDATE funcionario SET senha=@senha WHERE cpf=@cpf";
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {                                
+                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
         public List<Funcionario> listaFuncionario()
         {
             List<Funcionario> li = new List<Funcionario>();

@@ -138,7 +138,7 @@ namespace AppLavaCar
                 {
                     return;
                 }                
-                MessageBox.Show("Registro de entrega de EPI excluída com sucesso!!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Funcionário excluído com sucesso!!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<Funcionario> funcionarios = controller.listaFuncionario();
                 dgvFunc.DataSource = funcionarios;
                 txtId.Text = "";

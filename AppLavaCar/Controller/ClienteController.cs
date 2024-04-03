@@ -27,16 +27,18 @@ namespace AppLavaCar.Controller
                 cliente.cpf = (int)dr["cpf"];
                 cliente.nome = dr["nome"].ToString();
                 cliente.telefone = dr["telefone"].ToString();
-                cliente.placaCarro = dr["placaCarro"].ToString(); 
+                cliente.placaCarro = dr["placaCarro"].ToString();
+                cliente.marca = dr["marca"].ToString();
+                cliente.modelo = dr["modelo"].ToString();
                 li.Add(cliente);
             }
             dr.Close();
             conn.Close();
             return li;
         }
-        public void Inserir(string nome, int cpf, string telefone, string placaCarro)
+        public void Inserir(string nome, int cpf, string telefone, string placaCarro, string marca,string modelo)
         {
-            string sql = "INSERT INTO cliente(nome,cpf,telefone,placaCarro) VALUES(@nome,@cpf,@telefone,@placaCarro)";
+            string sql = "INSERT INTO cliente(nome,cpf,telefone,placaCarro,marca,modelo) VALUES(@nome,@cpf,@telefone,@placaCarro,@marca,@modelo)";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -46,7 +48,9 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;                
+                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@marca", MySqlDbType.VarChar).Value = marca;
+                cmd.Parameters.Add("@modelo", MySqlDbType.VarChar).Value = modelo;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -54,9 +58,9 @@ namespace AppLavaCar.Controller
             conn.Close();
         }
 
-        public void Atualizar(int id, string nome, int cpf, string telefone, string placaCarro)
+        public void Atualizar(int id, string nome, int cpf, string telefone, string placaCarro,string marca,string modelo)
         {
-            string sql = "UPDATE cliente SET nome=@nome,cpf=@cpf,telefone=@telefone,placaCarro=@placaCarro WHERE id=@id";
+            string sql = "UPDATE cliente SET nome=@nome,cpf=@cpf,telefone=@telefone,placaCarro=@placaCarro,marca=@marca,modelo=@modelo WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -68,6 +72,8 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@marca", MySqlDbType.VarChar).Value = marca;
+                cmd.Parameters.Add("@modelo", MySqlDbType.VarChar).Value = modelo;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -84,10 +90,10 @@ namespace AppLavaCar.Controller
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public Cliente Localizar(int id)
+        public Cliente Localizar(int cpf)
         {
             Cliente cliente = new Cliente();
-            string sql = "SELECT * FROM cliente WHERE id='" + id + "'";
+            string sql = "SELECT * FROM cliente WHERE cpf='" + cpf + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -101,7 +107,8 @@ namespace AppLavaCar.Controller
                 cliente.nome = dr["nome"].ToString();
                 cliente.telefone = dr["telefone"].ToString();
                 cliente.placaCarro = dr["placaCarro"].ToString();
-
+                cliente.marca = dr["marca"].ToString();
+                cliente.modelo = dr["modelo"].ToString();
             }
             dr.Close();
             conn.Close();

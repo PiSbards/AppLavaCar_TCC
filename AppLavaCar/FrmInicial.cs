@@ -29,11 +29,12 @@ namespace AppLavaCar
         private void btnSair_Click_1(object sender, EventArgs e)
         {
             Environment.Exit(0);
-        }
+        }       
 
-        private void lblSenha_Click(object sender, EventArgs e)
+        private void llblSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            FrmSenha senha = new FrmSenha();
+            senha.Show();
         }
     }
 }
