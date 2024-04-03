@@ -100,17 +100,12 @@
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\ControllerGeral.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Controller\VerificacaoCpfCnpj.cs" />
     <Compile Include="FrmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAgenda.Designer.cs">
       <DependentUpon>FrmAgenda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCarro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCarro.Designer.cs">
-      <DependentUpon>FrmCarro.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCheckin.cs">
       <SubType>Form</SubType>
@@ -154,9 +149,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAgenda.resx">
       <DependentUpon>FrmAgenda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCarro.resx">
-      <DependentUpon>FrmCarro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>

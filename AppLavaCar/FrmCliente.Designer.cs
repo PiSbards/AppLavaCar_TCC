@@ -42,11 +42,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCpf = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.mtxtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.chbxCNPJ = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,7 +181,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 65);
+            this.label1.Location = new System.Drawing.Point(11, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 63;
@@ -195,7 +196,7 @@
             this.btnLocalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnLocalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLocalizar.Location = new System.Drawing.Point(183, 22);
+            this.btnLocalizar.Location = new System.Drawing.Point(184, 52);
             this.btnLocalizar.Name = "btnLocalizar";
             this.btnLocalizar.Size = new System.Drawing.Size(44, 44);
             this.btnLocalizar.TabIndex = 69;
@@ -204,28 +205,28 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(13, 82);
+            this.txtNome.Location = new System.Drawing.Point(14, 112);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(127, 20);
             this.txtNome.TabIndex = 64;
             // 
-            // label2
+            // lblCpf
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "CPF";
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.BackColor = System.Drawing.Color.Transparent;
+            this.lblCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.Location = new System.Drawing.Point(11, 46);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(36, 16);
+            this.lblCpf.TabIndex = 65;
+            this.lblCpf.Text = "CPF";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 117);
+            this.label4.Location = new System.Drawing.Point(11, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 16);
             this.label4.TabIndex = 66;
@@ -233,7 +234,7 @@
             // 
             // mtxtCpf
             // 
-            this.mtxtCpf.Location = new System.Drawing.Point(13, 36);
+            this.mtxtCpf.Location = new System.Drawing.Point(14, 66);
             this.mtxtCpf.Mask = "999.999.999-99";
             this.mtxtCpf.Name = "mtxtCpf";
             this.mtxtCpf.Size = new System.Drawing.Size(164, 20);
@@ -241,7 +242,7 @@
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(13, 136);
+            this.txtTelefone.Location = new System.Drawing.Point(14, 166);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(164, 20);
             this.txtTelefone.TabIndex = 68;
@@ -257,16 +258,32 @@
             this.lblId.Size = new System.Drawing.Size(0, 16);
             this.lblId.TabIndex = 70;
             // 
+            // chbxCNPJ
+            // 
+            this.chbxCNPJ.AutoSize = true;
+            this.chbxCNPJ.BackColor = System.Drawing.Color.Transparent;
+            this.chbxCNPJ.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.chbxCNPJ.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.chbxCNPJ.Location = new System.Drawing.Point(15, 15);
+            this.chbxCNPJ.Name = "chbxCNPJ";
+            this.chbxCNPJ.Size = new System.Drawing.Size(59, 19);
+            this.chbxCNPJ.TabIndex = 71;
+            this.chbxCNPJ.Text = "CNPJ";
+            this.chbxCNPJ.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.chbxCNPJ.UseSelectable = true;
+            this.chbxCNPJ.CheckedChanged += new System.EventHandler(this.chbxCNPJ_CheckedChanged);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 556);
+            this.Controls.Add(this.chbxCNPJ);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLocalizar);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mtxtCpf);
             this.Controls.Add(this.txtTelefone);
@@ -307,10 +324,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLocalizar;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtxtCpf;
         private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Label lblId;
+        private MetroFramework.Controls.MetroCheckBox chbxCNPJ;
     }
 }

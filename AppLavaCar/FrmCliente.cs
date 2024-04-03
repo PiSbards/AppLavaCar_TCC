@@ -178,6 +178,14 @@ namespace AppLavaCar
             {
                 DataGridViewRow row = this.dgvFunc.Rows[e.RowIndex];
                 this.dgvFunc.Rows[e.RowIndex].Selected = true;
+                if (row.Cells[2].Value.ToString().Length == 11)
+                {
+                    chbxCNPJ.Checked = false;
+                }
+                else
+                {
+                    chbxCNPJ.Checked = true;
+                }
                 lblId.Text = row.Cells[0].Value.ToString();
                 txtNome.Text = row.Cells[1].Value.ToString();
                 mtxtCpf.Text = row.Cells[2].Value.ToString();
@@ -189,6 +197,20 @@ namespace AppLavaCar
             }
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
+        }
+
+        private void chbxCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbxCNPJ.Checked == false)
+            {
+                lblCpf.Text = "CPF";
+                mtxtCpf.Mask = "999.999.999-00";
+            }
+            else if (chbxCNPJ.Checked == true)
+            {
+                lblCpf.Text = "CNPJ";
+                mtxtCpf.Mask = "99.999.999 /9999-99";
+            }
         }
     }
 }

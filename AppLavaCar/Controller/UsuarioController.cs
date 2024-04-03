@@ -31,6 +31,38 @@ namespace AppLavaCar.Controller
             }
             conn.Close();
         }
+        public Funcionario Login(int cpf)
+        {
+            Funcionario funcionario = new Funcionario();
+            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'";
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                funcionario.id = (int)dr["id"];
+                funcionario.nome = dr["nome"].ToString();
+                funcionario.cpf = (int)dr["cpf"];
+                funcionario.senha = dr["epi"].ToString();
+                funcionario.email = dr["email"].ToString();
+                bool gerente = (bool)dr["gerente"];
+                if (gerente != false)
+                {
+                    funcionario.gerente = "SIM";
+                }
+                else
+                {
+                    funcionario.gerente = "NÃO";
+                }
+
+            }
+            dr.Close();
+            conn.Close();
+            return funcionario;
+        }
         public List<Funcionario> listaFuncionario()
         {
             List<Funcionario> li = new List<Funcionario>();

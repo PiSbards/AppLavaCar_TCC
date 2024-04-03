@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,13 @@ namespace AppLavaCar
         private bool Hidden;
         public FrmPrincipal()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            btnFunc1.Enabled = false;
+            btnFunc2.Enabled = false;
+        }
+        public FrmPrincipal(bool gerente)
+        {
+            InitializeComponent();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

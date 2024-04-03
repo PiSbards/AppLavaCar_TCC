@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.GraficoSemana = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,16 +63,16 @@
             // 
             // GraficoSemana
             // 
-            chartArea1.Name = "ChartArea1";
-            this.GraficoSemana.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraficoSemana.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.GraficoSemana.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.GraficoSemana.Legends.Add(legend3);
             this.GraficoSemana.Location = new System.Drawing.Point(1214, 516);
             this.GraficoSemana.Name = "GraficoSemana";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.GraficoSemana.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.GraficoSemana.Series.Add(series3);
             this.GraficoSemana.Size = new System.Drawing.Size(300, 300);
             this.GraficoSemana.TabIndex = 0;
             this.GraficoSemana.Text = "chart1";
@@ -97,16 +97,16 @@
             // 
             // GraficoMes
             // 
-            chartArea2.Name = "ChartArea1";
-            this.GraficoMes.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.GraficoMes.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.GraficoMes.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.GraficoMes.Legends.Add(legend4);
             this.GraficoMes.Location = new System.Drawing.Point(908, 516);
             this.GraficoMes.Name = "GraficoMes";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.GraficoMes.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.GraficoMes.Series.Add(series4);
             this.GraficoMes.Size = new System.Drawing.Size(300, 300);
             this.GraficoMes.TabIndex = 2;
             this.GraficoMes.Text = "chart2";
@@ -373,6 +373,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GraficoSemana);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Movable = false;
             this.Name = "FrmPrincipal";
             this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 40);
