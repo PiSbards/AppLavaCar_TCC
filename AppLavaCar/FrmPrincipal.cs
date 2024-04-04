@@ -39,12 +39,7 @@ namespace AppLavaCar
                 MenuConteudo.Width = 0;                
                 Hidden = true;
             }
-        }
-
-        private void btnHome1_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
+        }        
 
         private void btnFunc1_Click(object sender, EventArgs e)
         {
@@ -68,7 +63,7 @@ namespace AppLavaCar
         private void btnSair2_Click(object sender, EventArgs e)
         {
             FrmInicial inicial = new FrmInicial();
-            var resposta = MessageBox.Show("Deseja realmente sair?","SAIR",MessageBoxButtons.OKCancel);
+            var resposta = MetroMessageBox.Show(this,"Deseja realmente sair?","SAIR",MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
             if(resposta == DialogResult.OK)
             {
                 inicial.Show();
@@ -79,12 +74,7 @@ namespace AppLavaCar
                 return;
             }
             
-        }
-
-        private void btnHome2_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
+        }        
 
         private void btnFunc2_Click(object sender, EventArgs e)
         {

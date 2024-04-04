@@ -28,32 +28,48 @@ namespace AppLavaCar
         private void btnAdiocionar_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 UsuarioController user = new UsuarioController();
-                Funcionario func = new Funcionario();                
-                if (user.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+                Funcionario func = new Funcionario();
+                var cpf = ve.ValidarCPF(mtxtCpf.Text.Trim());
+                if (cpf == true)
                 {
-                    MessageBox.Show("Pessoa já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtId.Text = "";
-                    txtNome.Text = "";
-                    mtxtCpf.Text = "";
-                    txtSenha.Text = "";
-                    txtEmail.Text = "";
-                    chkbSim.Checked = false;
-                    this.txtId.Focus();
-                    return;
+                    if (user.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                    {
+                        MessageBox.Show("Pessoa já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtId.Text = "";
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtSenha.Text = "";
+                        txtEmail.Text = "";
+                        chkbSim.Checked = false;
+                        this.txtId.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        bool gerente = false;
+                        if (chkbSim.Checked == true)
+                        {
+                            gerente = true;
+                        }
+                        user.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtSenha.Text, txtEmail.Text, gerente);
+                        MessageBox.Show("Funcionário inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        List<Funcionario> li = user.listaFuncionario();
+                        dgvFunc.DataSource = li;
+                        txtId.Text = "";
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtSenha.Text = "";
+                        txtEmail.Text = "";
+                        chkbSim.Checked = false;
+                        this.txtId.Focus();
+                    }
                 }
                 else
-                {                    
-                    bool gerente = false;
-                    if (chkbSim.Checked == true)
-                    {
-                        gerente = true;
-                    }
-                    user.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtSenha.Text,txtEmail.Text, gerente);
-                    MessageBox.Show("Funcionário inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    List<Funcionario> li = user.listaFuncionario();
-                    dgvFunc.DataSource = li;
+                {
+                    MetroMessageBox.Show(this,"CPF inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtId.Text = "";
                     txtNome.Text = "";
                     mtxtCpf.Text = "";
@@ -61,7 +77,7 @@ namespace AppLavaCar
                     txtEmail.Text = "";
                     chkbSim.Checked = false;
                     this.txtId.Focus();
-                }
+                }               
             }
             catch (Exception er)
             {

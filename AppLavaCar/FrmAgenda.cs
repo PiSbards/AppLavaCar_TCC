@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace AppLavaCar
 {
-    public partial class FrmAgenda : Form
+    public partial class FrmAgenda : MetroFramework.Forms.MetroForm
     {        
         public FrmAgenda()
         {
             InitializeComponent();
-        }        
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

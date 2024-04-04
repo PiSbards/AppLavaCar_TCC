@@ -1,5 +1,6 @@
 ﻿using AppLavaCar.Controller;
 using AppLavaCar.Model;
+using MetroFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,34 +29,100 @@ namespace AppLavaCar
         {
             try
             {
-                ClienteController cliente = new ClienteController();
-                Cliente cli = new Cliente();
-                if (cliente.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                ClienteController controller = new ClienteController();
+                Cliente cliente = new Cliente();
+                VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+                if (chbxCNPJ.Checked == true)
                 {
-                    MessageBox.Show("Cliente já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
-                    txtNome.Text = "";
-                    mtxtCpf.Text = "";
-                    txtTelefone.Text = "";
-                    txtModelo.Text = "";
-                    txtMarca.Text = "";
-                    txtPlaca.Text = "";
-                    this.txtNome.Focus();
-                    return;
+                    var result = ve.ValidarCNPJ(mtxtCpf.Text);
+                    if (result == false)
+                    {
+                        MetroMessageBox.Show(this,"CNPJ inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtTelefone.Text = "";
+                        txtModelo.Text = "";
+                        txtMarca.Text = "";
+                        txtPlaca.Text = "";
+                        this.txtNome.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        if (controller.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                        {
+                            MessageBox.Show("Cliente já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            txtModelo.Text = "";
+                            txtMarca.Text = "";
+                            txtPlaca.Text = "";
+                            this.txtNome.Focus();
+                            return;
+                        }
+                        else
+                        {
+                            controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
+                            MessageBox.Show("Cliente inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvFunc.DataSource = li;
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            txtModelo.Text = "";
+                            txtMarca.Text = "";
+                            txtPlaca.Text = "";
+                            this.txtNome.Focus();
+                        }
+                    }
                 }
                 else
-                {                    
-                    cliente.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtTelefone.Text,txtModelo.Text,txtMarca.Text,txtPlaca.Text);
-                    MessageBox.Show("Cliente inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    List<Cliente> li = cliente.listaCliente();
-                    dgvFunc.DataSource = li;
-                    txtNome.Text = "";
-                    mtxtCpf.Text = "";
-                    txtTelefone.Text = "";
-                    txtModelo.Text = "";
-                    txtMarca.Text = "";
-                    txtPlaca.Text = "";
-                    this.txtNome.Focus();
+                {
+                    var result = ve.ValidarCPF(mtxtCpf.Text);
+                    if (result == false)
+                    {
+                        MetroMessageBox.Show(this, "CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtTelefone.Text = "";
+                        txtModelo.Text = "";
+                        txtMarca.Text = "";
+                        txtPlaca.Text = "";
+                        this.txtNome.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        if (controller.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                        {
+                            MessageBox.Show("Cliente já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            txtModelo.Text = "";
+                            txtMarca.Text = "";
+                            txtPlaca.Text = "";
+                            this.txtNome.Focus();
+                            return;
+                        }
+                        else
+                        {
+                            controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
+                            MessageBox.Show("Cliente inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvFunc.DataSource = li;
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            txtModelo.Text = "";
+                            txtMarca.Text = "";
+                            txtPlaca.Text = "";
+                            this.txtNome.Focus();
+                        }
+                    }
                 }
+                
             }
             catch (Exception er)
             {

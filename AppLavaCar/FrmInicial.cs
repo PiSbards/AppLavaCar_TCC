@@ -24,8 +24,11 @@ namespace AppLavaCar
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            
-            VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+            bool gerente = true;
+            FrmPrincipal principal = new FrmPrincipal(gerente);
+            principal.Show();
+            this.Hide();
+            /*VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
             UsuarioController controller = new UsuarioController();
             bool cpf = ve.ValidarCPF(txtUsuario.Text);
             if (cpf == true)
@@ -57,7 +60,7 @@ namespace AppLavaCar
                 MessageBox.Show("CPF inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 txtUsuario.Text = "";
                 txtSenha.Text = "";
-            }
+            }*/
             
         }
 
