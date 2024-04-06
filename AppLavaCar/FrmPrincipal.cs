@@ -1,4 +1,6 @@
-﻿using MetroFramework;
+﻿using AppLavaCar.Controller;
+using AppLavaCar.Model;
+using MetroFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,6 +118,25 @@ namespace AppLavaCar
         {
             Hidden = true;
             MenuConteudo.Width = 0;
+            PanelAgenda.Controls.Clear();
+
+            Agenda agenda = new Agenda();
+            ControllerGeral geral = new ControllerGeral();
+            List<Agenda> li = geral.listaAgendaDia();
+            int item = 0;
+            foreach (var line in li)
+            {
+                var nome = li[1].ToString();
+                var cpf = li[2].ToString();
+                var telefone = li[3].ToString();
+                var tipoTratamento = li[4].ToString();
+                var placaCarro = li[5].ToString();
+                var agendamento = li[6].ToString();
+
+
+               
+            }
+
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -124,7 +145,7 @@ namespace AppLavaCar
             check.Show();            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCheckin2_Click(object sender, EventArgs e)
         {
             FrmCheckin check = new FrmCheckin();
             check.Show();

@@ -143,6 +143,7 @@
     <Compile Include="FrmSenha.Designer.cs">
       <DependentUpon>FrmSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Agenda.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Program.cs" />

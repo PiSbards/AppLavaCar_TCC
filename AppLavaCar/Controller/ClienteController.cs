@@ -36,6 +36,7 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }
+        
         public void Inserir(string nome, int cpf, string telefone, string placaCarro, string marca,string modelo)
         {
             string sql = "INSERT INTO cliente(nome,cpf,telefone,placaCarro,marca,modelo) VALUES(@nome,@cpf,@telefone,@placaCarro,@marca,@modelo)";
@@ -115,9 +116,9 @@ namespace AppLavaCar.Controller
             return cliente;
         }
 
-        public bool RegistroRepetido(string nome, int cpf)
+        public bool RegistroRepetido(string nome, int cpf,string placaCarro)
         {
-            string sql = "SELECT * FROM cliente WHERE nome='" + nome + "' AND cpf='" + cpf + "'";
+            string sql = "SELECT * FROM cliente WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND placaCarro='"+placaCarro+"'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -131,6 +132,27 @@ namespace AppLavaCar.Controller
             }
             conn.Close();
             return false;
+        }
+        public void AgendarCliente(string nome, int cpf,string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
+        {
+            string sql = "INSERT INTO funcionario(nome,cpf,telefone,placaCarro,tipoTratamento,agendamento) VALUES(@nome,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento)";
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
+                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
+                cmd.Parameters.Add("@agendamento", MySqlDbType.Bool).Value = agendamento;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+
+            conn.Close();
         }
     }
 }

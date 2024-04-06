@@ -38,7 +38,6 @@
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAdicionar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -138,7 +137,7 @@
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chocolate;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(305, 238);
+            this.btnExcluir.Location = new System.Drawing.Point(162, 238);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(138, 47);
             this.btnExcluir.TabIndex = 58;
@@ -153,28 +152,13 @@
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(158, 238);
+            this.btnEditar.Location = new System.Drawing.Point(15, 238);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(138, 47);
             this.btnEditar.TabIndex = 57;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnAdicionar
-            // 
-            this.btnAdicionar.BackColor = System.Drawing.Color.LightGray;
-            this.btnAdicionar.FlatAppearance.BorderSize = 0;
-            this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionar.ForeColor = System.Drawing.Color.Black;
-            this.btnAdicionar.Location = new System.Drawing.Point(14, 238);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(138, 47);
-            this.btnAdicionar.TabIndex = 56;
-            this.btnAdicionar.Text = "CADASTRAR";
-            this.btnAdicionar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -290,7 +274,6 @@
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtModelo);
@@ -320,7 +303,6 @@
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLocalizar;
         private System.Windows.Forms.TextBox txtNome;
