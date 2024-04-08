@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AppLavaCar
 {
@@ -117,26 +118,12 @@ namespace AppLavaCar
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             Hidden = true;
-            MenuConteudo.Width = 0;
-            PanelAgenda.Controls.Clear();
+            MenuConteudo.Width = 0;            
 
             Agenda agenda = new Agenda();
             ControllerGeral geral = new ControllerGeral();
             List<Agenda> li = geral.listaAgendaDia();
-            int item = 0;
-            foreach (var line in li)
-            {
-                var nome = li[1].ToString();
-                var cpf = li[2].ToString();
-                var telefone = li[3].ToString();
-                var tipoTratamento = li[4].ToString();
-                var placaCarro = li[5].ToString();
-                var agendamento = li[6].ToString();
-
-
-               
-            }
-
+            dgvAgendamento.DataSource = li;
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -149,6 +136,11 @@ namespace AppLavaCar
         {
             FrmCheckin check = new FrmCheckin();
             check.Show();
+        }
+
+        private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

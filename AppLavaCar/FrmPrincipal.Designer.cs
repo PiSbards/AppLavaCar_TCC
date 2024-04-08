@@ -38,6 +38,7 @@
             this.GraficoSemana = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GraficoMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MenuBarra = new System.Windows.Forms.Panel();
+            this.btnCheckin2 = new System.Windows.Forms.Button();
             this.btnSair2 = new System.Windows.Forms.Button();
             this.btnCliente1 = new System.Windows.Forms.Button();
             this.btnAgenda1 = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@
             this.btnTimer4 = new System.Windows.Forms.Button();
             this.btnTimer3 = new System.Windows.Forms.Button();
             this.btnTimer2 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -91,15 +92,13 @@
             this.txtTimer5 = new System.Windows.Forms.TextBox();
             this.txtTimer6 = new System.Windows.Forms.TextBox();
             this.txtTimer7 = new System.Windows.Forms.TextBox();
-            this.PanelAgenda = new MetroFramework.Controls.MetroPanel();
-            this.btnCheckin2 = new System.Windows.Forms.Button();
-            this.txtAgendamentos = new System.Windows.Forms.TextBox();
+            this.dgvAgendamento = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoSemana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoMes)).BeginInit();
             this.MenuBarra.SuspendLayout();
             this.MenuConteudo.SuspendLayout();
             this.PTimer.SuspendLayout();
-            this.PanelAgenda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             this.SuspendLayout();
             // 
             // GraficoSemana
@@ -151,6 +150,21 @@
             this.MenuBarra.Name = "MenuBarra";
             this.MenuBarra.Size = new System.Drawing.Size(56, 818);
             this.MenuBarra.TabIndex = 4;
+            // 
+            // btnCheckin2
+            // 
+            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
+            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckin2.FlatAppearance.BorderSize = 0;
+            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
+            this.btnCheckin2.Name = "btnCheckin2";
+            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
+            this.btnCheckin2.TabIndex = 8;
+            this.btnCheckin2.UseVisualStyleBackColor = false;
+            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
             // 
             // btnSair2
             // 
@@ -234,11 +248,11 @@
             this.MenuConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuConteudo.BackColor = System.Drawing.Color.MidnightBlue;
+            this.MenuConteudo.Controls.Add(this.btnAgenda2);
             this.MenuConteudo.Controls.Add(this.btnCheckin);
             this.MenuConteudo.Controls.Add(this.label3);
             this.MenuConteudo.Controls.Add(this.btnSair1);
             this.MenuConteudo.Controls.Add(this.btnCliente2);
-            this.MenuConteudo.Controls.Add(this.btnAgenda2);
             this.MenuConteudo.Controls.Add(this.btnFunc2);
             this.MenuConteudo.Location = new System.Drawing.Point(55, 5);
             this.MenuConteudo.Name = "MenuConteudo";
@@ -347,7 +361,7 @@
             this.PTimer.Controls.Add(this.btnTimer4);
             this.PTimer.Controls.Add(this.btnTimer3);
             this.PTimer.Controls.Add(this.btnTimer2);
-            this.PTimer.Controls.Add(this.button9);
+            this.PTimer.Controls.Add(this.btnLimpar);
             this.PTimer.Controls.Add(this.label28);
             this.PTimer.Controls.Add(this.label27);
             this.PTimer.Controls.Add(this.label26);
@@ -464,19 +478,19 @@
             this.btnTimer2.Text = "INICIAR";
             this.btnTimer2.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnLimpar
             // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(6, 12);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(69, 30);
-            this.button9.TabIndex = 39;
-            this.button9.Text = "Atualizar";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnLimpar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpar.FlatAppearance.BorderSize = 0;
+            this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(6, 12);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(69, 30);
+            this.btnLimpar.TabIndex = 39;
+            this.btnLimpar.Text = "LIMPAR";
+            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
             // label28
             // 
@@ -797,42 +811,14 @@
             this.txtTimer7.Size = new System.Drawing.Size(148, 30);
             this.txtTimer7.TabIndex = 8;
             // 
-            // PanelAgenda
+            // dgvAgendamento
             // 
-            this.PanelAgenda.Controls.Add(this.txtAgendamentos);
-            this.PanelAgenda.HorizontalScrollbarBarColor = true;
-            this.PanelAgenda.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelAgenda.HorizontalScrollbarSize = 10;
-            this.PanelAgenda.Location = new System.Drawing.Point(261, 20);
-            this.PanelAgenda.Name = "PanelAgenda";
-            this.PanelAgenda.Size = new System.Drawing.Size(241, 789);
-            this.PanelAgenda.TabIndex = 7;
-            this.PanelAgenda.VerticalScrollbarBarColor = true;
-            this.PanelAgenda.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelAgenda.VerticalScrollbarSize = 10;
-            // 
-            // btnCheckin2
-            // 
-            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
-            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckin2.FlatAppearance.BorderSize = 0;
-            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
-            this.btnCheckin2.Name = "btnCheckin2";
-            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
-            this.btnCheckin2.TabIndex = 8;
-            this.btnCheckin2.UseVisualStyleBackColor = false;
-            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
-            // 
-            // txtAgendamentos
-            // 
-            this.txtAgendamentos.Location = new System.Drawing.Point(4, 3);
-            this.txtAgendamentos.Multiline = true;
-            this.txtAgendamentos.Name = "txtAgendamentos";
-            this.txtAgendamentos.Size = new System.Drawing.Size(234, 783);
-            this.txtAgendamentos.TabIndex = 2;
+            this.dgvAgendamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgendamento.Location = new System.Drawing.Point(261, 469);
+            this.dgvAgendamento.Name = "dgvAgendamento";
+            this.dgvAgendamento.Size = new System.Drawing.Size(618, 340);
+            this.dgvAgendamento.TabIndex = 7;
+            this.dgvAgendamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellClick);
             // 
             // FrmPrincipal
             // 
@@ -840,12 +826,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1526, 821);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvAgendamento);
             this.Controls.Add(this.MenuBarra);
             this.Controls.Add(this.GraficoMes);
             this.Controls.Add(this.GraficoSemana);
             this.Controls.Add(this.PTimer);
             this.Controls.Add(this.MenuConteudo);
-            this.Controls.Add(this.PanelAgenda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Movable = false;
@@ -861,8 +847,7 @@
             this.MenuConteudo.PerformLayout();
             this.PTimer.ResumeLayout(false);
             this.PTimer.PerformLayout();
-            this.PanelAgenda.ResumeLayout(false);
-            this.PanelAgenda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -918,15 +903,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnTimer7;
         private System.Windows.Forms.Button btnTimer6;
         private System.Windows.Forms.Button btnTimer5;
         private System.Windows.Forms.Button btnTimer4;
         private System.Windows.Forms.Button btnTimer3;
         private System.Windows.Forms.Button btnTimer2;
-        private MetroFramework.Controls.MetroPanel PanelAgenda;
         private System.Windows.Forms.Button btnCheckin2;
-        private System.Windows.Forms.TextBox txtAgendamentos;
+        private System.Windows.Forms.DataGridView dgvAgendamento;
     }
 }

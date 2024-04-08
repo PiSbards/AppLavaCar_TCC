@@ -96,8 +96,8 @@ namespace AppLavaCar
                             DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
                             controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
                             controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
-                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado - " +
-                                $"{dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado" +Environment.NewLine+
+                                $"Informações: {dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
                             mtxtTelefone.Text = "";
@@ -149,8 +149,8 @@ namespace AppLavaCar
                             DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
                             controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
                             controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()),mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
-                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado - " +
-                                $"{dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado" + Environment.NewLine+
+                                $"Informações: {dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
                             mtxtTelefone.Text = "";
@@ -182,6 +182,60 @@ namespace AppLavaCar
             {
                 lblCPF.Text = "CNPJ";
                 mtxtCPF.Mask = "99.999.999 /9999-99";
+            }
+        }
+
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cpf = Convert.ToInt32(mtxtCPF.Text.Trim());
+
+                ClienteController controller = new ClienteController();
+                Cliente cliente = controller.Localizar(cpf);
+                txtNome.Text = cliente.nome;
+                mtxtTelefone.Text = cliente.telefone;
+                txtModelo.Text = cliente.modelo;
+                txtMarca.Text = cliente.marca;
+                txtPlaca.Text = cliente.placaCarro;
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(this,"CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSomenteAgendar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClienteController controller = new ClienteController();
+                Cliente cliente = new Cliente();
+                
+                if (chbxCNPJ.Checked == true)
+                {
+                    DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
+                    controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
+                    controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
+                    MetroMessageBox.Show(this, "Agendamento efetuado com sucesso!" + Environment.NewLine +
+                        $"Informações: {dataHorario.ToString("dd/mm/yy g")}", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNome.Text = "";
+                    mtxtCPF.Text = "";
+                    mtxtTelefone.Text = "";
+                    txtModelo.Text = "";
+                    txtMarca.Text = "";
+                    txtPlaca.Text = "";
+                    lblData.Text = "";
+                    cboHoraAgenda.Text = "00:00";
+                    this.txtNome.Focus();
+
+                }
+                
+
+            }
+            catch (Exception er)
+            {
+                MetroMessageBox.Show(this,er.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

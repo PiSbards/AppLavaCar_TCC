@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgenda));
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLocalizar = new System.Windows.Forms.Button();
+            this.btnSomenteAgendar = new System.Windows.Forms.Button();
             this.lblData = new System.Windows.Forms.Label();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.btnAgendar = new System.Windows.Forms.Button();
@@ -42,7 +48,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chbxCNPJ = new MetroFramework.Controls.MetroCheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnReiniciar = new System.Windows.Forms.Button();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtPlaca = new System.Windows.Forms.TextBox();
@@ -54,8 +59,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +87,11 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.pictureBox1);
+            this.metroTabPage1.Controls.Add(this.btnLocalizar);
+            this.metroTabPage1.Controls.Add(this.btnSomenteAgendar);
             this.metroTabPage1.Controls.Add(this.lblData);
+            this.metroTabPage1.Controls.Add(this.btnReiniciar);
             this.metroTabPage1.Controls.Add(this.label2);
             this.metroTabPage1.Controls.Add(this.mtxtTelefone);
             this.metroTabPage1.Controls.Add(this.btnAgendar);
@@ -91,7 +102,6 @@
             this.metroTabPage1.Controls.Add(this.label7);
             this.metroTabPage1.Controls.Add(this.chbxCNPJ);
             this.metroTabPage1.Controls.Add(this.label6);
-            this.metroTabPage1.Controls.Add(this.btnReiniciar);
             this.metroTabPage1.Controls.Add(this.txtModelo);
             this.metroTabPage1.Controls.Add(this.txtMarca);
             this.metroTabPage1.Controls.Add(this.txtPlaca);
@@ -113,6 +123,50 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(176, 102);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cliente já cadastrado, mas com carro extra, por favor utilizar botão novo cadastr" +
+        "o;");
+            // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalizar.BackgroundImage = global::AppLavaCar.Properties.Resources.lupa;
+            this.btnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLocalizar.FlatAppearance.BorderSize = 0;
+            this.btnLocalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnLocalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocalizar.Location = new System.Drawing.Point(230, 5);
+            this.btnLocalizar.Name = "btnLocalizar";
+            this.btnLocalizar.Size = new System.Drawing.Size(26, 23);
+            this.btnLocalizar.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.btnLocalizar, "Localizar Cliente já existente;");
+            this.btnLocalizar.UseVisualStyleBackColor = false;
+            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
+            // 
+            // btnSomenteAgendar
+            // 
+            this.btnSomenteAgendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnSomenteAgendar.FlatAppearance.BorderSize = 0;
+            this.btnSomenteAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnSomenteAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSomenteAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSomenteAgendar.Location = new System.Drawing.Point(287, 326);
+            this.btnSomenteAgendar.Name = "btnSomenteAgendar";
+            this.btnSomenteAgendar.Size = new System.Drawing.Size(107, 42);
+            this.btnSomenteAgendar.TabIndex = 48;
+            this.btnSomenteAgendar.Text = "SOMENTE AGENDAR";
+            this.btnSomenteAgendar.UseVisualStyleBackColor = false;
+            this.btnSomenteAgendar.Click += new System.EventHandler(this.btnSomenteAgendar_Click);
+            // 
             // lblData
             // 
             this.lblData.AutoSize = true;
@@ -121,6 +175,21 @@
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(0, 16);
             this.lblData.TabIndex = 47;
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.BackColor = System.Drawing.Color.Transparent;
+            this.btnReiniciar.FlatAppearance.BorderSize = 0;
+            this.btnReiniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReiniciar.Location = new System.Drawing.Point(400, 326);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(107, 42);
+            this.btnReiniciar.TabIndex = 36;
+            this.btnReiniciar.Text = "REINICIAR";
+            this.btnReiniciar.UseVisualStyleBackColor = false;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // label2
             // 
@@ -134,7 +203,7 @@
             // 
             // mtxtTelefone
             // 
-            this.mtxtTelefone.Location = new System.Drawing.Point(298, 10);
+            this.mtxtTelefone.Location = new System.Drawing.Point(274, 66);
             this.mtxtTelefone.Mask = "(99)9 9999-9999";
             this.mtxtTelefone.Name = "mtxtTelefone";
             this.mtxtTelefone.Size = new System.Drawing.Size(129, 20);
@@ -147,17 +216,17 @@
             this.btnAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chartreuse;
             this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgendar.Location = new System.Drawing.Point(324, 338);
+            this.btnAgendar.Location = new System.Drawing.Point(3, 289);
             this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(83, 23);
+            this.btnAgendar.Size = new System.Drawing.Size(123, 79);
             this.btnAgendar.TabIndex = 44;
-            this.btnAgendar.Text = "AGENDAR";
+            this.btnAgendar.Text = "NOVO CADASTRO E AGENDAMENTO";
             this.btnAgendar.UseVisualStyleBackColor = false;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // mtxtCPF
             // 
-            this.mtxtCPF.Location = new System.Drawing.Point(74, 42);
+            this.mtxtCPF.Location = new System.Drawing.Point(73, 8);
             this.mtxtCPF.Mask = "999.999.999-99";
             this.mtxtCPF.Name = "mtxtCPF";
             this.mtxtCPF.Size = new System.Drawing.Size(148, 20);
@@ -187,6 +256,13 @@
             // cbxTipo
             // 
             this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Items.AddRange(new object[] {
+            "Lavagem Simples - R$60,00",
+            "Lavagem Completa - R$70,00",
+            "Lavagem Completa + Enceramento - R$90,00",
+            "Combo Bronze - R$120,00",
+            "Combo Prata - R$150,00",
+            "Combo Ouro - R$200,00"});
             this.cbxTipo.Location = new System.Drawing.Point(331, 179);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(121, 21);
@@ -206,7 +282,7 @@
             // chbxCNPJ
             // 
             this.chbxCNPJ.AutoSize = true;
-            this.chbxCNPJ.Location = new System.Drawing.Point(74, 73);
+            this.chbxCNPJ.Location = new System.Drawing.Point(74, 34);
             this.chbxCNPJ.Name = "chbxCNPJ";
             this.chbxCNPJ.Size = new System.Drawing.Size(50, 15);
             this.chbxCNPJ.TabIndex = 38;
@@ -219,26 +295,11 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(227, 12);
+            this.label6.Location = new System.Drawing.Point(203, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 37;
             this.label6.Text = "Telefone:";
-            // 
-            // btnReiniciar
-            // 
-            this.btnReiniciar.BackColor = System.Drawing.Color.Transparent;
-            this.btnReiniciar.FlatAppearance.BorderSize = 0;
-            this.btnReiniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReiniciar.Location = new System.Drawing.Point(413, 338);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(83, 23);
-            this.btnReiniciar.TabIndex = 36;
-            this.btnReiniciar.Text = "REINICIAR";
-            this.btnReiniciar.UseVisualStyleBackColor = false;
-            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // txtModelo
             // 
@@ -263,7 +324,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(74, 9);
+            this.txtNome.Location = new System.Drawing.Point(73, 67);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(119, 20);
             this.txtNome.TabIndex = 32;
@@ -306,7 +367,7 @@
             this.lblCPF.AutoSize = true;
             this.lblCPF.BackColor = System.Drawing.Color.Transparent;
             this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPF.Location = new System.Drawing.Point(14, 47);
+            this.lblCPF.Location = new System.Drawing.Point(23, 11);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(36, 16);
             this.lblCPF.TabIndex = 28;
@@ -317,7 +378,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Location = new System.Drawing.Point(13, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 27;
@@ -331,7 +392,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(1028, 483);
+            this.btnVoltar.Location = new System.Drawing.Point(1028, 497);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(83, 23);
             this.btnVoltar.TabIndex = 18;
@@ -344,14 +405,14 @@
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgenda.Location = new System.Drawing.Point(768, 78);
             this.dgvAgenda.Name = "dgvAgenda";
-            this.dgvAgenda.Size = new System.Drawing.Size(343, 394);
+            this.dgvAgenda.Size = new System.Drawing.Size(343, 413);
             this.dgvAgenda.TabIndex = 19;
             // 
             // FrmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 515);
+            this.ClientSize = new System.Drawing.Size(1128, 527);
             this.ControlBox = false;
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.btnVoltar);
@@ -368,6 +429,7 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             this.ResumeLayout(false);
 
@@ -401,5 +463,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLocalizar;
+        private System.Windows.Forms.Button btnSomenteAgendar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
