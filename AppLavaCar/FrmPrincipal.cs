@@ -6,17 +6,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Media;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace AppLavaCar
 {
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
     {
         private bool Hidden;
+        public int timeLeft { get; set; }
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -121,7 +126,7 @@ namespace AppLavaCar
         private void btnSair1_Click(object sender, EventArgs e)
         {
             FrmInicial inicial = new FrmInicial();
-            var resposta = MessageBox.Show("Deseja realmente sair?", "SAIR", MessageBoxButtons.OKCancel);
+            var resposta = MetroMessageBox.Show(this,"Deseja realmente sair?", "SAIR", MessageBoxButtons.OKCancel);
             if (resposta == DialogResult.OK)
             {
                 inicial.Show();
@@ -158,7 +163,82 @@ namespace AppLavaCar
 
         private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                ClienteController cli = new ClienteController();
+                Cliente cliente = new Cliente();
+                Agenda agenda = new Agenda();
+                DataGridViewRow row = this.dgvAgendamento.Rows[e.RowIndex];
+                this.dgvAgendamento.Rows[e.RowIndex].Selected = true;                
+                
+                cliente = cli.Localizar(Convert.ToInt32(row.Cells[2].Value));                
 
+                lblMarca.Text = cliente.marca.ToString();
+                lblNomeCliente.Text = cliente.nome.ToString();                
+                lblModelo.Text = cliente.modelo.ToString();
+
+                lblTipoTratamento.Text = row.Cells[4].ToString().Trim();
+                lblPlaca.Text = row.Cells[5].ToString();
+
+                if (lblTipoTratamento.Text == "Lavagem Simples - R$60,00".Trim())
+                {
+                    lblTempoEstimado.Text = "1H15min";
+                    lblTimer.Text = "01:15:00";
+                }
+                else if (lblTipoTratamento.Text == "Lavagem Completa - R$70,00".Trim())
+                {
+                    lblTempoEstimado.Text = "1H45min";
+                    lblTimer.Text = "01:45:00";
+                }
+                else if (lblTipoTratamento.Text == "Lavagem Completa + Enceramento - R$90,00".Trim())
+                {
+                    lblTempoEstimado.Text = "2H15min";
+                    lblTimer.Text = "02:15:00";
+                }
+                else if (lblTipoTratamento.Text == "Combo Bronze - R$120,00".Trim())
+                {
+                    lblTempoEstimado.Text = "2H30min";
+                    lblTimer.Text = "02:30:00";
+                }
+                else if (lblTipoTratamento.Text == "Combo Prata - R$150,00".Trim())
+                {
+                    lblTempoEstimado.Text = "3H";
+                    lblTimer.Text = "03:00:00";
+                }
+                else if (lblTipoTratamento.Text == "Combo Ouro - R$200,00".Trim())
+                {
+                    lblTempoEstimado.Text = "3H30min";
+                    lblTimer.Text = "03:30:00";
+                } 
+            }
+        }
+
+        private void btnTimer_Click(object sender, EventArgs e)
+        {
+            string[] totalSeconds = lblTimer.Text.Split();
+            int hours = Convert.ToInt32(totalSeconds[0]);
+            int minutes = Convert.ToInt32(totalSeconds[1]);
+            int seconds = Convert.ToInt32(totalSeconds[2]);
+            timeLeft = (minutes * 60) + seconds;            
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            if (timeLeft > 0)
+            {
+                timeLeft = timeLeft - 1;
+                var timespan = TimeSpan.FromSeconds(timeLeft);
+                lblTimer.Text = timespan.ToString(@"mm\:ss");
+                //lblTimer.Text = (int.Parse(lblTimer.Text) - 1).ToString();
+            }
+            else
+            {
+                timer1.Stop();
+                SystemSounds.Exclamation.Play();
+                MetroMessageBox.Show(this,"O tempo expirou!","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
     }
 }

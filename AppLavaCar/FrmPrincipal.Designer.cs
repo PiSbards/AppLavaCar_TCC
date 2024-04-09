@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -52,22 +53,24 @@
             this.btnCliente2 = new System.Windows.Forms.Button();
             this.btnFunc2 = new System.Windows.Forms.Button();
             this.PTimer = new System.Windows.Forms.Panel();
+            this.lblTempoEstimado = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblTipoTratamento = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnTimer1 = new System.Windows.Forms.Button();
+            this.lblNomeCliente = new System.Windows.Forms.Label();
+            this.lblPlaca = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
+            this.btnTimer = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTimer1 = new System.Windows.Forms.TextBox();
             this.dgvAgendamento = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lblChefe = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoSemana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoMes)).BeginInit();
             this.MenuBarra.SuspendLayout();
@@ -330,24 +333,63 @@
             // 
             this.PTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PTimer.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.PTimer.Controls.Add(this.label10);
+            this.PTimer.Controls.Add(this.lblTimer);
+            this.PTimer.Controls.Add(this.lblMarca);
+            this.PTimer.Controls.Add(this.lblTempoEstimado);
             this.PTimer.Controls.Add(this.label9);
-            this.PTimer.Controls.Add(this.label2);
+            this.PTimer.Controls.Add(this.lblTipoTratamento);
             this.PTimer.Controls.Add(this.label1);
             this.PTimer.Controls.Add(this.btnLimpar);
-            this.PTimer.Controls.Add(this.label22);
-            this.PTimer.Controls.Add(this.label15);
-            this.PTimer.Controls.Add(this.label8);
-            this.PTimer.Controls.Add(this.btnTimer1);
+            this.PTimer.Controls.Add(this.lblNomeCliente);
+            this.PTimer.Controls.Add(this.lblPlaca);
+            this.PTimer.Controls.Add(this.lblModelo);
+            this.PTimer.Controls.Add(this.btnTimer);
             this.PTimer.Controls.Add(this.label7);
             this.PTimer.Controls.Add(this.label6);
             this.PTimer.Controls.Add(this.label5);
             this.PTimer.Controls.Add(this.label4);
-            this.PTimer.Controls.Add(this.txtTimer1);
             this.PTimer.Location = new System.Drawing.Point(418, 469);
             this.PTimer.Name = "PTimer";
-            this.PTimer.Size = new System.Drawing.Size(519, 259);
+            this.PTimer.Size = new System.Drawing.Size(560, 259);
             this.PTimer.TabIndex = 6;
+            // 
+            // lblTempoEstimado
+            // 
+            this.lblTempoEstimado.AutoSize = true;
+            this.lblTempoEstimado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempoEstimado.Location = new System.Drawing.Point(349, 178);
+            this.lblTempoEstimado.Name = "lblTempoEstimado";
+            this.lblTempoEstimado.Size = new System.Drawing.Size(0, 16);
+            this.lblTempoEstimado.TabIndex = 43;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(339, 153);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 16);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "TEMPO ESTIMADO:";
+            // 
+            // lblTipoTratamento
+            // 
+            this.lblTipoTratamento.AutoSize = true;
+            this.lblTipoTratamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoTratamento.Location = new System.Drawing.Point(130, 178);
+            this.lblTipoTratamento.Name = "lblTipoTratamento";
+            this.lblTipoTratamento.Size = new System.Drawing.Size(0, 16);
+            this.lblTipoTratamento.TabIndex = 41;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(124, 153);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "TRATAMENTO:";
             // 
             // btnLimpar
             // 
@@ -363,48 +405,46 @@
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
             // 
-            // label22
+            // lblNomeCliente
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(446, 88);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(50, 16);
-            this.label22.TabIndex = 32;
-            this.label22.Text = "DONO:";
+            this.lblNomeCliente.AutoSize = true;
+            this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeCliente.Location = new System.Drawing.Point(459, 88);
+            this.lblNomeCliente.Name = "lblNomeCliente";
+            this.lblNomeCliente.Size = new System.Drawing.Size(0, 16);
+            this.lblNomeCliente.TabIndex = 32;
             // 
-            // label15
+            // lblPlaca
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(301, 88);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 16);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "PLACA:";
+            this.lblPlaca.AutoSize = true;
+            this.lblPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca.Location = new System.Drawing.Point(340, 88);
+            this.lblPlaca.Name = "lblPlaca";
+            this.lblPlaca.Size = new System.Drawing.Size(0, 16);
+            this.lblPlaca.TabIndex = 25;
             // 
-            // label8
+            // lblModelo
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(170, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 16);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "CARRO:";
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.Location = new System.Drawing.Point(170, 88);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(0, 16);
+            this.lblModelo.TabIndex = 18;
             // 
-            // btnTimer1
+            // btnTimer
             // 
-            this.btnTimer1.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.btnTimer1.FlatAppearance.BorderSize = 0;
-            this.btnTimer1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimer1.Location = new System.Drawing.Point(16, 139);
-            this.btnTimer1.Name = "btnTimer1";
-            this.btnTimer1.Size = new System.Drawing.Size(66, 30);
-            this.btnTimer1.TabIndex = 11;
-            this.btnTimer1.Text = "INICIAR";
-            this.btnTimer1.UseVisualStyleBackColor = false;
+            this.btnTimer.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.btnTimer.FlatAppearance.BorderSize = 0;
+            this.btnTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimer.Location = new System.Drawing.Point(16, 139);
+            this.btnTimer.Name = "btnTimer";
+            this.btnTimer.Size = new System.Drawing.Size(66, 30);
+            this.btnTimer.TabIndex = 11;
+            this.btnTimer.Text = "INICIAR";
+            this.btnTimer.UseVisualStyleBackColor = false;
+            this.btnTimer.Click += new System.EventHandler(this.btnTimer_Click);
             // 
             // label7
             // 
@@ -412,15 +452,15 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(446, 61);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 16);
+            this.label7.Size = new System.Drawing.Size(74, 16);
             this.label7.TabIndex = 10;
-            this.label7.Text = "DONO:";
+            this.label7.Text = "CLIENTE:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(301, 61);
+            this.label6.Location = new System.Drawing.Point(340, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 16);
             this.label6.TabIndex = 9;
@@ -446,14 +486,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "TIMER:";
             // 
-            // txtTimer1
-            // 
-            this.txtTimer1.Location = new System.Drawing.Point(16, 81);
-            this.txtTimer1.Multiline = true;
-            this.txtTimer1.Name = "txtTimer1";
-            this.txtTimer1.Size = new System.Drawing.Size(148, 30);
-            this.txtTimer1.TabIndex = 0;
-            // 
             // dgvAgendamento
             // 
             this.dgvAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -465,46 +497,6 @@
             this.dgvAgendamento.TabIndex = 7;
             this.dgvAgendamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(170, 153);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 16);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "TRATAMENTO:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(176, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "CARRO:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(339, 153);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(146, 16);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "TEMPO ESTIMADO:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(349, 178);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 16);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "DONO:";
-            // 
             // lblChefe
             // 
             this.lblChefe.AutoSize = true;
@@ -515,6 +507,29 @@
             this.lblChefe.Name = "lblChefe";
             this.lblChefe.Size = new System.Drawing.Size(0, 16);
             this.lblChefe.TabIndex = 44;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(240, 88);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(0, 16);
+            this.lblMarca.TabIndex = 45;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(17, 88);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(0, 16);
+            this.lblTimer.TabIndex = 46;
             // 
             // FrmPrincipal
             // 
@@ -572,18 +587,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTimer1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnTimer1;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblModelo;
+        private System.Windows.Forms.Button btnTimer;
+        private System.Windows.Forms.Label lblNomeCliente;
+        private System.Windows.Forms.Label lblPlaca;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnCheckin2;
         private System.Windows.Forms.DataGridView dgvAgendamento;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTempoEstimado;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTipoTratamento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblChefe;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTimer;
     }
 }

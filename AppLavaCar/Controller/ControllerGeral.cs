@@ -18,7 +18,7 @@ namespace AppLavaCar.Controller
         public List<Agenda> listaAgendaDia()
         {
             List<Agenda> li = new List<Agenda>();
-            string sql = "SELECT id,nomeCliente,telefone,placaCarro,agendamento FROM agenda WHERE DATE(agendamento) = CURDATE()";
+            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = CURDATE()";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -26,8 +26,10 @@ namespace AppLavaCar.Controller
             {
                 Agenda agenda = new Agenda();
                 agenda.id = (int)dr["id"];
-                agenda.nomeCliente = dr["nomeCliente"].ToString();                
+                agenda.nomeCliente = dr["nomeCliente"].ToString();
+                agenda.cpf = (int)dr["cpf"];
                 agenda.telefone = dr["telefone"].ToString();
+                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.placaCarro = dr["placaCarro"].ToString();
                 agenda.agendamento = (DateTime)dr["agendamento"];
                 li.Add(agenda);
@@ -39,7 +41,7 @@ namespace AppLavaCar.Controller
         public List<Agenda> listaAgendaSelecionada(DateTime data)
         {
             List<Agenda> li = new List<Agenda>();
-            string sql = "SELECT id,nomeCliente,telefone,placaCarro,agendamento FROM agenda WHERE DATE(agendamento) = '"+data+"'";
+            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = '"+data+"'";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -48,7 +50,9 @@ namespace AppLavaCar.Controller
                 Agenda agenda = new Agenda();
                 agenda.id = (int)dr["id"];
                 agenda.nomeCliente = dr["nomeCliente"].ToString();
+                agenda.cpf = (int)dr["cpf"];
                 agenda.telefone = dr["telefone"].ToString();
+                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.placaCarro = dr["placaCarro"].ToString();
                 agenda.agendamento = (DateTime)dr["agendamento"];
                 li.Add(agenda);

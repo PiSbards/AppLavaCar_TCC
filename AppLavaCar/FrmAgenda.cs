@@ -30,10 +30,8 @@ namespace AppLavaCar
             this.Hide();
         }
         private void Calendario_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            var data = Calendario.SelectionRange.Start.ToString("yyyy-mm-dd");
-            lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();           
-            
+        {            
+            lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();
         }       
 
         private void FrmAgenda_Load(object sender, EventArgs e)
@@ -318,7 +316,7 @@ namespace AppLavaCar
                 txtPlaca.Text = agenda.placaCarro.ToString();
                 cbxTipo.Text = agenda.tipoTratamento.ToString();
                 var data = agenda.agendamento;
-                lblData.Text = data.ToString("dd/mm/YYYY");
+                Calendario.SetDate(data);                
                 cboHoraAgenda.Text = data.ToString("t");
                 
             }
