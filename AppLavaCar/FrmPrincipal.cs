@@ -23,9 +23,10 @@ namespace AppLavaCar
             btnFunc1.Enabled = false;
             btnFunc2.Enabled = false;
         }
-        public FrmPrincipal(bool gerente)
+        public FrmPrincipal(bool gerente,string chefe)
         {
             InitializeComponent();
+            lblChefe.Text = chefe;
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -52,8 +53,17 @@ namespace AppLavaCar
 
         private void btnAgenda1_Click(object sender, EventArgs e)
         {
-            FrmAgenda agenda = new FrmAgenda();
-            agenda.Show();
+            if (lblChefe.Text == "SIM".ToLower())
+            {
+                bool gerente = true;
+                FrmAgenda agenda = new FrmAgenda(gerente);
+                agenda.Show();
+            }
+            else
+            {
+                FrmAgenda agenda1 = new FrmAgenda();
+                agenda1.Show();
+            }
         }
 
         private void btnCliente1_Click(object sender, EventArgs e)
@@ -87,10 +97,18 @@ namespace AppLavaCar
         }
 
         private void btnAgenda2_Click(object sender, EventArgs e)
-        {
-            FrmAgenda agenda = new FrmAgenda();
-            agenda.Show();
-            
+        {            
+            if (lblChefe.Text == "SIM".ToLower())
+            {
+                bool gerente = true;
+                FrmAgenda agenda = new FrmAgenda(gerente);
+                agenda.Show();
+            }
+            else
+            {
+                FrmAgenda agenda1 = new FrmAgenda();
+                agenda1.Show();
+            }  
         }
 
         private void btnCliente2_Click(object sender, EventArgs e)

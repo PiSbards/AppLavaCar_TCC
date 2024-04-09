@@ -25,7 +25,8 @@ namespace AppLavaCar
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
             bool gerente = true;
-            FrmPrincipal principal = new FrmPrincipal(gerente);
+            string chefe = "sim";
+            FrmPrincipal principal = new FrmPrincipal(gerente,chefe);
             principal.Show();
             this.Hide();
             /*VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
@@ -39,7 +40,8 @@ namespace AppLavaCar
                     if (func.gerente == "SIM")
                     {
                         bool gerente = true;
-                        FrmPrincipal principalGerente = new FrmPrincipal(gerente);
+                        string chefe = sim;
+                        FrmPrincipal principalGerente = new FrmPrincipal(gerente,chefe);
                         principalGerente.Show();
                         this.Hide();
                     }

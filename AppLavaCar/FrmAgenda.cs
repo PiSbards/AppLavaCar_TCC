@@ -18,6 +18,11 @@ namespace AppLavaCar
         public FrmAgenda()
         {
             InitializeComponent();
+            btnAlterar.Enabled = false;
+        }
+        public FrmAgenda(bool gerente)
+        {
+            InitializeComponent();           
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -26,15 +31,18 @@ namespace AppLavaCar
         }
         private void Calendario_DateChanged(object sender, DateRangeEventArgs e)
         {
-            lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();
+            var data = Calendario.SelectionRange.Start.ToString("yyyy-mm-dd");
+            lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();           
+            
         }       
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
             ControllerGeral geral = new ControllerGeral();
             Agenda agenda = new Agenda();
-            List<Agenda> li = geral.listaAgenda();
+            List<Agenda> li = geral.listaAgendaDia();
             dgvAgenda.DataSource = li;
+            btnAlterar.Enabled = false;
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
@@ -46,6 +54,7 @@ namespace AppLavaCar
             txtMarca.Text = "";
             txtPlaca.Text = "";
             lblData.Text = "";
+            cbxTipo.Text = "";
             cboHoraAgenda.Text = "00:00";
             this.txtNome.Focus();
         }
@@ -62,7 +71,7 @@ namespace AppLavaCar
                     var result = ve.ValidarCNPJ(mtxtCPF.Text);
                     if (result == false)
                     {
-                        MetroMessageBox.Show(this, "CNPJ inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("CNPJ inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtNome.Text = "";
                         mtxtCPF.Text = "";
                         mtxtTelefone.Text = "";
@@ -70,6 +79,7 @@ namespace AppLavaCar
                         txtMarca.Text = "";
                         txtPlaca.Text = "";
                         lblData.Text = "";
+                        cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
                         this.txtNome.Focus();
                         return;
@@ -78,7 +88,7 @@ namespace AppLavaCar
                     {
                         if (controller.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), txtPlaca.Text) == true)
                         {
-                            MetroMessageBox.Show(this, "Cliente já existe em nossa base de dados! - Verifique o Nome,CNPJ e Placa do Carro",
+                            MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CNPJ e Placa do Carro",
                                 "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -87,16 +97,17 @@ namespace AppLavaCar
                             txtMarca.Text = "";
                             txtPlaca.Text = "";
                             lblData.Text = "";
+                            cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
                             this.txtNome.Focus();
                             return;
                         }
                         else
                         {
-                            DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
+                            DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda.Text);
                             controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
                             controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
-                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado" +Environment.NewLine+
+                            MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" +Environment.NewLine+
                                 $"Informações: {dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -105,6 +116,7 @@ namespace AppLavaCar
                             txtMarca.Text = "";
                             txtPlaca.Text = "";
                             lblData.Text = "";
+                            cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
                             this.txtNome.Focus();
                         }
@@ -115,7 +127,7 @@ namespace AppLavaCar
                     var result = ve.ValidarCPF(mtxtCPF.Text);
                     if (result == false)
                     {
-                        MetroMessageBox.Show(this, "CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtNome.Text = "";
                         mtxtCPF.Text = "";
                         mtxtTelefone.Text = "";
@@ -123,6 +135,7 @@ namespace AppLavaCar
                         txtMarca.Text = "";
                         txtPlaca.Text = "";
                         lblData.Text = "";
+                        cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
                         this.txtNome.Focus();
                         return;
@@ -131,7 +144,7 @@ namespace AppLavaCar
                     {
                         if (controller.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), txtPlaca.Text) == true)
                         {
-                            MetroMessageBox.Show(this, "Cliente já existe em nossa base de dados! - Verifique o Nome,CPF e Placa do Carro",
+                            MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CPF e Placa do Carro",
                                 "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -140,16 +153,17 @@ namespace AppLavaCar
                             txtMarca.Text = "";
                             txtPlaca.Text = "";
                             lblData.Text = "";
+                            cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
                             this.txtNome.Focus();
                             return;
                         }
                         else
                         {
-                            DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
+                            DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda.Text);
                             controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
                             controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()),mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
-                            MetroMessageBox.Show(this, "Agendamento efetuado com sucesso! Cliente cadastrado" + Environment.NewLine+
+                            MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" + Environment.NewLine+
                                 $"Informações: {dataHorario.ToString("dd/mm/yy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -158,6 +172,7 @@ namespace AppLavaCar
                             txtMarca.Text = "";
                             txtPlaca.Text = "";
                             lblData.Text = "";
+                            cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
                             this.txtNome.Focus();
                         }
@@ -201,7 +216,7 @@ namespace AppLavaCar
             }
             catch (Exception)
             {
-                MetroMessageBox.Show(this,"CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -214,7 +229,7 @@ namespace AppLavaCar
                 
                 if (chbxCNPJ.Checked == true)
                 {
-                    DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda);
+                    DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda.Text);
                     controller.Inserir(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtModelo.Text, txtMarca.Text, txtPlaca.Text);
                     controller.AgendarCliente(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text, txtPlaca.Text, cbxTipo.Text, dataHorario);
                     MetroMessageBox.Show(this, "Agendamento efetuado com sucesso!" + Environment.NewLine +
@@ -226,6 +241,7 @@ namespace AppLavaCar
                     txtMarca.Text = "";
                     txtPlaca.Text = "";
                     lblData.Text = "";
+                    cbxTipo.Text = "";
                     cboHoraAgenda.Text = "00:00";
                     this.txtNome.Focus();
 
@@ -236,6 +252,75 @@ namespace AppLavaCar
             catch (Exception er)
             {
                 MetroMessageBox.Show(this,er.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "" || mtxtCPF.Text == "" || mtxtTelefone.Text == "" || lblData.Text == "" || cboHoraAgenda.Text == "" || txtPlaca.Text == "")
+            {
+                MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                DateTime dataHorario = Convert.ToDateTime(lblData.Text + cboHoraAgenda.Text);
+                Cliente cliente = new Cliente();
+                ControllerGeral geral = new ControllerGeral();
+                ClienteController controller = new ClienteController();
+                controller.AlterarAgendamento(Convert.ToInt32(lblID.Text.Trim()), txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()),
+                    mtxtTelefone.Text,txtPlaca.Text, cbxTipo.Text, dataHorario);
+                MetroMessageBox.Show(this,"Agendamento atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<Agenda> li = geral.listaAgendaDia();
+                dgvAgenda.DataSource = li;
+                txtNome.Text = "";
+                mtxtCPF.Text = "";
+                mtxtTelefone.Text = "";
+                txtModelo.Text = "";
+                txtMarca.Text = "";
+                txtPlaca.Text = "";
+                lblData.Text = "";
+                cbxTipo.Text = "";
+                cboHoraAgenda.Text = "00:00";
+                this.txtNome.Focus();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvAgenda_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ClienteController cli = new ClienteController();
+                Cliente cliente = new Cliente();
+                Agenda agenda = new Agenda();
+                DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
+                this.dgvAgenda.Rows[e.RowIndex].Selected = true;                
+                if (row.Cells[2].Value.ToString().Length == 11)
+                {
+                    chbxCNPJ.Checked = false;
+                }
+                else
+                {
+                    chbxCNPJ.Checked = true;
+                }
+                lblID.Text = row.Cells[0].Value.ToString();
+                cliente = cli.Localizar(Convert.ToInt32(row.Cells[2].Value));
+                agenda = cli.localizarAgenda(Convert.ToInt32(row.Cells[0]));
+
+                txtMarca.Text = cliente.marca.ToString();
+                txtNome.Text = cliente.nome.ToString();
+                mtxtCPF.Text = cliente.cpf.ToString();
+                txtModelo.Text = cliente.modelo.ToString();
+                txtPlaca.Text = agenda.placaCarro.ToString();
+                cbxTipo.Text = agenda.tipoTratamento.ToString();
+                var data = agenda.agendamento;
+                lblData.Text = data.ToString("dd/mm/YYYY");
+                cboHoraAgenda.Text = data.ToString("t");
+                
             }
         }
     }

@@ -15,5 +15,6 @@ namespace AppLavaCar.Model
         public string tipoTratamento { get; set; }
         public string placaCarro { get; set; }
         public DateTime agendamento { get; set; }
+        
     }
 }
