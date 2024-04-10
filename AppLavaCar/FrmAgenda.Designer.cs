@@ -33,12 +33,12 @@
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.btnSomenteAgendar = new System.Windows.Forms.Button();
+            this.lblData = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.btnAgendar = new System.Windows.Forms.Button();
@@ -58,15 +58,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblCPF = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblData = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -128,19 +128,6 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 210);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 53;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "ATENÇÃO:\r\nA data utilizada para o agendamento é aquela que\r\nesta selecionada no c" +
-        "alendario,\r\ntenha certeza de selecionar a data;");
             // 
             // lblID
             // 
@@ -211,6 +198,17 @@
             this.btnSomenteAgendar.UseVisualStyleBackColor = false;
             this.btnSomenteAgendar.Click += new System.EventHandler(this.btnSomenteAgendar_Click);
             // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.BackColor = System.Drawing.Color.Transparent;
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.Transparent;
+            this.lblData.Location = new System.Drawing.Point(403, 241);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(0, 16);
+            this.lblData.TabIndex = 47;
+            // 
             // btnReiniciar
             // 
             this.btnReiniciar.BackColor = System.Drawing.Color.Transparent;
@@ -261,7 +259,7 @@
             // 
             this.cboHoraAgenda.CustomFormat = "h:mm tt";
             this.cboHoraAgenda.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.cboHoraAgenda.Location = new System.Drawing.Point(361, 262);
+            this.cboHoraAgenda.Location = new System.Drawing.Point(295, 264);
             this.cboHoraAgenda.Name = "cboHoraAgenda";
             this.cboHoraAgenda.ShowUpDown = true;
             this.cboHoraAgenda.Size = new System.Drawing.Size(81, 20);
@@ -273,7 +271,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(227, 262);
+            this.label8.Location = new System.Drawing.Point(161, 264);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 16);
             this.label8.TabIndex = 41;
@@ -289,9 +287,9 @@
             "Combo Bronze - R$120,00",
             "Combo Prata - R$150,00",
             "Combo Ouro - R$200,00"});
-            this.cbxTipo.Location = new System.Drawing.Point(331, 179);
+            this.cbxTipo.Location = new System.Drawing.Point(116, 213);
             this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(176, 21);
+            this.cbxTipo.Size = new System.Drawing.Size(239, 21);
             this.cbxTipo.TabIndex = 40;
             // 
             // label7
@@ -299,7 +297,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(227, 182);
+            this.label7.Location = new System.Drawing.Point(12, 216);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 16);
             this.label7.TabIndex = 39;
@@ -410,6 +408,19 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Cliente:";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(9, 210);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "ATENÇÃO:\r\nA data utilizada para o agendamento é aquela que\r\nesta selecionada no c" +
+        "alendario,\r\ntenha certeza de selecionar a data;");
+            // 
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.Crimson;
@@ -434,17 +445,6 @@
             this.dgvAgenda.Size = new System.Drawing.Size(759, 266);
             this.dgvAgenda.TabIndex = 19;
             this.dgvAgenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellClick);
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.BackColor = System.Drawing.Color.Transparent;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.ForeColor = System.Drawing.Color.Transparent;
-            this.lblData.Location = new System.Drawing.Point(289, 227);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(0, 16);
-            this.lblData.TabIndex = 47;
             // 
             // pictureBox3
             // 
@@ -482,8 +482,8 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);

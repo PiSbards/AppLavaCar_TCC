@@ -215,12 +215,26 @@ namespace AppLavaCar
 
         private void btnTimer_Click(object sender, EventArgs e)
         {
-            string[] totalSeconds = lblTimer.Text.Split();
-            int hours = Convert.ToInt32(totalSeconds[0]);
-            int minutes = Convert.ToInt32(totalSeconds[1]);
-            int seconds = Convert.ToInt32(totalSeconds[2]);
-            timeLeft = (minutes * 60) + seconds;            
-            timer1.Start();
+            string[] totalSeconds = lblTimer.Text.Split();            
+            int minutes = Convert.ToInt32(totalSeconds[0]);
+            int seconds = Convert.ToInt32(totalSeconds[1]);
+            if (lblTipoTratamento.Text == "Lavagem Simples - R$60,00".Trim() || lblTipoTratamento.Text == "Lavagem Completa - R$70,00".Trim())
+            {
+                timeLeft = (minutes * 120) + seconds;
+                timer1.Start();
+            }            
+            else if (lblTipoTratamento.Text == "Lavagem Completa + Enceramento - R$90,00".Trim() || lblTipoTratamento.Text == "Combo Bronze - R$120,00".Trim())
+            {
+                timeLeft = (minutes * 180) + seconds;
+                timer1.Start();
+            }            
+            else if (lblTipoTratamento.Text == "Combo Prata - R$150,00".Trim() || lblTipoTratamento.Text == "Combo Ouro - R$200,00".Trim())
+            {
+                timeLeft = (minutes * 240) + seconds;
+                timer1.Start();
+            }
+            
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -230,14 +244,14 @@ namespace AppLavaCar
             {
                 timeLeft = timeLeft - 1;
                 var timespan = TimeSpan.FromSeconds(timeLeft);
-                lblTimer.Text = timespan.ToString(@"mm\:ss");
+                lblTimer.Text = timespan.ToString(@"HH\:mm\:ss");
                 //lblTimer.Text = (int.Parse(lblTimer.Text) - 1).ToString();
             }
             else
             {
                 timer1.Stop();
                 SystemSounds.Exclamation.Play();
-                MetroMessageBox.Show(this,"O tempo expirou!","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MetroMessageBox.Show(this,"O tempo do procedimento acabou!","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
     }
