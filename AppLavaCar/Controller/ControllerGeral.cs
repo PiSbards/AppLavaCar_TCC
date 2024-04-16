@@ -37,7 +37,7 @@ namespace AppLavaCar.Controller
             dr.Close();
             conn.Close();
             return li;
-        }
+        }        
         public List<Agenda> listaAgendaSelecionada(DateTime data)
         {
             List<Agenda> li = new List<Agenda>();
@@ -60,6 +60,46 @@ namespace AppLavaCar.Controller
             dr.Close();
             conn.Close();
             return li;
+        }
+        public List<Agenda> listaCheckin()
+        {
+            List<Agenda> li = new List<Agenda>();
+            string sql = "SELECT * FROM checkin";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Agenda agenda = new Agenda();
+                agenda.id = (int)dr["id"];
+                agenda.nomeCliente = dr["nomeCliente"].ToString();
+                agenda.cpf = (int)dr["cpf"];
+                agenda.telefone = dr["telefone"].ToString();
+                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
+                agenda.placaCarro = dr["placaCarro"].ToString();
+                agenda.agendamento = (DateTime)dr["agendamento"];
+                li.Add(agenda);
+            }
+            dr.Close();
+            conn.Close();
+            return li;
+        }
+        public DateTime[] BoldDates()
+        {
+            string sql = "SELECT agendamento FROM agenda";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand( sql, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            List<DateTime> li = new List<DateTime>();
+            DateTime[] date;
+            while(dr.Read())
+            {
+                li.Add((DateTime)dr["agendamento"]);
+            }
+            date = li.ToArray();
+            dr.Close();
+            conn.Close();
+            return date;
         }
 
     }

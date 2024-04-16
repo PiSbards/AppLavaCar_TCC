@@ -32,6 +32,9 @@ namespace AppLavaCar
         private void Calendario_DateChanged(object sender, DateRangeEventArgs e)
         {            
             lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();
+            ControllerGeral geral = new ControllerGeral();
+            List<Agenda> agenda = geral.listaAgendaSelecionada(Calendario.SelectionRange.Start);
+            dgvAgenda.DataSource = agenda;
         }       
 
         private void FrmAgenda_Load(object sender, EventArgs e)
@@ -39,6 +42,8 @@ namespace AppLavaCar
             ControllerGeral geral = new ControllerGeral();
             Agenda agenda = new Agenda();
             List<Agenda> li = geral.listaAgendaDia();
+            DateTime[] date = geral.BoldDates();
+            Calendario.BoldedDates = date;
             dgvAgenda.DataSource = li;
             btnAlterar.Enabled = false;
         }

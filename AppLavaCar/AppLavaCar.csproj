@@ -113,6 +113,12 @@
     <Compile Include="FrmCheckin.Designer.cs">
       <DependentUpon>FrmCheckin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCheckOut.Designer.cs">
+      <DependentUpon>FrmCheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aceitaram.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

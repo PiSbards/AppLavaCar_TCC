@@ -63,6 +63,16 @@ namespace AppLavaCar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aceitaram {
+            get {
+                object obj = ResourceManager.GetObject("aceitaram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Agenda {
             get {
                 object obj = ResourceManager.GetObject("Agenda", resourceCulture);

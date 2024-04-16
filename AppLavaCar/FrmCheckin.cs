@@ -1,9 +1,13 @@
-﻿using System;
+﻿using AppLavaCar.Controller;
+using AppLavaCar.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +25,10 @@ namespace AppLavaCar
         private void FrmCheckin_Load(object sender, EventArgs e)
         {
             txtDefeitos.Enabled = false;
+            ControllerGeral geral = new ControllerGeral();
+            Agenda agenda = new Agenda();
+            List<Agenda> li = geral.listaAgendaDia();
+            dgvAgenda.DataSource = li;
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -30,7 +38,7 @@ namespace AppLavaCar
         {
             if (cbxNao.Checked == true)
             {
-                cbxNao.Checked = false;
+                cbxNao.Checked = false;                
                 
             }
             txtDefeitos.Enabled = true;
@@ -44,7 +52,8 @@ namespace AppLavaCar
         {
             if (cbxSim.Checked == true)
             {
-                cbxSim.Checked = false;                
+                cbxSim.Checked = false;
+                
             }
         }
 
@@ -54,6 +63,7 @@ namespace AppLavaCar
             {
                 cbxNao2.Checked = false;
                 
+                
             }
         }
 
@@ -61,7 +71,8 @@ namespace AppLavaCar
         {
             if (cbxSim2.Checked == true)
             {
-                cbxSim2.Checked = false;                
+                cbxSim2.Checked = false;
+                
             }
         }
 
@@ -69,16 +80,63 @@ namespace AppLavaCar
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Title = "Selecionar Imagem...";
-            dialog.Filter = "Arquivos de Imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif|Todos os Arquivos|*.*";
+            dialog.Filter = "Arquivos de Imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.pdf|Todos os Arquivos|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string imagem = dialog.FileName;
+                string imagem = dialog.FileName; 
+                txtArquivo.Text += imagem;
                 PictureBox pb = new PictureBox();
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Height = 100;
                 pb.Width = 100;
                 pb.ImageLocation = imagem;
                 flpFotos.Controls.Add(pb);
+            }
+            
+        }
+
+        private void btnCheckin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string foto = txtNome.Text.Replace(" ", "");
+                pbxFoto.Image.Save(@"C:\Programas\LojaGeek\Produtos\" + foto + ".jpg");
+                //fazer aqui linha de inserir no BD
+                MessageBox.Show("Check-in realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<Produto> produtos = produto.listaprodutos();
+                dgvProduto.DataSource = produtos;
+                txtNome.Text = "";
+                txtPreco.Text = "";
+                CbxTipo.Text = "";
+                txtQuantidade.Text = "";
+                pbxFoto.Image = null;
+                pbxFoto.Update();
+                this.ActiveControl = txtNome;
+
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvAgenda_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ClienteController cli = new ClienteController();
+                Cliente cliente = new Cliente();
+                Agenda agenda = new Agenda();
+                DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
+                this.dgvAgenda.Rows[e.RowIndex].Selected = true;
+                lblID.Text = row.Cells[0].Value.ToString();
+                lblNomeCliente.Text = row.Cells[1].Value.ToString();
+                lblCPF.Text = row.Cells[2].Value.ToString();
+                lblTelefone.Text = row.Cells[3].Value.ToString();
+                lblPlacaCarro.Text = row.Cells[4].Value.ToString();
+                lblTipoTratamento.Text = row.Cells[5].Value.ToString();
+                lblAgendamento.Text = row.Cells[6].Value.ToString();
             }
         }
     }

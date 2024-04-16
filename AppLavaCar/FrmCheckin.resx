@@ -120,4 +120,12 @@
   <metadata name="ofd1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>95, 17</value>
+  </metadata>
+  <data name="pictureBox1.ToolTip" xml:space="preserve">
+    <value>Check-in é utilizado para proteção tanto do automovél quanto da empresa
+faça questão de tirar fotos ou de um arquivo digitalizado com a assinatura do
+cliente declarando ciencia de que o automovél apresenta defeitos ou não.</value>
+  </data>
 </root>

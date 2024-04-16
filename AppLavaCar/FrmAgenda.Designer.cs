@@ -77,7 +77,6 @@
             this.Calendario.Name = "Calendario";
             this.Calendario.ShowToday = false;
             this.Calendario.TabIndex = 0;
-            this.Calendario.TabStop = false;
             this.Calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Calendario_DateChanged);
             // 
             // metroTabControl1

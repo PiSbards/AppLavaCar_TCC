@@ -232,8 +232,7 @@ namespace AppLavaCar
             {
                 timeLeft = (minutes * 240) + seconds;
                 timer1.Start();
-            }
-            
+            }            
             
         }
 
@@ -253,6 +252,18 @@ namespace AppLavaCar
                 SystemSounds.Exclamation.Play();
                 MetroMessageBox.Show(this,"O tempo do procedimento acabou!","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            FrmCheckOut Checkout = new FrmCheckOut();
+            Checkout.Show();
+        }
+
+        private void btnCheckOut2_Click(object sender, EventArgs e)
+        {
+            FrmCheckOut Checkout = new FrmCheckOut();
+            Checkout.Show();
         }
     }
 }

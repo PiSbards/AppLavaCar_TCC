@@ -105,7 +105,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(74, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(590, 242);
             this.pictureBox1.TabIndex = 9;
@@ -129,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(754, 574);
+            this.ClientSize = new System.Drawing.Size(714, 574);
             this.Controls.Add(this.llblSenha);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnEntrar);
