@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCheckin));
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSair = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,7 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flpFotos = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbxFoto1 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto2 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto3 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto4 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto5 = new System.Windows.Forms.PictureBox();
             this.btnArquivo = new System.Windows.Forms.Button();
             this.txtArquivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +54,6 @@
             this.cbxSim2 = new MetroFramework.Controls.MetroCheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.lblNomeCliente = new System.Windows.Forms.Label();
@@ -64,22 +68,17 @@
             this.lblTipoTratamento = new System.Windows.Forms.Label();
             this.lblAgendamento = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pcbFoto1 = new System.Windows.Forms.PictureBox();
-            this.pcbFoto2 = new System.Windows.Forms.PictureBox();
-            this.pcbFoto3 = new System.Windows.Forms.PictureBox();
-            this.pcbFoto4 = new System.Windows.Forms.PictureBox();
-            this.pcbFoto5 = new System.Windows.Forms.PictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.flpFotos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.flpFotos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto5)).BeginInit();
             this.SuspendLayout();
             // 
             // ofd1
@@ -126,9 +125,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(538, 242);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(128, 13);
             this.label4.TabIndex = 18;
-            this.label4.Text = "QUAIS:";
+            this.label4.Text = "DESCRIÇÃO DEFEITOS:";
             // 
             // btnCheckin
             // 
@@ -177,17 +176,68 @@
             this.panel1.Size = new System.Drawing.Size(519, 387);
             this.panel1.TabIndex = 22;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AppLavaCar.Properties.Resources.info;
+            this.pictureBox2.Location = new System.Drawing.Point(115, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 28;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Somente até 5 fotos");
+            // 
             // flpFotos
             // 
-            this.flpFotos.Controls.Add(this.pcbFoto1);
-            this.flpFotos.Controls.Add(this.pcbFoto2);
-            this.flpFotos.Controls.Add(this.pcbFoto3);
-            this.flpFotos.Controls.Add(this.pcbFoto4);
-            this.flpFotos.Controls.Add(this.pcbFoto5);
+            this.flpFotos.Controls.Add(this.pbxFoto1);
+            this.flpFotos.Controls.Add(this.pbxFoto2);
+            this.flpFotos.Controls.Add(this.pbxFoto3);
+            this.flpFotos.Controls.Add(this.pbxFoto4);
+            this.flpFotos.Controls.Add(this.pbxFoto5);
             this.flpFotos.Location = new System.Drawing.Point(5, 133);
             this.flpFotos.Name = "flpFotos";
             this.flpFotos.Size = new System.Drawing.Size(504, 251);
             this.flpFotos.TabIndex = 8;
+            // 
+            // pbxFoto1
+            // 
+            this.pbxFoto1.Location = new System.Drawing.Point(3, 3);
+            this.pbxFoto1.Name = "pbxFoto1";
+            this.pbxFoto1.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto1.TabIndex = 0;
+            this.pbxFoto1.TabStop = false;
+            // 
+            // pbxFoto2
+            // 
+            this.pbxFoto2.Location = new System.Drawing.Point(171, 3);
+            this.pbxFoto2.Name = "pbxFoto2";
+            this.pbxFoto2.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto2.TabIndex = 1;
+            this.pbxFoto2.TabStop = false;
+            // 
+            // pbxFoto3
+            // 
+            this.pbxFoto3.Location = new System.Drawing.Point(339, 3);
+            this.pbxFoto3.Name = "pbxFoto3";
+            this.pbxFoto3.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto3.TabIndex = 2;
+            this.pbxFoto3.TabStop = false;
+            // 
+            // pbxFoto4
+            // 
+            this.pbxFoto4.Location = new System.Drawing.Point(3, 129);
+            this.pbxFoto4.Name = "pbxFoto4";
+            this.pbxFoto4.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto4.TabIndex = 3;
+            this.pbxFoto4.TabStop = false;
+            // 
+            // pbxFoto5
+            // 
+            this.pbxFoto5.Location = new System.Drawing.Point(171, 129);
+            this.pbxFoto5.Name = "pbxFoto5";
+            this.pbxFoto5.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto5.TabIndex = 4;
+            this.pbxFoto5.TabStop = false;
             // 
             // btnArquivo
             // 
@@ -273,18 +323,8 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, resources.GetString("pictureBox1.ToolTip"));
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::AppLavaCar.Properties.Resources.info;
-            this.pictureBox2.Location = new System.Drawing.Point(115, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Somente até 5 fotos");
+            this.toolTip1.SetToolTip(this.pictureBox1, "Check-in é utilizado para proteção tanto do automovél quanto da empresa;\r\nENTRETA" +
+        "NTO PARA PROSSEGUIR, FOTOS E ARQUIVOS SÃO OPCIONAIS.");
             // 
             // dgvAgenda
             // 
@@ -419,46 +459,6 @@
             this.label13.TabIndex = 40;
             this.label13.Text = "AGENDAMENTO:";
             // 
-            // pcbFoto1
-            // 
-            this.pcbFoto1.Location = new System.Drawing.Point(3, 3);
-            this.pcbFoto1.Name = "pcbFoto1";
-            this.pcbFoto1.Size = new System.Drawing.Size(162, 120);
-            this.pcbFoto1.TabIndex = 0;
-            this.pcbFoto1.TabStop = false;
-            // 
-            // pcbFoto2
-            // 
-            this.pcbFoto2.Location = new System.Drawing.Point(171, 3);
-            this.pcbFoto2.Name = "pcbFoto2";
-            this.pcbFoto2.Size = new System.Drawing.Size(162, 120);
-            this.pcbFoto2.TabIndex = 1;
-            this.pcbFoto2.TabStop = false;
-            // 
-            // pcbFoto3
-            // 
-            this.pcbFoto3.Location = new System.Drawing.Point(339, 3);
-            this.pcbFoto3.Name = "pcbFoto3";
-            this.pcbFoto3.Size = new System.Drawing.Size(162, 120);
-            this.pcbFoto3.TabIndex = 2;
-            this.pcbFoto3.TabStop = false;
-            // 
-            // pcbFoto4
-            // 
-            this.pcbFoto4.Location = new System.Drawing.Point(3, 129);
-            this.pcbFoto4.Name = "pcbFoto4";
-            this.pcbFoto4.Size = new System.Drawing.Size(162, 120);
-            this.pcbFoto4.TabIndex = 3;
-            this.pcbFoto4.TabStop = false;
-            // 
-            // pcbFoto5
-            // 
-            this.pcbFoto5.Location = new System.Drawing.Point(171, 129);
-            this.pcbFoto5.Name = "pcbFoto5";
-            this.pcbFoto5.Size = new System.Drawing.Size(162, 120);
-            this.pcbFoto5.TabIndex = 4;
-            this.pcbFoto5.TabStop = false;
-            // 
             // lblID
             // 
             this.lblID.AutoSize = true;
@@ -510,15 +510,15 @@
             this.Load += new System.EventHandler(this.FrmCheckin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flpFotos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.flpFotos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,11 +559,11 @@
         private System.Windows.Forms.Label lblTipoTratamento;
         private System.Windows.Forms.Label lblAgendamento;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pcbFoto1;
-        private System.Windows.Forms.PictureBox pcbFoto2;
-        private System.Windows.Forms.PictureBox pcbFoto3;
-        private System.Windows.Forms.PictureBox pcbFoto4;
-        private System.Windows.Forms.PictureBox pcbFoto5;
+        private System.Windows.Forms.PictureBox pbxFoto1;
+        private System.Windows.Forms.PictureBox pbxFoto2;
+        private System.Windows.Forms.PictureBox pbxFoto3;
+        private System.Windows.Forms.PictureBox pbxFoto4;
+        private System.Windows.Forms.PictureBox pbxFoto5;
         private System.Windows.Forms.Label lblID;
     }
 }

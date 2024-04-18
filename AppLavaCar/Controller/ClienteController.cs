@@ -84,7 +84,7 @@ namespace AppLavaCar.Controller
         }
         public void Excluir(int id)
         {
-            string sql = "DELETE FROM funcionario WHERE id='" + id + "'";
+            string sql = "DELETE FROM cliente WHERE id='" + id + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -93,30 +93,7 @@ namespace AppLavaCar.Controller
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public Agenda localizarAgenda(int id)
-        {
-            Agenda agenda = new Agenda();
-            string sql = "SELECT * FROM agenda WHERE id='" + id + "'";
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                agenda.id = (int)dr["id"];
-                agenda.cpf = (int)dr["cpf"];
-                agenda.nomeCliente = dr["nomeCliente"].ToString();
-                agenda.placaCarro = dr["placaCarro"].ToString();
-                agenda.telefone = dr["telefone"].ToString();
-                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
-                agenda.agendamento = (DateTime)dr["agendamento"];
-            }
-            dr.Close();
-            conn.Close();
-            return agenda;
-        }
+        
         public Cliente Localizar(int cpf)
         {
             Cliente cliente = new Cliente();
@@ -159,48 +136,8 @@ namespace AppLavaCar.Controller
             conn.Close();
             return false;
         }
-        public void AgendarCliente(string nome, int cpf,string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
-        {
-            string sql = "INSERT INTO funcionario(nome,cpf,telefone,placaCarro,tipoTratamento,agendamento) VALUES(@nome,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento)";
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
-                cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-            }
+        
+        
 
-            conn.Close();
-        }
-        public void AlterarAgendamento(int id, string nome, int cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
-        {
-            string sql = "UPDATE agendamento SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento,placaCarro=@placaCarro WHERE id=@id";
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
-                
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-            }
-            conn.Close();
-        }
     }
 }

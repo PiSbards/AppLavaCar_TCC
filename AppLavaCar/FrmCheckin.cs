@@ -25,9 +25,8 @@ namespace AppLavaCar
         private void FrmCheckin_Load(object sender, EventArgs e)
         {
             txtDefeitos.Enabled = false;
-            ControllerGeral geral = new ControllerGeral();
-            Agenda agenda = new Agenda();
-            List<Agenda> li = geral.listaAgendaDia();
+            AgendaController controller = new AgendaController();            
+            List<Agenda> li = controller.listaAgendaDia();
             dgvAgenda.DataSource = li;
         }
         private void btnSair_Click(object sender, EventArgs e)
@@ -99,19 +98,23 @@ namespace AppLavaCar
         {
             try
             {
-                string foto = txtNome.Text.Replace(" ", "");
-                pbxFoto.Image.Save(@"C:\Programas\LojaGeek\Produtos\" + foto + ".jpg");
+                ClienteController controller = new ClienteController();
+                string foto = txtArquivo.Text.Replace(" ", "");
+                pbxFoto1.Image.Save(@"C:\Programas\LojaGeek\Produtos\" + foto + ".jpg");
                 //fazer aqui linha de inserir no BD
                 MessageBox.Show("Check-in realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Produto> produtos = produto.listaprodutos();
-                dgvProduto.DataSource = produtos;
-                txtNome.Text = "";
-                txtPreco.Text = "";
-                CbxTipo.Text = "";
-                txtQuantidade.Text = "";
-                pbxFoto.Image = null;
-                pbxFoto.Update();
-                this.ActiveControl = txtNome;
+                AgendaController agendaController = new AgendaController();
+                
+
+                List<Agenda> agendamento = agendaController.listaAgendaDia();
+                dgvAgenda.DataSource = agendamento;
+                lblNomeCliente.Text = "";
+                lblCPF.Text = "";
+                lblID.Text = "";
+                lblPlacaCarro.Text = "";
+                lblTelefone.Text = "";
+                lblTipoTratamento.Text = "";
+                lblAgendamento.Text = "";
 
 
             }

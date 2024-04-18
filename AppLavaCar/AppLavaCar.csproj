@@ -97,6 +97,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AgendaController.cs" />
+    <Compile Include="Controller\CheckController.cs" />
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\ControllerGeral.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
@@ -150,6 +152,8 @@
       <DependentUpon>FrmSenha.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Agenda.cs" />
+    <Compile Include="Model\CheckIn.cs" />
+    <Compile Include="Model\CheckOut.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Program.cs" />
