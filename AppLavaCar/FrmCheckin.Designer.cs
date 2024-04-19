@@ -38,16 +38,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flpFotos = new System.Windows.Forms.FlowLayoutPanel();
-            this.pbxFoto1 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto2 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto3 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtFoto5 = new System.Windows.Forms.TextBox();
+            this.txtFoto4 = new System.Windows.Forms.TextBox();
+            this.txtFoto3 = new System.Windows.Forms.TextBox();
+            this.txtFoto2 = new System.Windows.Forms.TextBox();
+            this.txtFoto1 = new System.Windows.Forms.TextBox();
             this.pbxFoto5 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto4 = new System.Windows.Forms.PictureBox();
             this.btnArquivo = new System.Windows.Forms.Button();
-            this.txtArquivo = new System.Windows.Forms.TextBox();
+            this.pbxFoto3 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbxFoto1 = new System.Windows.Forms.PictureBox();
             this.cbxSim = new MetroFramework.Controls.MetroCheckBox();
             this.cbxNao = new MetroFramework.Controls.MetroCheckBox();
             this.cbxNao2 = new MetroFramework.Controls.MetroCheckBox();
@@ -70,13 +74,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flpFotos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +108,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(538, 173);
+            this.label5.Location = new System.Drawing.Point(547, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 13);
             this.label5.TabIndex = 20;
@@ -113,7 +116,7 @@
             // 
             // txtDefeitos
             // 
-            this.txtDefeitos.Location = new System.Drawing.Point(540, 258);
+            this.txtDefeitos.Location = new System.Drawing.Point(549, 503);
             this.txtDefeitos.Multiline = true;
             this.txtDefeitos.Name = "txtDefeitos";
             this.txtDefeitos.Size = new System.Drawing.Size(472, 167);
@@ -123,7 +126,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(538, 242);
+            this.label4.Location = new System.Drawing.Point(547, 487);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 13);
             this.label4.TabIndex = 18;
@@ -148,7 +151,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(537, 98);
+            this.label3.Location = new System.Drawing.Point(546, 343);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 13);
             this.label3.TabIndex = 16;
@@ -158,7 +161,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(537, 65);
+            this.label2.Location = new System.Drawing.Point(546, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 13);
             this.label2.TabIndex = 13;
@@ -166,78 +169,97 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.flpFotos);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.txtFoto5);
+            this.panel1.Controls.Add(this.txtFoto4);
+            this.panel1.Controls.Add(this.txtFoto3);
+            this.panel1.Controls.Add(this.txtFoto2);
+            this.panel1.Controls.Add(this.txtFoto1);
+            this.panel1.Controls.Add(this.pbxFoto5);
+            this.panel1.Controls.Add(this.pbxFoto4);
             this.panel1.Controls.Add(this.btnArquivo);
-            this.panel1.Controls.Add(this.txtArquivo);
+            this.panel1.Controls.Add(this.pbxFoto3);
+            this.panel1.Controls.Add(this.pbxFoto2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(5, 63);
+            this.panel1.Controls.Add(this.pbxFoto1);
+            this.panel1.Location = new System.Drawing.Point(10, 376);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 387);
             this.panel1.TabIndex = 22;
             // 
-            // pictureBox2
+            // pictureBox3
             // 
-            this.pictureBox2.Image = global::AppLavaCar.Properties.Resources.info;
-            this.pictureBox2.Location = new System.Drawing.Point(115, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Somente até 5 fotos");
+            this.pictureBox3.Image = global::AppLavaCar.Properties.Resources.info;
+            this.pictureBox3.Location = new System.Drawing.Point(129, 45);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "Somente até 5 fotos, não há necessidade de preencher todos os campos;\r\nCada foto " +
+        "deve ser renomeada para organização e facil acesso posterior;\r\nDICA: nome do Cli" +
+        "ente + modelo do Carro;");
             // 
-            // flpFotos
+            // label12
             // 
-            this.flpFotos.Controls.Add(this.pbxFoto1);
-            this.flpFotos.Controls.Add(this.pbxFoto2);
-            this.flpFotos.Controls.Add(this.pbxFoto3);
-            this.flpFotos.Controls.Add(this.pbxFoto4);
-            this.flpFotos.Controls.Add(this.pbxFoto5);
-            this.flpFotos.Location = new System.Drawing.Point(5, 133);
-            this.flpFotos.Name = "flpFotos";
-            this.flpFotos.Size = new System.Drawing.Size(504, 251);
-            this.flpFotos.TabIndex = 8;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(18, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(108, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "NOMEIE AS FOTOS:";
             // 
-            // pbxFoto1
+            // txtFoto5
             // 
-            this.pbxFoto1.Location = new System.Drawing.Point(3, 3);
-            this.pbxFoto1.Name = "pbxFoto1";
-            this.pbxFoto1.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto1.TabIndex = 0;
-            this.pbxFoto1.TabStop = false;
+            this.txtFoto5.Location = new System.Drawing.Point(189, 357);
+            this.txtFoto5.Name = "txtFoto5";
+            this.txtFoto5.Size = new System.Drawing.Size(127, 20);
+            this.txtFoto5.TabIndex = 33;
             // 
-            // pbxFoto2
+            // txtFoto4
             // 
-            this.pbxFoto2.Location = new System.Drawing.Point(171, 3);
-            this.pbxFoto2.Name = "pbxFoto2";
-            this.pbxFoto2.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto2.TabIndex = 1;
-            this.pbxFoto2.TabStop = false;
+            this.txtFoto4.Location = new System.Drawing.Point(12, 357);
+            this.txtFoto4.Name = "txtFoto4";
+            this.txtFoto4.Size = new System.Drawing.Size(127, 20);
+            this.txtFoto4.TabIndex = 32;
             // 
-            // pbxFoto3
+            // txtFoto3
             // 
-            this.pbxFoto3.Location = new System.Drawing.Point(339, 3);
-            this.pbxFoto3.Name = "pbxFoto3";
-            this.pbxFoto3.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto3.TabIndex = 2;
-            this.pbxFoto3.TabStop = false;
+            this.txtFoto3.Location = new System.Drawing.Point(355, 79);
+            this.txtFoto3.Name = "txtFoto3";
+            this.txtFoto3.Size = new System.Drawing.Size(127, 20);
+            this.txtFoto3.TabIndex = 31;
             // 
-            // pbxFoto4
+            // txtFoto2
             // 
-            this.pbxFoto4.Location = new System.Drawing.Point(3, 129);
-            this.pbxFoto4.Name = "pbxFoto4";
-            this.pbxFoto4.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto4.TabIndex = 3;
-            this.pbxFoto4.TabStop = false;
+            this.txtFoto2.Location = new System.Drawing.Point(189, 79);
+            this.txtFoto2.Name = "txtFoto2";
+            this.txtFoto2.Size = new System.Drawing.Size(127, 20);
+            this.txtFoto2.TabIndex = 30;
+            // 
+            // txtFoto1
+            // 
+            this.txtFoto1.Location = new System.Drawing.Point(18, 79);
+            this.txtFoto1.Name = "txtFoto1";
+            this.txtFoto1.Size = new System.Drawing.Size(127, 20);
+            this.txtFoto1.TabIndex = 29;
             // 
             // pbxFoto5
             // 
-            this.pbxFoto5.Location = new System.Drawing.Point(171, 129);
+            this.pbxFoto5.Location = new System.Drawing.Point(174, 231);
             this.pbxFoto5.Name = "pbxFoto5";
             this.pbxFoto5.Size = new System.Drawing.Size(162, 120);
             this.pbxFoto5.TabIndex = 4;
             this.pbxFoto5.TabStop = false;
+            // 
+            // pbxFoto4
+            // 
+            this.pbxFoto4.Location = new System.Drawing.Point(3, 231);
+            this.pbxFoto4.Name = "pbxFoto4";
+            this.pbxFoto4.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto4.TabIndex = 3;
+            this.pbxFoto4.TabStop = false;
             // 
             // btnArquivo
             // 
@@ -245,7 +267,7 @@
             this.btnArquivo.FlatAppearance.BorderSize = 0;
             this.btnArquivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArquivo.Location = new System.Drawing.Point(342, 37);
+            this.btnArquivo.Location = new System.Drawing.Point(174, 9);
             this.btnArquivo.Name = "btnArquivo";
             this.btnArquivo.Size = new System.Drawing.Size(121, 30);
             this.btnArquivo.TabIndex = 7;
@@ -253,13 +275,21 @@
             this.btnArquivo.UseVisualStyleBackColor = false;
             this.btnArquivo.Click += new System.EventHandler(this.btnArquivo_Click);
             // 
-            // txtArquivo
+            // pbxFoto3
             // 
-            this.txtArquivo.Location = new System.Drawing.Point(18, 34);
-            this.txtArquivo.Multiline = true;
-            this.txtArquivo.Name = "txtArquivo";
-            this.txtArquivo.Size = new System.Drawing.Size(302, 39);
-            this.txtArquivo.TabIndex = 6;
+            this.pbxFoto3.Location = new System.Drawing.Point(339, 105);
+            this.pbxFoto3.Name = "pbxFoto3";
+            this.pbxFoto3.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto3.TabIndex = 2;
+            this.pbxFoto3.TabStop = false;
+            // 
+            // pbxFoto2
+            // 
+            this.pbxFoto2.Location = new System.Drawing.Point(171, 105);
+            this.pbxFoto2.Name = "pbxFoto2";
+            this.pbxFoto2.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto2.TabIndex = 1;
+            this.pbxFoto2.TabStop = false;
             // 
             // label1
             // 
@@ -270,10 +300,18 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "FOTOS/ARQUIVO:";
             // 
+            // pbxFoto1
+            // 
+            this.pbxFoto1.Location = new System.Drawing.Point(3, 105);
+            this.pbxFoto1.Name = "pbxFoto1";
+            this.pbxFoto1.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto1.TabIndex = 0;
+            this.pbxFoto1.TabStop = false;
+            // 
             // cbxSim
             // 
             this.cbxSim.AutoSize = true;
-            this.cbxSim.Location = new System.Drawing.Point(540, 120);
+            this.cbxSim.Location = new System.Drawing.Point(549, 365);
             this.cbxSim.Name = "cbxSim";
             this.cbxSim.Size = new System.Drawing.Size(43, 15);
             this.cbxSim.TabIndex = 23;
@@ -284,7 +322,7 @@
             // cbxNao
             // 
             this.cbxNao.AutoSize = true;
-            this.cbxNao.Location = new System.Drawing.Point(608, 121);
+            this.cbxNao.Location = new System.Drawing.Point(617, 366);
             this.cbxNao.Name = "cbxNao";
             this.cbxNao.Size = new System.Drawing.Size(49, 15);
             this.cbxNao.TabIndex = 24;
@@ -295,7 +333,7 @@
             // cbxNao2
             // 
             this.cbxNao2.AutoSize = true;
-            this.cbxNao2.Location = new System.Drawing.Point(608, 196);
+            this.cbxNao2.Location = new System.Drawing.Point(617, 441);
             this.cbxNao2.Name = "cbxNao2";
             this.cbxNao2.Size = new System.Drawing.Size(49, 15);
             this.cbxNao2.TabIndex = 26;
@@ -306,7 +344,7 @@
             // cbxSim2
             // 
             this.cbxSim2.AutoSize = true;
-            this.cbxSim2.Location = new System.Drawing.Point(540, 195);
+            this.cbxSim2.Location = new System.Drawing.Point(549, 440);
             this.cbxSim2.Name = "cbxSim2";
             this.cbxSim2.Size = new System.Drawing.Size(43, 15);
             this.cbxSim2.TabIndex = 25;
@@ -329,7 +367,7 @@
             // dgvAgenda
             // 
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgenda.Location = new System.Drawing.Point(10, 456);
+            this.dgvAgenda.Location = new System.Drawing.Point(7, 63);
             this.dgvAgenda.Name = "dgvAgenda";
             this.dgvAgenda.Size = new System.Drawing.Size(533, 307);
             this.dgvAgenda.TabIndex = 28;
@@ -339,7 +377,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(567, 479);
+            this.label6.Location = new System.Drawing.Point(546, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 13);
             this.label6.TabIndex = 29;
@@ -349,7 +387,7 @@
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomeCliente.Location = new System.Drawing.Point(619, 506);
+            this.lblNomeCliente.Location = new System.Drawing.Point(598, 99);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNomeCliente.TabIndex = 30;
@@ -358,7 +396,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(567, 506);
+            this.label7.Location = new System.Drawing.Point(546, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 31;
@@ -368,7 +406,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(567, 533);
+            this.label8.Location = new System.Drawing.Point(546, 126);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 32;
@@ -378,7 +416,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(567, 585);
+            this.label9.Location = new System.Drawing.Point(546, 178);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 13);
             this.label9.TabIndex = 33;
@@ -388,7 +426,7 @@
             // 
             this.lblCPF.AutoSize = true;
             this.lblCPF.BackColor = System.Drawing.Color.Transparent;
-            this.lblCPF.Location = new System.Drawing.Point(610, 533);
+            this.lblCPF.Location = new System.Drawing.Point(589, 126);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(0, 13);
             this.lblCPF.TabIndex = 34;
@@ -397,7 +435,7 @@
             // 
             this.lblPlacaCarro.AutoSize = true;
             this.lblPlacaCarro.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlacaCarro.Location = new System.Drawing.Point(658, 585);
+            this.lblPlacaCarro.Location = new System.Drawing.Point(637, 178);
             this.lblPlacaCarro.Name = "lblPlacaCarro";
             this.lblPlacaCarro.Size = new System.Drawing.Size(0, 13);
             this.lblPlacaCarro.TabIndex = 35;
@@ -406,7 +444,7 @@
             // 
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.BackColor = System.Drawing.Color.Transparent;
-            this.lblTelefone.Location = new System.Drawing.Point(639, 561);
+            this.lblTelefone.Location = new System.Drawing.Point(618, 154);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(0, 13);
             this.lblTelefone.TabIndex = 37;
@@ -415,7 +453,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(567, 561);
+            this.label11.Location = new System.Drawing.Point(546, 154);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 36;
@@ -425,7 +463,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(567, 610);
+            this.label10.Location = new System.Drawing.Point(546, 203);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 13);
             this.label10.TabIndex = 38;
@@ -435,7 +473,7 @@
             // 
             this.lblTipoTratamento.AutoSize = true;
             this.lblTipoTratamento.BackColor = System.Drawing.Color.Transparent;
-            this.lblTipoTratamento.Location = new System.Drawing.Point(686, 610);
+            this.lblTipoTratamento.Location = new System.Drawing.Point(665, 203);
             this.lblTipoTratamento.Name = "lblTipoTratamento";
             this.lblTipoTratamento.Size = new System.Drawing.Size(0, 13);
             this.lblTipoTratamento.TabIndex = 39;
@@ -444,7 +482,7 @@
             // 
             this.lblAgendamento.AutoSize = true;
             this.lblAgendamento.BackColor = System.Drawing.Color.Transparent;
-            this.lblAgendamento.Location = new System.Drawing.Point(667, 638);
+            this.lblAgendamento.Location = new System.Drawing.Point(646, 231);
             this.lblAgendamento.Name = "lblAgendamento";
             this.lblAgendamento.Size = new System.Drawing.Size(0, 13);
             this.lblAgendamento.TabIndex = 41;
@@ -453,7 +491,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(567, 638);
+            this.label13.Location = new System.Drawing.Point(546, 231);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(94, 13);
             this.label13.TabIndex = 40;
@@ -464,7 +502,7 @@
             this.lblID.AutoSize = true;
             this.lblID.BackColor = System.Drawing.Color.Transparent;
             this.lblID.ForeColor = System.Drawing.Color.Transparent;
-            this.lblID.Location = new System.Drawing.Point(873, 479);
+            this.lblID.Location = new System.Drawing.Point(852, 72);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(0, 13);
             this.lblID.TabIndex = 42;
@@ -473,7 +511,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 772);
+            this.ClientSize = new System.Drawing.Size(1027, 772);
             this.ControlBox = false;
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblAgendamento);
@@ -510,13 +548,12 @@
             this.Load += new System.EventHandler(this.FrmCheckin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flpFotos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             this.ResumeLayout(false);
@@ -534,9 +571,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flpFotos;
         private System.Windows.Forms.Button btnArquivo;
-        private System.Windows.Forms.TextBox txtArquivo;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroCheckBox cbxSim;
         private MetroFramework.Controls.MetroCheckBox cbxNao;
@@ -544,7 +579,6 @@
         private MetroFramework.Controls.MetroCheckBox cbxSim2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dgvAgenda;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblNomeCliente;
@@ -565,5 +599,12 @@
         private System.Windows.Forms.PictureBox pbxFoto4;
         private System.Windows.Forms.PictureBox pbxFoto5;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtFoto5;
+        private System.Windows.Forms.TextBox txtFoto4;
+        private System.Windows.Forms.TextBox txtFoto3;
+        private System.Windows.Forms.TextBox txtFoto2;
+        private System.Windows.Forms.TextBox txtFoto1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label12;
     }
 }

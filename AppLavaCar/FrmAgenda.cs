@@ -33,7 +33,7 @@ namespace AppLavaCar
         {            
             lblData.Text = Calendario.SelectionRange.Start.ToShortDateString();
             AgendaController controller = new AgendaController();
-            List<Agenda> agenda = controller.listaAgendaSelecionada(Calendario.SelectionRange.Start);
+            List<Agenda> agenda = controller.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
             dgvAgenda.DataSource = agenda;
         }       
 

@@ -141,11 +141,11 @@ namespace AppLavaCar
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             Hidden = true;
-            MenuConteudo.Width = 0;            
+            MenuConteudo.Width = 0;
 
-            Agenda agenda = new Agenda();
-            ControllerGeral geral = new ControllerGeral();
-            List<Agenda> li = geral.listaAgendaDia();
+            CheckIn check = new CheckIn();
+            CheckController controller = new CheckController();
+            List<CheckIn> li = controller.listaCheckin();
             dgvAgendamento.DataSource = li;
         }
 
@@ -166,8 +166,7 @@ namespace AppLavaCar
             if (e.RowIndex >= 0)
             {
                 ClienteController cli = new ClienteController();
-                Cliente cliente = new Cliente();
-                Agenda agenda = new Agenda();
+                Cliente cliente = new Cliente();                
                 DataGridViewRow row = this.dgvAgendamento.Rows[e.RowIndex];
                 this.dgvAgendamento.Rows[e.RowIndex].Selected = true;                
                 

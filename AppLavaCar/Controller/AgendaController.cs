@@ -102,6 +102,13 @@ namespace AppLavaCar.Controller
 
             conn.Close();
         }
+        public void ExcluirAgendamento(int id)
+        {
+            string sql = "DELETE * FROM agenda WHERE id='" + id + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
         public Agenda localizarAgenda(int id)
         {
             Agenda agenda = new Agenda();

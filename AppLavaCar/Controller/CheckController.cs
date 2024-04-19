@@ -42,7 +42,7 @@ namespace AppLavaCar.Controller
             dr.Close();
             conn.Close();
             return li;
-        }
+        }        
         public void InserirCheckIn(string nome, int cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
             DateTime agendamento, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
         {
@@ -75,6 +75,17 @@ namespace AppLavaCar.Controller
 
             conn.Close();
         }
+        public void ExcluirCheckin(int id)
+        {
+            string sql = "DELETE * FROM checkin WHERE id='" + id + "'";
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
         public List<CheckOut> listaCheckOut()
         {
             List<CheckOut> li = new List<CheckOut>();
@@ -91,7 +102,7 @@ namespace AppLavaCar.Controller
                 check.telefone = dr["telefone"].ToString();
                 check.clienteCiente = dr["clienteCiente"].ToString();
                 check.tipoTratamento = dr["tipoTratamento"].ToString();
-                check.tipoTratamento = dr["tipoTratamento"].ToString();
+                check.defeitos = dr["defeitos"].ToString();
                 check.placaCarro = dr["placaCarro"].ToString();
                 check.agendamento = (DateTime)dr["agendamento"];
                 check.pagamento= dr["pagamento"].ToString();                

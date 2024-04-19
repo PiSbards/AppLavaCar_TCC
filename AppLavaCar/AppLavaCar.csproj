@@ -164,6 +164,9 @@
     <EmbeddedResource Include="FrmCheckin.resx">
       <DependentUpon>FrmCheckin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCheckOut.resx">
+      <DependentUpon>FrmCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\aceitaram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fotos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

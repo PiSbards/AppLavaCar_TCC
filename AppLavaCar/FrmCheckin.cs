@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,16 +81,35 @@ namespace AppLavaCar
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Title = "Selecionar Imagem...";
             dialog.Filter = "Arquivos de Imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.pdf|Todos os Arquivos|*.*";
+            dialog.Multiselect = true;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string imagem = dialog.FileName; 
-                txtArquivo.Text += imagem;
-                PictureBox pb = new PictureBox();
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Height = 100;
-                pb.Width = 100;
-                pb.ImageLocation = imagem;
-                flpFotos.Controls.Add(pb);
+                string imagem = dialog.FileName;                
+                if (pbxFoto1.ImageLocation == null)
+                {
+                    pbxFoto1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxFoto1.ImageLocation = imagem;
+                }
+                else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation == null)
+                {
+                    pbxFoto2.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxFoto2.ImageLocation = imagem;
+                }
+                else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation != null && pbxFoto3.ImageLocation == null)
+                {
+                    pbxFoto3.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxFoto3.ImageLocation = imagem;
+                }
+                else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation != null && pbxFoto3.ImageLocation != null && pbxFoto4.ImageLocation == null)
+                {
+                    pbxFoto4.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxFoto4.ImageLocation = imagem;
+                }
+                else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation != null && pbxFoto3.ImageLocation != null && pbxFoto4.ImageLocation != null && pbxFoto5.ImageLocation == null)
+                {
+                    pbxFoto5.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxFoto5.ImageLocation = imagem;
+                }                
             }
             
         }
@@ -98,14 +118,65 @@ namespace AppLavaCar
         {
             try
             {
-                ClienteController controller = new ClienteController();
-                string foto = txtArquivo.Text.Replace(" ", "");
-                pbxFoto1.Image.Save(@"C:\Programas\LojaGeek\Produtos\" + foto + ".jpg");
-                //fazer aqui linha de inserir no BD
+                if (txtFoto1.Text == string.Empty && pbxFoto1.ImageLocation != null || txtFoto2.Text == string.Empty && pbxFoto2.ImageLocation != null || txtFoto3.Text == string.Empty && pbxFoto3.ImageLocation != null
+                    || txtFoto4.Text == string.Empty && pbxFoto4.ImageLocation != null || txtFoto5.Text == string.Empty && pbxFoto5.ImageLocation != null)
+                {
+                    MessageBox.Show("Por favor, Nomeie todas as fotos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (cbxSim2.Checked == false && cbxSim.Checked == false && cbxNao.Checked == false && cbxNao2.Checked == false && lblID.Text == "")
+                {
+                    MessageBox.Show("Por favor, selecione um agendamento e/ou termine de preencher os campos");
+                }
+                string foto1 = txtFoto1.Text.Replace(" ", "");
+                string foto2 = txtFoto2.Text.Replace(" ", "");
+                string foto3 = txtFoto3.Text.Replace(" ", "");
+                string foto4 = txtFoto4.Text.Replace(" ", "");
+                string foto5 = txtFoto5.Text.Replace(" ", "");
+                if (pbxFoto1.ImageLocation != null)
+                {
+                    pbxFoto1.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto1 + ".jpg");
+                }
+                if (pbxFoto2.ImageLocation != null)
+                {
+                    pbxFoto2.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto2 + ".jpg");
+                }
+                if (pbxFoto3.ImageLocation != null)
+                {
+                    pbxFoto3.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto3 + ".jpg");
+                }
+                if (pbxFoto4.ImageLocation != null)
+                {
+                    pbxFoto4.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto4 + ".jpg");
+                }
+                if (pbxFoto5.ImageLocation != null)
+                {
+                    pbxFoto5.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto5 + ".jpg");
+                }
+                CheckController check = new CheckController();
+                string defeito;
+                string clienteCiente;
+                if (cbxSim.Checked == true)
+                {
+                    defeito = "SIM";
+                }
+                else
+                {
+                    defeito = "NÃO";
+                }
+                if (cbxSim2.Checked == true)
+                {
+                    clienteCiente = "SIM";
+                }
+                else
+                {
+                    clienteCiente = "NÃO";
+                }
+                check.InserirCheckIn(lblNomeCliente.Text,Convert.ToInt32(lblCPF.Text),lblTelefone.Text, defeito, clienteCiente, lblTipoTratamento.Text, lblPlacaCarro.Text,
+                    Convert.ToDateTime(lblAgendamento.Text),txtDefeitos.Text, foto1,foto2,foto3,foto4,foto5);
                 MessageBox.Show("Check-in realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AgendaController agendaController = new AgendaController();
-                
-
+                agendaController.ExcluirAgendamento(Convert.ToInt32(lblID.Text));
                 List<Agenda> agendamento = agendaController.listaAgendaDia();
                 dgvAgenda.DataSource = agendamento;
                 lblNomeCliente.Text = "";
@@ -115,8 +186,15 @@ namespace AppLavaCar
                 lblTelefone.Text = "";
                 lblTipoTratamento.Text = "";
                 lblAgendamento.Text = "";
-
-
+                txtFoto1.Text = "";
+                txtFoto2.Text = "";
+                txtFoto3.Text = "";
+                txtFoto4.Text = "";
+                txtFoto5.Text = "";
+                cbxNao.Checked = false;
+                cbxNao2.Checked = false;
+                cbxSim.Checked = false;
+                cbxSim2.Checked = false;
             }
             catch (Exception er)
             {
@@ -127,10 +205,7 @@ namespace AppLavaCar
         private void dgvAgenda_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {
-                ClienteController cli = new ClienteController();
-                Cliente cliente = new Cliente();
-                Agenda agenda = new Agenda();
+            {  
                 DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
                 this.dgvAgenda.Rows[e.RowIndex].Selected = true;
                 lblID.Text = row.Cells[0].Value.ToString();
