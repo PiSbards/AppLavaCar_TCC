@@ -32,7 +32,7 @@ namespace AppLavaCar
                 UsuarioController user = new UsuarioController();
                 VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
                 Funcionario func = new Funcionario();
-                var cpf = ve.ValidarCPF(mtxtCpf.Text.Trim());
+                var cpf = ve.IsCpf(mtxtCpf.Text);
                 if (cpf == true)
                 {
                     if (user.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)

@@ -73,7 +73,8 @@ namespace AppLavaCar
                 VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
                 if (chbxCNPJ.Checked == true)
                 {
-                    var result = ve.ValidarCNPJ(mtxtCPF.Text.Trim());
+                    string CNPJ= mtxtCPF.Text.Replace(".","").Replace("-","").Replace("/","");
+                    var result = ve.IsCnpj(CNPJ);
                     if (result == false)
                     {
                         MessageBox.Show("CNPJ inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -129,8 +130,8 @@ namespace AppLavaCar
                     }
                 }
                 else if(chbxCNPJ.Checked == false)
-                {
-                    var result = ve.ValidarCPF(mtxtCPF.Text.Trim());
+                {                    
+                    bool result = ve.IsCpf(mtxtCPF.Text);
                     if (result == false)
                     {
                         MessageBox.Show("CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -146,9 +147,10 @@ namespace AppLavaCar
                         this.txtNome.Focus();
                         return;
                     }
-                    else
+                    else if(result == true)
                     {
-                        if (controller.RegistroRepetido(txtNome.Text.Trim(), Convert.ToInt32(mtxtCPF.Text.Trim()), txtPlaca.Text.Trim()) == true)
+                        bool repetido = controller.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCPF.Text.Trim()), txtPlaca.Text);
+                        if ( repetido == true)
                         {
                             MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CPF e Placa do Carro",
                                 "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -165,7 +167,7 @@ namespace AppLavaCar
                             return;
                         }
                         else
-                        {
+                        {/* erro de formatação com o BD, provavelmente controller.inserir*/
                             DateTime dataHorario = Convert.ToDateTime(lblData.Text.Trim() + " "+cboHoraAgenda.Text.Trim());
                             controller.Inserir(txtNome.Text.Trim(), Convert.ToInt32(mtxtCPF.Text.Trim()), mtxtTelefone.Text.Trim(), txtPlaca.Text.Trim(), txtMarca.Text.Trim(), txtModelo.Text.Trim());
 
@@ -328,5 +330,7 @@ namespace AppLavaCar
                 
             }
         }
+
+       
     }
 }

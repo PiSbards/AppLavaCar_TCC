@@ -131,7 +131,7 @@ namespace AppLavaCar.Controller
             var result = cmd.ExecuteScalar();
             if (result != null)
             {
-                return (int)result > 0;
+                return true;
             }
             conn.Close();
             return false;
