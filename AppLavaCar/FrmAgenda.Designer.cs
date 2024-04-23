@@ -63,6 +63,7 @@
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,6 +156,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(176, 102);
@@ -249,14 +251,14 @@
             // mtxtCPF
             // 
             this.mtxtCPF.Location = new System.Drawing.Point(73, 8);
-            this.mtxtCPF.Mask = "999.999.999-99";
+            this.mtxtCPF.Mask = "999,999,999-99";
             this.mtxtCPF.Name = "mtxtCPF";
             this.mtxtCPF.Size = new System.Drawing.Size(148, 20);
             this.mtxtCPF.TabIndex = 43;
             // 
             // cboHoraAgenda
             // 
-            this.cboHoraAgenda.CustomFormat = "h:mm tt";
+            this.cboHoraAgenda.CustomFormat = "HH:mm";
             this.cboHoraAgenda.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.cboHoraAgenda.Location = new System.Drawing.Point(295, 264);
             this.cboHoraAgenda.Name = "cboHoraAgenda";
@@ -458,12 +460,22 @@
             this.toolTip1.SetToolTip(this.pictureBox3, "ATENÇÃO:\r\nEste quadro atualizará as informações\r\nconforme houver mudança no calen" +
         "dário acima;");
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 334);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "label2";
+            // 
             // FrmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 757);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.btnVoltar);
@@ -486,6 +498,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -524,5 +537,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label2;
     }
 }

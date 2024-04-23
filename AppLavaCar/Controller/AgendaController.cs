@@ -39,9 +39,11 @@ namespace AppLavaCar.Controller
         public List<Agenda> listaAgendaSelecionada(DateTime data)
         {
             List<Agenda> li = new List<Agenda>();
-            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = '" + data + "'";
+            data.ToString("yyyy/MM/dd");
+            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = @data";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.Add(new MySqlParameter("data",data));
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -87,7 +89,7 @@ namespace AppLavaCar.Controller
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
-            }
+            }            
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
