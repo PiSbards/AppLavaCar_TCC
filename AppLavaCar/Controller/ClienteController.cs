@@ -26,12 +26,9 @@ namespace AppLavaCar.Controller
             {
                 Cliente cliente = new Cliente();
                 cliente.id = (int)dr["id"];
-                cliente.cpf = (int)dr["cpf"];
+                cliente.cpf = dr["cpf"].ToString();
                 cliente.nome = dr["nome"].ToString();
-                cliente.telefone = dr["telefone"].ToString();
-                cliente.placaCarro = dr["placaCarro"].ToString();
-                cliente.marca = dr["marca"].ToString();
-                cliente.modelo = dr["modelo"].ToString();
+                cliente.telefone = dr["telefone"].ToString();                
                 li.Add(cliente);
             }
             dr.Close();
@@ -39,9 +36,9 @@ namespace AppLavaCar.Controller
             return li;
         }
         
-        public void Inserir(string nome, int cpf, string telefone, string placaCarro, string marca,string modelo)
+        public void Inserir(string nome, string cpf, string telefone)
         {
-            string sql = "INSERT INTO cliente(nome,cpf,telefone,placaCarro,marca,modelo) VALUES(@nome,@cpf,@telefone,@placaCarro,@marca,@modelo)";
+            string sql = "INSERT INTO cliente(nome,cpf,telefone) VALUES(@nome,@cpf,@telefone)";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -49,11 +46,8 @@ namespace AppLavaCar.Controller
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@marca", MySqlDbType.VarChar).Value = marca;
-                cmd.Parameters.Add("@modelo", MySqlDbType.VarChar).Value = modelo;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;                
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -61,9 +55,9 @@ namespace AppLavaCar.Controller
             conn.Close();
         }
 
-        public void Atualizar(int id, string nome, int cpf, string telefone, string placaCarro,string marca,string modelo)
+        public void Atualizar(int id, string nome, string cpf, string telefone)
         {
-            string sql = "UPDATE cliente SET nome=@nome,cpf=@cpf,telefone=@telefone,placaCarro=@placaCarro,marca=@marca,modelo=@modelo WHERE id=@id";
+            string sql = "UPDATE cliente SET nome=@nome,cpf=@cpf,telefone=@telefone WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -72,11 +66,8 @@ namespace AppLavaCar.Controller
             {
                 cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@marca", MySqlDbType.VarChar).Value = marca;
-                cmd.Parameters.Add("@modelo", MySqlDbType.VarChar).Value = modelo;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;                
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -94,7 +85,7 @@ namespace AppLavaCar.Controller
             conn.Close();
         }
         
-        public Cliente Localizar(int cpf)
+        public Cliente Localizar(string cpf)
         {
             Cliente cliente = new Cliente();
             string sql = "SELECT * FROM cliente WHERE cpf='" + cpf + "'";
@@ -107,19 +98,17 @@ namespace AppLavaCar.Controller
             while (dr.Read())
             {                
                 cliente.id = (int)dr["id"];
-                cliente.cpf = (int)dr["cpf"];
+                cliente.cpf = dr["cpf"].ToString();
                 cliente.nome = dr["nome"].ToString();
                 cliente.telefone = dr["telefone"].ToString();
-                cliente.placaCarro = dr["placaCarro"].ToString();
-                cliente.marca = dr["marca"].ToString();
-                cliente.modelo = dr["modelo"].ToString();
+                
             }
             dr.Close();
             conn.Close();
             return cliente;
         }
 
-        public bool RegistroRepetido(string nome, int cpf,string placaCarro)
+        public bool RegistroRepetido(string nome, string cpf,string placaCarro)
         {
             string sql = "SELECT * FROM cliente WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND placaCarro='"+placaCarro+"'";
             if (conn.State == ConnectionState.Closed)

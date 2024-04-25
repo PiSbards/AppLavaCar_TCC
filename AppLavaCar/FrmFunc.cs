@@ -35,7 +35,7 @@ namespace AppLavaCar
                 var cpf = ve.IsCpf(mtxtCpf.Text);
                 if (cpf == true)
                 {
-                    if (user.RegistroRepetido(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim())) == true)
+                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim()) == true)
                     {
                         MessageBox.Show("Pessoa já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtId.Text = "";
@@ -54,7 +54,7 @@ namespace AppLavaCar
                         {
                             gerente = true;
                         }
-                        user.Inserir(txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()), txtSenha.Text, txtEmail.Text, gerente);
+                        user.Inserir(txtNome.Text, mtxtCpf.Text.Trim(), txtSenha.Text, txtEmail.Text, gerente);
                         MessageBox.Show("Funcionário inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         List<Funcionario> li = user.listaFuncionario();
                         dgvFunc.DataSource = li;
@@ -120,7 +120,7 @@ namespace AppLavaCar
                 {
                    gerente = true;
                 }                               
-                controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()),txtNome.Text, Convert.ToInt32(mtxtCpf.Text.Trim()),txtSenha.Text,txtEmail.Text,gerente);
+                controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()),txtNome.Text, mtxtCpf.Text.Trim(),txtSenha.Text,txtEmail.Text,gerente);
                 MessageBox.Show("Cadastro de funcionário atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<Funcionario> funcionario = controller.listaFuncionario();
                 dgvFunc.DataSource = funcionario;

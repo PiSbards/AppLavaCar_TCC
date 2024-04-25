@@ -62,7 +62,7 @@ namespace AppLavaCar
             {
                 string pago = "PAGO";
                 CheckController check = new CheckController();
-                check.InserirCheckOut(lblNomeCliente.Text, Convert.ToInt32(lblCPF.Text), lblTelefone.Text, lblDefeito.Text, lblClienteCiente.Text, lblTipoTratamento.Text, lblPlacaCarro.Text,
+                check.InserirCheckOut(lblNomeCliente.Text, lblCPF.Text, lblTelefone.Text, lblDefeito.Text, lblClienteCiente.Text, lblTipoTratamento.Text, lblPlacaCarro.Text,
                     Convert.ToDateTime(lblAgendamento.Text), txtObservacao.Text, pbxFoto1.ImageLocation, pbxFoto2.ImageLocation, pbxFoto3.ImageLocation, pbxFoto4.ImageLocation,pbxFoto5.ImageLocation,pago);
                 check.ExcluirCheckin(Convert.ToInt32(lblID.Text));
                 MessageBox.Show("Check-out realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

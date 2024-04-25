@@ -10,10 +10,7 @@ namespace AppLavaCar.Model
     {
         public int id { get; set; }
         public string nome { get; set; }
-        public int cpf { get; set; }
-        public string telefone { get; set; }
-        public string placaCarro { get; set; }
-        public string marca { get; set; }
-        public string modelo { get; set; }        
+        public string cpf { get; set; }
+        public string telefone { get; set; }                
     }
 }

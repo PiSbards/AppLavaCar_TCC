@@ -24,7 +24,7 @@ namespace AppLavaCar.Controller
                 CheckIn check = new CheckIn();
                 check.id = (int)dr["id"];
                 check.nomeCliente = dr["nomeCliente"].ToString();
-                check.cpf = (int)dr["cpf"];
+                check.cpf = dr["cpf"].ToString();
                 check.telefone = dr["telefone"].ToString();
                 check.defeitos = dr["defeitos"].ToString();
                 check.clienteCiente = dr["clienteCiente"].ToString();                
@@ -43,7 +43,7 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }        
-        public void InserirCheckIn(string nome, int cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
+        public void InserirCheckIn(string nome, string cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
             DateTime agendamento, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
         {
             string sql = "INSERT INTO checkin(nome,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,observacao,imagem1" +
@@ -56,7 +56,7 @@ namespace AppLavaCar.Controller
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@defeitos",MySqlDbType.VarChar).Value = defeitos;
                 cmd.Parameters.Add("@clienteCiente",MySqlDbType.VarChar).Value= clienteCiente;                
@@ -98,7 +98,7 @@ namespace AppLavaCar.Controller
                 CheckOut check = new CheckOut();
                 check.id = (int)dr["id"];
                 check.nomeCliente = dr["nomeCliente"].ToString();
-                check.cpf = (int)dr["cpf"];
+                check.cpf = dr["cpf"].ToString();
                 check.telefone = dr["telefone"].ToString();
                 check.clienteCiente = dr["clienteCiente"].ToString();
                 check.tipoTratamento = dr["tipoTratamento"].ToString();
@@ -118,7 +118,7 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }
-        public void InserirCheckOut(string nome, int cpf, string telefone, string defeitos, string clienteCiente, string tipoTratamento, string placaCarro, 
+        public void InserirCheckOut(string nome, string cpf, string telefone, string defeitos, string clienteCiente, string tipoTratamento, string placaCarro, 
             DateTime agendamento,string pagamento, string observacao, string imagem1,string imagem2, string imagem3, string imagem4, string imagem5)
         {
             string sql = "INSERT INTO checkout(nome,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,pagamento,observacao1,imagem1" +
@@ -131,7 +131,7 @@ namespace AppLavaCar.Controller
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@defeitos", MySqlDbType.VarChar).Value = defeitos;
                 cmd.Parameters.Add("@clienteCiente", MySqlDbType.VarChar).Value = clienteCiente;

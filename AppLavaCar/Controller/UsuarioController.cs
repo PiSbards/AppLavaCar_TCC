@@ -15,7 +15,7 @@ namespace AppLavaCar.Controller
     {
         MySqlConnection conn = new MySqlConnection("server=sql.freedb.tech;port=3306;database=freedb_DbProvisorio;user id=freedb_PipsProvisorio;password=8Jc4zG&SThRn#H4;charset=utf8");
 
-        public void AlterarSenha(string senha, int cpf)
+        public void AlterarSenha(string senha, string cpf)
         {
             string sql = "UPDATE funcionario SET senha=@senha WHERE cpf=@cpf";
             if (conn.State == ConnectionState.Closed)
@@ -24,14 +24,14 @@ namespace AppLavaCar.Controller
             }
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {                                
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
         }
-        public Funcionario Login(int cpf)
+        public Funcionario Login(string cpf)
         {
             Funcionario funcionario = new Funcionario();
             string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'";
@@ -45,7 +45,7 @@ namespace AppLavaCar.Controller
             {
                 funcionario.id = (int)dr["id"];
                 funcionario.nome = dr["nome"].ToString();
-                funcionario.cpf = (int)dr["cpf"];
+                funcionario.cpf = dr["cpf"].ToString();
                 funcionario.senha = dr["epi"].ToString();
                 funcionario.email = dr["email"].ToString();
                 bool gerente = (bool)dr["gerente"];
@@ -74,7 +74,7 @@ namespace AppLavaCar.Controller
             {
                 Funcionario func = new Funcionario();
                 func.id = (int)dr["id"];
-                func.cpf = (int)dr["cpf"];
+                func.cpf = dr["cpf"].ToString();
                 func.nome = dr["nome"].ToString();
                 func.senha = dr["senha"].ToString();
                 func.email = dr["email"].ToString();
@@ -94,7 +94,7 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }
-        public void Inserir(string nome, int cpf, string senha, string email, bool gerente)
+        public void Inserir(string nome, string cpf, string senha, string email, bool gerente)
         {
             string sql = "INSERT INTO funcionario(nome,cpf,senha,email,gerente) VALUES(@nome,@cpf,@senha,@email,@gerente)";
             if (conn.State == ConnectionState.Closed)
@@ -104,7 +104,7 @@ namespace AppLavaCar.Controller
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
                 cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
                 cmd.Parameters.Add("@gerente", MySqlDbType.Bool).Value = gerente;
@@ -115,7 +115,7 @@ namespace AppLavaCar.Controller
             conn.Close();
         }
 
-        public void Atualizar(int id,string nome, int cpf, string senha, string email, bool gerente)
+        public void Atualizar(int id,string nome, string cpf, string senha, string email, bool gerente)
         {
             string sql = "UPDATE funcionario SET nome=@nome,cpf=@cpf,senha=@senha,gerente=@gerente WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
@@ -126,7 +126,7 @@ namespace AppLavaCar.Controller
             {
                 cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.Int32).Value = cpf;
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
                 cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
                 cmd.Parameters.Add("@gerente", MySqlDbType.Bool).Value = gerente;
@@ -160,7 +160,7 @@ namespace AppLavaCar.Controller
             {
                 funcionario.id = (int)dr["id"];
                 funcionario.nome = dr["nome"].ToString();
-                funcionario.cpf = (int)dr["cpf"];
+                funcionario.cpf = dr["cpf"].ToString();
                 funcionario.senha = dr["epi"].ToString();
                 funcionario.email = dr["email"].ToString();
                 bool gerente = (bool)dr["gerente"];
@@ -179,7 +179,7 @@ namespace AppLavaCar.Controller
             return funcionario;
         }
 
-        public bool RegistroRepetido(string nome, int cpf)
+        public bool RegistroRepetido(string nome, string cpf)
         {
             string sql = "SELECT * FROM funcionario WHERE nome='" + nome + "' AND cpf='" + cpf + "'";
             if (conn.State == ConnectionState.Closed)
