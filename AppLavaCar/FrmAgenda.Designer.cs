@@ -33,15 +33,16 @@
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAgendar = new System.Windows.Forms.Button();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.btnSomenteAgendar = new System.Windows.Forms.Button();
             this.lblData = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.btnAgendar = new System.Windows.Forms.Button();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.cboHoraAgenda = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
-            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,7 +63,8 @@
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.cbxPlaca = new System.Windows.Forms.ComboBox();
+            this.btnNovoCarro = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +93,8 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.btnNovoCarro);
+            this.metroTabPage1.Controls.Add(this.cbxPlaca);
             this.metroTabPage1.Controls.Add(this.btnCancelar);
             this.metroTabPage1.Controls.Add(this.lblID);
             this.metroTabPage1.Controls.Add(this.btnAlterar);
@@ -111,7 +114,6 @@
             this.metroTabPage1.Controls.Add(this.label6);
             this.metroTabPage1.Controls.Add(this.txtModelo);
             this.metroTabPage1.Controls.Add(this.txtMarca);
-            this.metroTabPage1.Controls.Add(this.txtPlaca);
             this.metroTabPage1.Controls.Add(this.txtNome);
             this.metroTabPage1.Controls.Add(this.label5);
             this.metroTabPage1.Controls.Add(this.label4);
@@ -130,6 +132,21 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(380, 318);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(132, 45);
+            this.btnCancelar.TabIndex = 53;
+            this.btnCancelar.Text = "CANCELAR AGENDAMENTO";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // lblID
             // 
             this.lblID.AutoSize = true;
@@ -147,7 +164,7 @@
             this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(238, 318);
+            this.btnAlterar.Location = new System.Drawing.Point(244, 318);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(132, 45);
             this.btnAlterar.TabIndex = 51;
@@ -160,7 +177,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(176, 102);
+            this.pictureBox1.Location = new System.Drawing.Point(287, 113);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(23, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -168,6 +185,21 @@
             this.pictureBox1.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox1, "Cliente já cadastrado, mas com carro extra, por favor utilizar botão novo cadastr" +
         "o;");
+            // 
+            // btnAgendar
+            // 
+            this.btnAgendar.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAgendar.FlatAppearance.BorderSize = 0;
+            this.btnAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chartreuse;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgendar.Location = new System.Drawing.Point(2, 289);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(123, 79);
+            this.btnAgendar.TabIndex = 44;
+            this.btnAgendar.Text = "NOVO CADASTRO E AGENDAMENTO";
+            this.btnAgendar.UseVisualStyleBackColor = false;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // btnLocalizar
             // 
@@ -192,7 +224,7 @@
             this.btnSomenteAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnSomenteAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSomenteAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSomenteAgendar.Location = new System.Drawing.Point(125, 321);
+            this.btnSomenteAgendar.Location = new System.Drawing.Point(131, 321);
             this.btnSomenteAgendar.Name = "btnSomenteAgendar";
             this.btnSomenteAgendar.Size = new System.Drawing.Size(107, 42);
             this.btnSomenteAgendar.TabIndex = 48;
@@ -234,21 +266,6 @@
             this.mtxtTelefone.Size = new System.Drawing.Size(129, 20);
             this.mtxtTelefone.TabIndex = 45;
             // 
-            // btnAgendar
-            // 
-            this.btnAgendar.BackColor = System.Drawing.Color.LightGreen;
-            this.btnAgendar.FlatAppearance.BorderSize = 0;
-            this.btnAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chartreuse;
-            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgendar.Location = new System.Drawing.Point(-4, 286);
-            this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(123, 79);
-            this.btnAgendar.TabIndex = 44;
-            this.btnAgendar.Text = "NOVO CADASTRO E AGENDAMENTO";
-            this.btnAgendar.UseVisualStyleBackColor = false;
-            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
-            // 
             // mtxtCPF
             // 
             this.mtxtCPF.Location = new System.Drawing.Point(73, 8);
@@ -256,6 +273,7 @@
             this.mtxtCPF.Name = "mtxtCPF";
             this.mtxtCPF.Size = new System.Drawing.Size(148, 20);
             this.mtxtCPF.TabIndex = 43;
+            this.mtxtCPF.Leave += new System.EventHandler(this.mtxtCPF_Leave);
             // 
             // cboHoraAgenda
             // 
@@ -340,13 +358,6 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(96, 20);
             this.txtMarca.TabIndex = 34;
-            // 
-            // txtPlaca
-            // 
-            this.txtPlaca.Location = new System.Drawing.Point(74, 102);
-            this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(96, 20);
-            this.txtPlaca.TabIndex = 33;
             // 
             // txtNome
             // 
@@ -461,20 +472,29 @@
             this.toolTip1.SetToolTip(this.pictureBox3, "ATENÇÃO:\r\nEste quadro atualizará as informações\r\nconforme houver mudança no calen" +
         "dário acima;");
             // 
-            // btnCancelar
+            // cbxPlaca
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(375, 318);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 45);
-            this.btnCancelar.TabIndex = 53;
-            this.btnCancelar.Text = "CANCELAR AGENDAMENTO";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.cbxPlaca.FormattingEnabled = true;
+            this.cbxPlaca.Location = new System.Drawing.Point(65, 103);
+            this.cbxPlaca.Name = "cbxPlaca";
+            this.cbxPlaca.Size = new System.Drawing.Size(121, 21);
+            this.cbxPlaca.TabIndex = 54;
+            this.cbxPlaca.SelectedIndexChanged += new System.EventHandler(this.cbxPlaca_SelectedIndexChanged);
+            // 
+            // btnNovoCarro
+            // 
+            this.btnNovoCarro.BackColor = System.Drawing.Color.Transparent;
+            this.btnNovoCarro.FlatAppearance.BorderSize = 0;
+            this.btnNovoCarro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
+            this.btnNovoCarro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoCarro.Location = new System.Drawing.Point(192, 93);
+            this.btnNovoCarro.Name = "btnNovoCarro";
+            this.btnNovoCarro.Size = new System.Drawing.Size(89, 40);
+            this.btnNovoCarro.TabIndex = 55;
+            this.btnNovoCarro.Text = "NOVO CARRO";
+            this.btnNovoCarro.UseVisualStyleBackColor = false;
+            this.btnNovoCarro.Click += new System.EventHandler(this.btnNovoCarro_Click);
             // 
             // FrmAgenda
             // 
@@ -526,7 +546,6 @@
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -543,5 +562,7 @@
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cbxPlaca;
+        private System.Windows.Forms.Button btnNovoCarro;
     }
 }

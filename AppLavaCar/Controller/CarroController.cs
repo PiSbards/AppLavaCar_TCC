@@ -3,6 +3,7 @@ using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,11 +86,11 @@ namespace AppLavaCar.Controller
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-
-        public Carro Localizar(string placaDono)
+        
+        public Carro LocalizarPelaPlaca(string placaCarro)
         {
             Carro carro = new Carro();
-            string sql = "SELECT * FROM carro WHERE cpf='" + placaDono + "'";
+            string sql = "SELECT * FROM carro WHERE placaCarro='" + placaCarro + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -126,6 +127,20 @@ namespace AppLavaCar.Controller
             }
             conn.Close();
             return false;
+        }
+        public MySqlDataAdapter CarregaCbxCarro(string cpfDono)
+        {            
+            string sql = "SELECT * FROM carro WHERE cpfDono=@cpfDono";
+            conn.Open();
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@cpfDono", MySqlDbType.VarChar).Value = cpfDono;
+                cmd.CommandType = CommandType.Text;
+            };            
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "placaCarro");  
+            return da;
         }
     }
 }

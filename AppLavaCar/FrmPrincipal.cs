@@ -165,19 +165,18 @@ namespace AppLavaCar
         {
             if (e.RowIndex >= 0)
             {
-                ClienteController cli = new ClienteController();
-                Cliente cliente = new Cliente();                
+                CarroController car = new CarroController();                               
                 DataGridViewRow row = this.dgvAgendamento.Rows[e.RowIndex];
                 this.dgvAgendamento.Rows[e.RowIndex].Selected = true;                
                 
-                cliente = cli.Localizar(Convert.ToInt32(row.Cells[2].Value));                
-
-                lblMarca.Text = cliente.marca.ToString();
-                lblNomeCliente.Text = cliente.nome.ToString();                
-                lblModelo.Text = cliente.modelo.ToString();
-
+                Carro carro = car.LocalizarPelaPlaca(row.Cells[5].ToString());
+                lblMarca.Text = carro.marca.ToString();
+                lblModelo.Text = carro.modelo.ToString();
+                lblNomeCliente.Text = row.Cells[1].ToString();
                 lblTipoTratamento.Text = row.Cells[4].ToString().Trim();
                 lblPlaca.Text = row.Cells[5].ToString();
+                DateTime data = Convert.ToDateTime(row.Cells[6]);
+                lblAgendamento.Text = data.ToString("dd/MM/yyyy HH:mm");
 
                 if (lblTipoTratamento.Text == "Lavagem Simples - R$60,00".Trim())
                 {

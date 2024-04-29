@@ -246,7 +246,7 @@ namespace AppLavaCar
             try
             {
                 CarroController controller = new CarroController();
-                Carro carro = controller.Localizar(txtPlaca.Text);
+                Carro carro = controller.LocalizarPelaPlaca(txtPlaca.Text);
                 txtNomeDono.Text = carro.nomeDono;
                 if (carro.cpfDono.Length == 11)
                 {

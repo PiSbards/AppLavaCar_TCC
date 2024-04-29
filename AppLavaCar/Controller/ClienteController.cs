@@ -108,9 +108,9 @@ namespace AppLavaCar.Controller
             return cliente;
         }
 
-        public bool RegistroRepetido(string nome, string cpf,string placaCarro)
+        public bool RegistroRepetido(string nome, string cpf,string telefone)
         {
-            string sql = "SELECT * FROM cliente WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND placaCarro='"+placaCarro+"'";
+            string sql = "SELECT * FROM cliente WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND telefone='"+telefone+"'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();

@@ -34,7 +34,7 @@ namespace AppLavaCar
             if (txtSenha1 == txtSenha2 )
             {
                 string senha = txtSenha2.Text;                
-                controller.AlterarSenha(senha, Convert.ToInt32(mtxtCpf.Text.Trim()));
+                controller.AlterarSenha(senha, mtxtCpf.Text.Trim());
                 MessageBox.Show("A Senha foi alterada com Sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mtxtCpf.Text = "";
                 txtSenha1.Text = "";

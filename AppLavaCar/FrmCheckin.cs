@@ -172,7 +172,7 @@ namespace AppLavaCar
                 {
                     clienteCiente = "NÃO";
                 }
-                check.InserirCheckIn(lblNomeCliente.Text,Convert.ToInt32(lblCPF.Text),lblTelefone.Text, defeito, clienteCiente, lblTipoTratamento.Text, lblPlacaCarro.Text,
+                check.InserirCheckIn(lblNomeCliente.Text,lblCPF.Text,lblTelefone.Text, defeito, clienteCiente, lblTipoTratamento.Text, lblPlacaCarro.Text,
                     Convert.ToDateTime(lblAgendamento.Text),txtDefeitos.Text, foto1,foto2,foto3,foto4,foto5);
                 MessageBox.Show("Check-in realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AgendaController agendaController = new AgendaController();
