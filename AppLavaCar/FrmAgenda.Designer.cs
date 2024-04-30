@@ -33,10 +33,12 @@
             this.Calendario = new System.Windows.Forms.MonthCalendar();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.btnNovoCarro = new System.Windows.Forms.Button();
+            this.cbxPlaca = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxRefreshPlaca = new System.Windows.Forms.PictureBox();
             this.btnAgendar = new System.Windows.Forms.Button();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.btnSomenteAgendar = new System.Windows.Forms.Button();
@@ -58,19 +60,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblCPF = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.cbxPlaca = new System.Windows.Forms.ComboBox();
-            this.btnNovoCarro = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefreshPlaca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Calendario
@@ -98,7 +98,7 @@
             this.metroTabPage1.Controls.Add(this.btnCancelar);
             this.metroTabPage1.Controls.Add(this.lblID);
             this.metroTabPage1.Controls.Add(this.btnAlterar);
-            this.metroTabPage1.Controls.Add(this.pictureBox1);
+            this.metroTabPage1.Controls.Add(this.pbxRefreshPlaca);
             this.metroTabPage1.Controls.Add(this.btnAgendar);
             this.metroTabPage1.Controls.Add(this.btnLocalizar);
             this.metroTabPage1.Controls.Add(this.btnSomenteAgendar);
@@ -132,10 +132,33 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // btnNovoCarro
+            // 
+            this.btnNovoCarro.BackColor = System.Drawing.Color.Transparent;
+            this.btnNovoCarro.FlatAppearance.BorderSize = 0;
+            this.btnNovoCarro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
+            this.btnNovoCarro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoCarro.Location = new System.Drawing.Point(230, 92);
+            this.btnNovoCarro.Name = "btnNovoCarro";
+            this.btnNovoCarro.Size = new System.Drawing.Size(89, 40);
+            this.btnNovoCarro.TabIndex = 55;
+            this.btnNovoCarro.Text = "NOVO CARRO";
+            this.btnNovoCarro.UseVisualStyleBackColor = false;
+            this.btnNovoCarro.Click += new System.EventHandler(this.btnNovoCarro_Click);
+            // 
+            // cbxPlaca
+            // 
+            this.cbxPlaca.FormattingEnabled = true;
+            this.cbxPlaca.Location = new System.Drawing.Point(71, 104);
+            this.cbxPlaca.Name = "cbxPlaca";
+            this.cbxPlaca.Size = new System.Drawing.Size(121, 21);
+            this.cbxPlaca.TabIndex = 54;
+            this.cbxPlaca.SelectedIndexChanged += new System.EventHandler(this.cbxPlaca_SelectedIndexChanged);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,7 +183,6 @@
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAlterar.FlatAppearance.BorderSize = 0;
             this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,19 +194,18 @@
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
-            // pictureBox1
+            // pbxRefreshPlaca
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(287, 113);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cliente já cadastrado, mas com carro extra, por favor utilizar botão novo cadastr" +
-        "o;");
+            this.pbxRefreshPlaca.BackColor = System.Drawing.Color.Transparent;
+            this.pbxRefreshPlaca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxRefreshPlaca.Image = global::AppLavaCar.Properties.Resources.reset;
+            this.pbxRefreshPlaca.Location = new System.Drawing.Point(198, 104);
+            this.pbxRefreshPlaca.Name = "pbxRefreshPlaca";
+            this.pbxRefreshPlaca.Size = new System.Drawing.Size(23, 20);
+            this.pbxRefreshPlaca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbxRefreshPlaca.TabIndex = 50;
+            this.pbxRefreshPlaca.TabStop = false;
+            this.pbxRefreshPlaca.Click += new System.EventHandler(this.pbxRefreshPlaca_Click);
             // 
             // btnAgendar
             // 
@@ -220,13 +241,12 @@
             // btnSomenteAgendar
             // 
             this.btnSomenteAgendar.BackColor = System.Drawing.Color.Transparent;
-            this.btnSomenteAgendar.FlatAppearance.BorderSize = 0;
             this.btnSomenteAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnSomenteAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSomenteAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSomenteAgendar.Location = new System.Drawing.Point(131, 321);
+            this.btnSomenteAgendar.Location = new System.Drawing.Point(131, 318);
             this.btnSomenteAgendar.Name = "btnSomenteAgendar";
-            this.btnSomenteAgendar.Size = new System.Drawing.Size(107, 42);
+            this.btnSomenteAgendar.Size = new System.Drawing.Size(107, 45);
             this.btnSomenteAgendar.TabIndex = 48;
             this.btnSomenteAgendar.Text = "SOMENTE AGENDAR";
             this.btnSomenteAgendar.UseVisualStyleBackColor = false;
@@ -421,19 +441,6 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Cliente:";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 210);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 53;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "ATENÇÃO:\r\nA data utilizada para o agendamento é aquela que\r\nesta selecionada no c" +
-        "alendario,\r\ntenha certeza de selecionar a data;");
-            // 
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.Crimson;
@@ -442,7 +449,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(685, 9);
+            this.btnVoltar.Location = new System.Drawing.Point(685, 13);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(83, 23);
             this.btnVoltar.TabIndex = 18;
@@ -472,29 +479,18 @@
             this.toolTip1.SetToolTip(this.pictureBox3, "ATENÇÃO:\r\nEste quadro atualizará as informações\r\nconforme houver mudança no calen" +
         "dário acima;");
             // 
-            // cbxPlaca
+            // pictureBox2
             // 
-            this.cbxPlaca.FormattingEnabled = true;
-            this.cbxPlaca.Location = new System.Drawing.Point(65, 103);
-            this.cbxPlaca.Name = "cbxPlaca";
-            this.cbxPlaca.Size = new System.Drawing.Size(121, 21);
-            this.cbxPlaca.TabIndex = 54;
-            this.cbxPlaca.SelectedIndexChanged += new System.EventHandler(this.cbxPlaca_SelectedIndexChanged);
-            // 
-            // btnNovoCarro
-            // 
-            this.btnNovoCarro.BackColor = System.Drawing.Color.Transparent;
-            this.btnNovoCarro.FlatAppearance.BorderSize = 0;
-            this.btnNovoCarro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
-            this.btnNovoCarro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoCarro.Location = new System.Drawing.Point(192, 93);
-            this.btnNovoCarro.Name = "btnNovoCarro";
-            this.btnNovoCarro.Size = new System.Drawing.Size(89, 40);
-            this.btnNovoCarro.TabIndex = 55;
-            this.btnNovoCarro.Text = "NOVO CARRO";
-            this.btnNovoCarro.UseVisualStyleBackColor = false;
-            this.btnNovoCarro.Click += new System.EventHandler(this.btnNovoCarro_Click);
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(9, 210);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "ATENÇÃO:\r\nA data utilizada para o agendamento é aquela que\r\nesta selecionada no c" +
+        "alendario,\r\ntenha certeza de selecionar a data;");
             // 
             // FrmAgenda
             // 
@@ -519,10 +515,10 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefreshPlaca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,7 +550,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLocalizar;
         private System.Windows.Forms.Button btnSomenteAgendar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxRefreshPlaca;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Label lblID;

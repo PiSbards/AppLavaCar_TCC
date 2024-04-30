@@ -359,7 +359,6 @@
             // btnCheckOut
             // 
             this.btnCheckOut.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckOut.FlatAppearance.BorderSize = 0;
             this.btnCheckOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

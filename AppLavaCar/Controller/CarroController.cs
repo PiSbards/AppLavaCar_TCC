@@ -24,7 +24,7 @@ namespace AppLavaCar.Controller
             {
                 Carro carro = new Carro();
                 carro.id = (int)dr["id"];
-                carro.placaCarro = dr["plcaCarro"].ToString();
+                carro.placaCarro = dr["placaCarro"].ToString();
                 carro.nomeDono = dr["nomeDono"].ToString();
                 carro.cpfDono = dr["cpfDono"].ToString();
                 carro.marca = dr["marca"].ToString();
@@ -128,19 +128,19 @@ namespace AppLavaCar.Controller
             conn.Close();
             return false;
         }
-        public MySqlDataAdapter CarregaCbxCarro(string cpfDono)
+        public List<string> CarregaCbxCarro(string cpfDono)
         {            
-            string sql = "SELECT * FROM carro WHERE cpfDono=@cpfDono";
+            string sql = "SELECT * FROM carro WHERE cpfDono='"+cpfDono+"'";
             conn.Open();
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                cmd.Parameters.Add("@cpfDono", MySqlDbType.VarChar).Value = cpfDono;
-                cmd.CommandType = CommandType.Text;
-            };            
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "placaCarro");  
-            return da;
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            MySqlDataReader dr = cmd.ExecuteReader();
+            List<string> list = new List<string>();
+            while (dr.Read())
+            {               
+                list.Add(dr["placaCarro"].ToString());
+            }
+            return list;
         }
     }
 }

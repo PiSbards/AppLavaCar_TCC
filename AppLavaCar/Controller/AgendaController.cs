@@ -63,7 +63,7 @@ namespace AppLavaCar.Controller
         }        
         public void AlterarAgendamento(int id, string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
         {
-            string sql = "UPDATE agendamento SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento,placaCarro=@placaCarro WHERE id=@id";
+            string sql = "UPDATE agenda SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento,placaCarro=@placaCarro WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -85,14 +85,14 @@ namespace AppLavaCar.Controller
         }
         public void AgendarCliente(string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
         {
-            string sql = "INSERT INTO agenda(nome,cpf,telefone,placaCarro,tipoTratamento,agendamento) VALUES(@nome,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento)";
+            string sql = "INSERT INTO agenda(nomeCliente,cpf,telefone,placaCarro,tipoTratamento,agendamento) VALUES(@nomeCliente,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento)";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
             }            
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;

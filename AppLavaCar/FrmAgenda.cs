@@ -61,6 +61,7 @@ namespace AppLavaCar
             lblData.Text = "";
             cbxTipo.Text = "";
             cboHoraAgenda.Text = "00:00";
+            cbxPlaca.Items.Clear();
             this.txtNome.Focus();
         }
 
@@ -87,6 +88,7 @@ namespace AppLavaCar
                         lblData.Text = "";
                         cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
+                        cbxPlaca.Items.Clear();
                         this.txtNome.Focus();
                         return;
                     }
@@ -105,6 +107,7 @@ namespace AppLavaCar
                         lblData.Text = "";
                         cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
+                        cbxPlaca.Items.Clear();
                         this.txtNome.Focus();
                         return;
                     }
@@ -124,6 +127,7 @@ namespace AppLavaCar
                             lblData.Text = "";
                             cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
+                            cbxPlaca.Items.Clear();
                             this.txtNome.Focus();
                             return;
                         }
@@ -137,7 +141,7 @@ namespace AppLavaCar
                             agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text, mtxtTelefone.Text.Trim(),
                                 cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(), Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
                             MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" +Environment.NewLine+
-                                $"Informações: {dataHorario.ToString("dd/mm/yyyy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             lblID.Text = "";
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -148,6 +152,7 @@ namespace AppLavaCar
                             lblData.Text = "";
                             cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
+                            cbxPlaca.Items.Clear();
                             this.txtNome.Focus();
                         }
                     }
@@ -167,6 +172,7 @@ namespace AppLavaCar
                         lblData.Text = "";
                         cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
+                        cbxPlaca.Items.Clear();
                         this.txtNome.Focus();
                         return;
                     }
@@ -184,6 +190,7 @@ namespace AppLavaCar
                         lblData.Text = "";
                         cbxTipo.Text = "";
                         cboHoraAgenda.Text = "00:00";
+                        cbxPlaca.Items.Clear();
                         this.txtNome.Focus();
                         return;
                     }
@@ -204,11 +211,12 @@ namespace AppLavaCar
                             lblData.Text = "";
                             cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
+                            cbxPlaca.Items.Clear();
                             this.txtNome.Focus();
                             return;
                         }
                         else
-                        {/* erro de formatação com o BD, provavel controller.inserir -- Mexi mas tem que testar...*/
+                        {
                             DateTime dataHorario = Convert.ToDateTime(lblData.Text.Trim() + " "+cboHoraAgenda.Text.Trim());
                             
                             controller.Inserir(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim());
@@ -217,7 +225,7 @@ namespace AppLavaCar
                                 Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
 
                             MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" + Environment.NewLine+
-                                $"Informações: {dataHorario.ToString("dd/MM/yyyy g")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             lblID.Text = "";
                             txtNome.Text = "";
                             mtxtCPF.Text = "";
@@ -264,10 +272,11 @@ namespace AppLavaCar
                 mtxtTelefone.Text = cliente.telefone;
 
                 CarroController carro = new CarroController();
-                cbxPlaca.DataSource = carro.CarregaCbxCarro(mtxtCPF.Text);                
-                cbxPlaca.ValueMember = "placaCarro";
-                cbxPlaca.DisplayMember = "placaCarro";
-
+                List<string> li = carro.CarregaCbxCarro(mtxtCPF.Text);
+                foreach (string placa in li)
+                {
+                    cbxPlaca.Items.Add(placa);
+                }
             }
             catch (Exception)
             {
@@ -286,7 +295,7 @@ namespace AppLavaCar
                 agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim(), cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(),
                     Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
                 MessageBox.Show(this, "Agendamento efetuado com sucesso!" + Environment.NewLine +
-                    $"Informações: {dataHorario.ToString("dd/mm/yyyy g")}", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblID.Text = "";
                 txtNome.Text = "";
                 mtxtCPF.Text = "";
@@ -411,23 +420,25 @@ namespace AppLavaCar
             if (mtxtCPF.Text == "")
             {
                 FrmCarro carro = new FrmCarro();
-                carro.Show();
-                this.Refresh();
+                carro.Show();                
             }
             else
             {
                 FrmCarro carro = new FrmCarro(mtxtCPF.Text,txtNome.Text);
-                carro.Show();
-                this.Refresh();
+                carro.Show();                
             }
         }
 
         private void mtxtCPF_Leave(object sender, EventArgs e)
         {
+                    
+        }
+
+        private void pbxRefreshPlaca_Click(object sender, EventArgs e)
+        {
+            cbxPlaca.Items.Clear();
             CarroController carro = new CarroController();
-            cbxPlaca.DataSource = carro.CarregaCbxCarro(mtxtCPF.Text);
-            cbxPlaca.ValueMember = "placaCarro";
-            cbxPlaca.DisplayMember = "placaCarro";
+            cbxPlaca.Items.Add(carro.CarregaCbxCarro(mtxtCPF.Text));
         }
     }
 }

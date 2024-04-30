@@ -260,5 +260,8 @@
   <ItemGroup>
     <Folder Include="Fotos\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

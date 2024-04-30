@@ -127,7 +127,7 @@ namespace AppLavaCar
             {
                 DataGridViewRow row = this.dgvCliente.Rows[e.RowIndex];
                 this.dgvCliente.Rows[e.RowIndex].Selected = true;
-                if (row.Cells[2].Value.ToString().Length == 11)
+                if (row.Cells[2].Value.ToString().Length == 14)
                 {
                     chbxCNPJ.Checked = false;
                 }
@@ -271,9 +271,9 @@ namespace AppLavaCar
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dgvCliente.Rows[e.RowIndex];
-                this.dgvCliente.Rows[e.RowIndex].Selected = true;
-                if (row.Cells[3].Value.ToString().Length == 11)
+                DataGridViewRow row = this.dgvCarro.Rows[e.RowIndex];
+                this.dgvCarro.Rows[e.RowIndex].Selected = true;
+                if (row.Cells[3].Value.ToString().Length == 14)
                 {
                     chbxCnpjCarro.Checked = false;
                 }

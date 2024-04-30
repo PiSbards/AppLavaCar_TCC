@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.GraficoSemana = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GraficoMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,6 +55,8 @@
             this.btnCliente2 = new System.Windows.Forms.Button();
             this.btnFunc2 = new System.Windows.Forms.Button();
             this.PTimer = new System.Windows.Forms.Panel();
+            this.lblAgendamento = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblTempoEstimado = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.dgvAgendamento = new System.Windows.Forms.DataGridView();
             this.lblChefe = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblAgendamento = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoSemana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoMes)).BeginInit();
             this.MenuBarra.SuspendLayout();
@@ -86,16 +86,16 @@
             // GraficoSemana
             // 
             this.GraficoSemana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "ChartArea1";
-            this.GraficoSemana.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.GraficoSemana.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.GraficoSemana.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.GraficoSemana.Legends.Add(legend1);
             this.GraficoSemana.Location = new System.Drawing.Point(836, 509);
             this.GraficoSemana.Name = "GraficoSemana";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.GraficoSemana.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.GraficoSemana.Series.Add(series1);
             this.GraficoSemana.Size = new System.Drawing.Size(300, 300);
             this.GraficoSemana.TabIndex = 0;
             this.GraficoSemana.Text = "Carros Semanais";
@@ -103,16 +103,16 @@
             // GraficoMes
             // 
             this.GraficoMes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.GraficoMes.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.GraficoMes.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.GraficoMes.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.GraficoMes.Legends.Add(legend2);
             this.GraficoMes.Location = new System.Drawing.Point(1180, 509);
             this.GraficoMes.Name = "GraficoMes";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.GraficoMes.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.GraficoMes.Series.Add(series2);
             this.GraficoMes.Size = new System.Drawing.Size(300, 300);
             this.GraficoMes.TabIndex = 2;
             this.GraficoMes.Text = "chart2";
@@ -269,7 +269,7 @@
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(190, 44);
             this.btnCheckOut.TabIndex = 14;
-            this.btnCheckOut.Text = "CHECK-OUT";
+            this.btnCheckOut.Text = "ENTREGA CARRO";
             this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
@@ -390,6 +390,25 @@
             this.PTimer.Name = "PTimer";
             this.PTimer.Size = new System.Drawing.Size(560, 259);
             this.PTimer.TabIndex = 6;
+            // 
+            // lblAgendamento
+            // 
+            this.lblAgendamento.AutoSize = true;
+            this.lblAgendamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgendamento.Location = new System.Drawing.Point(350, 171);
+            this.lblAgendamento.Name = "lblAgendamento";
+            this.lblAgendamento.Size = new System.Drawing.Size(0, 16);
+            this.lblAgendamento.TabIndex = 48;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(340, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 16);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "AGENDAMENTO:";
             // 
             // lblTimer
             // 
@@ -568,25 +587,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lblAgendamento
-            // 
-            this.lblAgendamento.AutoSize = true;
-            this.lblAgendamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgendamento.Location = new System.Drawing.Point(350, 171);
-            this.lblAgendamento.Name = "lblAgendamento";
-            this.lblAgendamento.Size = new System.Drawing.Size(0, 16);
-            this.lblAgendamento.TabIndex = 48;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(340, 146);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 16);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "AGENDAMENTO:";
             // 
             // FrmPrincipal
             // 

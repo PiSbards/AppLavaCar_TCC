@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppLavaCar.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace AppLavaCar
         public FrmCarro(string cpf, string nome)
         {
             InitializeComponent();
-            if (cpf.Length > 11)
+            if (cpf.Length > 14)
             {
                 chbxCNPJ.Checked = true;                
             }
@@ -53,7 +54,9 @@ namespace AppLavaCar
                 MessageBox.Show("Por favor, preencha todos os campos","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
-
+            CarroController car = new CarroController();
+            car.Inserir(txtPlaca.Text,txtNomeDono.Text,mtxtCPF.Text,txtMarca.Text,txtModelo.Text);
+            MessageBox.Show("Carro inserido com sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

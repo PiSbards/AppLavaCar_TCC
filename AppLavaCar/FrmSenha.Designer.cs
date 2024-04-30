@@ -95,8 +95,7 @@
             // btnMudar
             // 
             this.btnMudar.BackColor = System.Drawing.Color.Transparent;
-            this.btnMudar.FlatAppearance.BorderSize = 0;
-            this.btnMudar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnMudar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnMudar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMudar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMudar.Location = new System.Drawing.Point(77, 311);
