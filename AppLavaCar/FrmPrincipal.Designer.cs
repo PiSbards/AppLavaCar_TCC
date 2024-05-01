@@ -568,6 +568,7 @@
             this.dgvAgendamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgendamento.Location = new System.Drawing.Point(83, 20);
             this.dgvAgendamento.Name = "dgvAgendamento";
+            this.dgvAgendamento.ReadOnly = true;
             this.dgvAgendamento.Size = new System.Drawing.Size(404, 340);
             this.dgvAgendamento.TabIndex = 7;
             this.dgvAgendamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellClick);

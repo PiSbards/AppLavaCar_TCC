@@ -65,6 +65,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxRefreshPlaca)).BeginInit();
@@ -75,7 +76,7 @@
             // 
             // Calendario
             // 
-            this.Calendario.Location = new System.Drawing.Point(9, 55);
+            this.Calendario.Location = new System.Drawing.Point(9, 86);
             this.Calendario.Name = "Calendario";
             this.Calendario.ShowToday = false;
             this.Calendario.TabIndex = 0;
@@ -462,6 +463,7 @@
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgenda.Location = new System.Drawing.Point(9, 482);
             this.dgvAgenda.Name = "dgvAgenda";
+            this.dgvAgenda.ReadOnly = true;
             this.dgvAgenda.Size = new System.Drawing.Size(759, 266);
             this.dgvAgenda.TabIndex = 19;
             this.dgvAgenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellClick);
@@ -483,7 +485,7 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 210);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 241);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -492,12 +494,24 @@
             this.toolTip1.SetToolTip(this.pictureBox2, "ATENÇÃO:\r\nA data utilizada para o agendamento é aquela que\r\nesta selecionada no c" +
         "alendario,\r\ntenha certeza de selecionar a data;");
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 16);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "SELECIONE UMA DATA:";
+            // 
             // FrmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 757);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.dgvAgenda);
             this.Controls.Add(this.btnVoltar);
@@ -520,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -560,5 +575,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbxPlaca;
         private System.Windows.Forms.Button btnNovoCarro;
+        private System.Windows.Forms.Label label2;
     }
 }

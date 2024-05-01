@@ -43,7 +43,7 @@ namespace AppLavaCar.Controller
             string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = @data";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add(new MySqlParameter("data",data));
+            cmd.Parameters.Add(new MySqlParameter("@data",data));
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -63,7 +63,8 @@ namespace AppLavaCar.Controller
         }        
         public void AlterarAgendamento(int id, string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
         {
-            string sql = "UPDATE agenda SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento,placaCarro=@placaCarro WHERE id=@id";
+            string sql = "UPDATE agenda SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento," +
+                "placaCarro=@placaCarro,agendamento=@agendamento WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -106,7 +107,8 @@ namespace AppLavaCar.Controller
         }
         public void ExcluirAgendamento(int id)
         {
-            string sql = "DELETE * FROM agenda WHERE id='" + id + "'";
+            string sql = "DELETE FROM agenda WHERE id='" + id + "'";
+            conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();

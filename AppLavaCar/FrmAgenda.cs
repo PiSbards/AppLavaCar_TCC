@@ -329,7 +329,7 @@ namespace AppLavaCar
                 agendaController.AlterarAgendamento(Convert.ToInt32(lblID.Text.Trim()), txtNome.Text, mtxtCPF.Text.Trim(),
                     mtxtTelefone.Text,cbxPlaca.Text, cbxTipo.Text, Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm")));
                 MessageBox.Show(this,"Agendamento atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Agenda> li = agendaController.listaAgendaDia();
+                List<Agenda> li = agendaController.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
                 dgvAgenda.DataSource = li;
                 lblID.Text = "";
                 txtNome.Text = "";
@@ -353,15 +353,14 @@ namespace AppLavaCar
         {
             if (e.RowIndex >= 0)
             {
-                ClienteController cli = new ClienteController();
-                Cliente cliente = new Cliente();
                 Carro carro = new Carro();
                 CarroController car = new CarroController();
+
                 AgendaController agendaController = new AgendaController();
                 Agenda agenda = new Agenda();
                 DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
                 this.dgvAgenda.Rows[e.RowIndex].Selected = true;                
-                if (row.Cells[2].Value.ToString().Length == 11)
+                if (row.Cells[2].Value.ToString().Length == 14)
                 {
                     chbxCNPJ.Checked = false;
                 }
@@ -369,14 +368,18 @@ namespace AppLavaCar
                 {
                     chbxCNPJ.Checked = true;
                 }
-                lblID.Text = row.Cells[0].Value.ToString();
-                cliente = cli.Localizar(row.Cells[2].Value.ToString());
-                agenda = agendaController.localizarAgenda(Convert.ToInt32(row.Cells[0].Value));
-                carro = car.LocalizarPelaPlaca(row.Cells[4].Value.ToString());
+                lblID.Text = row.Cells[0].Value.ToString();                
+                agenda = agendaController.localizarAgenda(Convert.ToInt32(lblID.Text));
+                string placa = row.Cells[5].Value.ToString();
+                carro = car.LocalizarPelaPlaca(placa);
+
+                txtNome.Text = row.Cells[1].Value.ToString();
+                mtxtCPF.Text = row.Cells[2].Value.ToString();
+                mtxtTelefone.Text = row.Cells[3].Value.ToString();
+
                 txtMarca.Text = carro.marca.ToString();
                 txtModelo.Text = carro.modelo.ToString();
-                txtNome.Text = cliente.nome.ToString();
-                mtxtCPF.Text = cliente.cpf.ToString();
+
                 cbxPlaca.Text = agenda.placaCarro.ToString();
                 cbxTipo.Text = agenda.tipoTratamento.ToString();
                 var data = agenda.agendamento;
@@ -404,6 +407,8 @@ namespace AppLavaCar
                 return;
             }
             agenda.ExcluirAgendamento(Convert.ToInt32(lblID.Text));
+            List<Agenda> li = agenda.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
+            dgvAgenda.DataSource = li;
             MessageBox.Show("Agendamento cancelado com sucesso!","INFROMAÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 

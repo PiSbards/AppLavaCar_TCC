@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security;
@@ -133,25 +134,26 @@ namespace AppLavaCar
                 string foto3 = txtFoto3.Text.Replace(" ", "");
                 string foto4 = txtFoto4.Text.Replace(" ", "");
                 string foto5 = txtFoto5.Text.Replace(" ", "");
+                string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
                 if (pbxFoto1.ImageLocation != null)
                 {
-                    pbxFoto1.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto1 + ".jpg");
+                    pbxFoto1.Image.Save( caminho + foto1 + ".jpg");
                 }
                 if (pbxFoto2.ImageLocation != null)
                 {
-                    pbxFoto2.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto2 + ".jpg");
+                    pbxFoto2.Image.Save(caminho + foto2 + ".jpg");
                 }
                 if (pbxFoto3.ImageLocation != null)
                 {
-                    pbxFoto3.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto3 + ".jpg");
+                    pbxFoto3.Image.Save(caminho + foto3 + ".jpg");
                 }
                 if (pbxFoto4.ImageLocation != null)
                 {
-                    pbxFoto4.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto4 + ".jpg");
+                    pbxFoto4.Image.Save(caminho + foto4 + ".jpg");
                 }
                 if (pbxFoto5.ImageLocation != null)
                 {
-                    pbxFoto5.Image.Save(@"C:\Users\prsba\Desktop\Repo\AppLavaCar\Fotos" + foto5 + ".jpg");
+                    pbxFoto5.Image.Save(caminho + foto5 + ".jpg");
                 }
                 CheckController check = new CheckController();
                 string defeito;

@@ -184,7 +184,7 @@
             this.panel1.Controls.Add(this.pbxFoto1);
             this.panel1.Location = new System.Drawing.Point(10, 376);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(519, 387);
+            this.panel1.Size = new System.Drawing.Size(530, 387);
             this.panel1.TabIndex = 22;
             // 
             // pictureBox3
@@ -263,7 +263,6 @@
             // btnArquivo
             // 
             this.btnArquivo.BackColor = System.Drawing.Color.Transparent;
-            this.btnArquivo.FlatAppearance.BorderSize = 0;
             this.btnArquivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArquivo.Location = new System.Drawing.Point(174, 9);
@@ -365,9 +364,11 @@
             // 
             // dgvAgenda
             // 
+            this.dgvAgenda.AllowUserToAddRows = false;
             this.dgvAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgenda.Location = new System.Drawing.Point(7, 63);
             this.dgvAgenda.Name = "dgvAgenda";
+            this.dgvAgenda.ReadOnly = true;
             this.dgvAgenda.Size = new System.Drawing.Size(533, 307);
             this.dgvAgenda.TabIndex = 28;
             this.dgvAgenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgenda_CellClick);

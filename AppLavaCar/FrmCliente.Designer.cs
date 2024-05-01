@@ -50,16 +50,16 @@
             this.tcControl = new MetroFramework.Controls.MetroTabControl();
             this.tpCliente = new MetroFramework.Controls.MetroTabPage();
             this.tpCarro = new MetroFramework.Controls.MetroTabPage();
-            this.dgvCarro = new System.Windows.Forms.DataGridView();
-            this.lblIdCarro = new System.Windows.Forms.Label();
-            this.btnEditarCarro = new System.Windows.Forms.Button();
-            this.btnExcluirCarro = new System.Windows.Forms.Button();
-            this.btnLocalizarCarro = new System.Windows.Forms.Button();
+            this.chbxCnpjCarro = new MetroFramework.Controls.MetroCheckBox();
+            this.mktCpfDono = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCpfCarro = new System.Windows.Forms.Label();
             this.txtNomeDono = new System.Windows.Forms.TextBox();
-            this.mktCpfDono = new System.Windows.Forms.MaskedTextBox();
-            this.chbxCnpjCarro = new MetroFramework.Controls.MetroCheckBox();
+            this.dgvCarro = new System.Windows.Forms.DataGridView();
+            this.btnLocalizarCarro = new System.Windows.Forms.Button();
+            this.btnEditarCarro = new System.Windows.Forms.Button();
+            this.btnExcluirCarro = new System.Windows.Forms.Button();
+            this.lblIdCarro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.tcControl.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -73,6 +73,7 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(4, 189);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
             this.dgvCliente.Size = new System.Drawing.Size(523, 209);
             this.dgvCliente.TabIndex = 28;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFunc_CellClick);
@@ -339,26 +340,84 @@
             this.tpCarro.VerticalScrollbarHighlightOnWheel = false;
             this.tpCarro.VerticalScrollbarSize = 10;
             // 
+            // chbxCnpjCarro
+            // 
+            this.chbxCnpjCarro.AutoSize = true;
+            this.chbxCnpjCarro.BackColor = System.Drawing.Color.Transparent;
+            this.chbxCnpjCarro.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.chbxCnpjCarro.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.chbxCnpjCarro.Location = new System.Drawing.Point(299, 77);
+            this.chbxCnpjCarro.Name = "chbxCnpjCarro";
+            this.chbxCnpjCarro.Size = new System.Drawing.Size(59, 19);
+            this.chbxCnpjCarro.TabIndex = 75;
+            this.chbxCnpjCarro.Text = "CNPJ";
+            this.chbxCnpjCarro.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.chbxCnpjCarro.UseSelectable = true;
+            this.chbxCnpjCarro.CheckedChanged += new System.EventHandler(this.chbxCnpjCarro_CheckedChanged);
+            // 
+            // mktCpfDono
+            // 
+            this.mktCpfDono.Location = new System.Drawing.Point(208, 98);
+            this.mktCpfDono.Mask = "999.999.999-99";
+            this.mktCpfDono.Name = "mktCpfDono";
+            this.mktCpfDono.Size = new System.Drawing.Size(127, 20);
+            this.mktCpfDono.TabIndex = 74;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 16);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "NOME DONO:";
+            // 
+            // lblCpfCarro
+            // 
+            this.lblCpfCarro.AutoSize = true;
+            this.lblCpfCarro.BackColor = System.Drawing.Color.Transparent;
+            this.lblCpfCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpfCarro.Location = new System.Drawing.Point(205, 80);
+            this.lblCpfCarro.Name = "lblCpfCarro";
+            this.lblCpfCarro.Size = new System.Drawing.Size(88, 16);
+            this.lblCpfCarro.TabIndex = 71;
+            this.lblCpfCarro.Text = "CPF DONO:";
+            // 
+            // txtNomeDono
+            // 
+            this.txtNomeDono.Location = new System.Drawing.Point(3, 99);
+            this.txtNomeDono.Name = "txtNomeDono";
+            this.txtNomeDono.Size = new System.Drawing.Size(164, 20);
+            this.txtNomeDono.TabIndex = 73;
+            // 
             // dgvCarro
             // 
             this.dgvCarro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvCarro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarro.Location = new System.Drawing.Point(3, 193);
             this.dgvCarro.Name = "dgvCarro";
+            this.dgvCarro.ReadOnly = true;
             this.dgvCarro.Size = new System.Drawing.Size(521, 208);
             this.dgvCarro.TabIndex = 63;
             this.dgvCarro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarro_CellClick);
             // 
-            // lblIdCarro
+            // btnLocalizarCarro
             // 
-            this.lblIdCarro.AutoSize = true;
-            this.lblIdCarro.BackColor = System.Drawing.Color.Transparent;
-            this.lblIdCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdCarro.ForeColor = System.Drawing.Color.Transparent;
-            this.lblIdCarro.Location = new System.Drawing.Point(126, 460);
-            this.lblIdCarro.Name = "lblIdCarro";
-            this.lblIdCarro.Size = new System.Drawing.Size(0, 16);
-            this.lblIdCarro.TabIndex = 73;
+            this.btnLocalizarCarro.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalizarCarro.BackgroundImage = global::AppLavaCar.Properties.Resources.lupa;
+            this.btnLocalizarCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLocalizarCarro.FlatAppearance.BorderSize = 0;
+            this.btnLocalizarCarro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnLocalizarCarro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocalizarCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalizarCarro.Location = new System.Drawing.Point(173, 20);
+            this.btnLocalizarCarro.Name = "btnLocalizarCarro";
+            this.btnLocalizarCarro.Size = new System.Drawing.Size(44, 44);
+            this.btnLocalizarCarro.TabIndex = 70;
+            this.btnLocalizarCarro.UseVisualStyleBackColor = false;
+            this.btnLocalizarCarro.Click += new System.EventHandler(this.btnLocalizarCarro_Click);
             // 
             // btnEditarCarro
             // 
@@ -390,73 +449,16 @@
             this.btnExcluirCarro.UseVisualStyleBackColor = false;
             this.btnExcluirCarro.Click += new System.EventHandler(this.btnExcluirCarro_Click);
             // 
-            // btnLocalizarCarro
+            // lblIdCarro
             // 
-            this.btnLocalizarCarro.BackColor = System.Drawing.Color.Transparent;
-            this.btnLocalizarCarro.BackgroundImage = global::AppLavaCar.Properties.Resources.lupa;
-            this.btnLocalizarCarro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLocalizarCarro.FlatAppearance.BorderSize = 0;
-            this.btnLocalizarCarro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnLocalizarCarro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLocalizarCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLocalizarCarro.Location = new System.Drawing.Point(173, 20);
-            this.btnLocalizarCarro.Name = "btnLocalizarCarro";
-            this.btnLocalizarCarro.Size = new System.Drawing.Size(44, 44);
-            this.btnLocalizarCarro.TabIndex = 70;
-            this.btnLocalizarCarro.UseVisualStyleBackColor = false;
-            this.btnLocalizarCarro.Click += new System.EventHandler(this.btnLocalizarCarro_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 16);
-            this.label2.TabIndex = 72;
-            this.label2.Text = "NOME DONO:";
-            // 
-            // lblCpfCarro
-            // 
-            this.lblCpfCarro.AutoSize = true;
-            this.lblCpfCarro.BackColor = System.Drawing.Color.Transparent;
-            this.lblCpfCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpfCarro.Location = new System.Drawing.Point(205, 80);
-            this.lblCpfCarro.Name = "lblCpfCarro";
-            this.lblCpfCarro.Size = new System.Drawing.Size(88, 16);
-            this.lblCpfCarro.TabIndex = 71;
-            this.lblCpfCarro.Text = "CPF DONO:";
-            // 
-            // txtNomeDono
-            // 
-            this.txtNomeDono.Location = new System.Drawing.Point(3, 99);
-            this.txtNomeDono.Name = "txtNomeDono";
-            this.txtNomeDono.Size = new System.Drawing.Size(164, 20);
-            this.txtNomeDono.TabIndex = 73;
-            // 
-            // mktCpfDono
-            // 
-            this.mktCpfDono.Location = new System.Drawing.Point(208, 98);
-            this.mktCpfDono.Mask = "999.999.999-99";
-            this.mktCpfDono.Name = "mktCpfDono";
-            this.mktCpfDono.Size = new System.Drawing.Size(127, 20);
-            this.mktCpfDono.TabIndex = 74;
-            // 
-            // chbxCnpjCarro
-            // 
-            this.chbxCnpjCarro.AutoSize = true;
-            this.chbxCnpjCarro.BackColor = System.Drawing.Color.Transparent;
-            this.chbxCnpjCarro.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.chbxCnpjCarro.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.chbxCnpjCarro.Location = new System.Drawing.Point(299, 77);
-            this.chbxCnpjCarro.Name = "chbxCnpjCarro";
-            this.chbxCnpjCarro.Size = new System.Drawing.Size(59, 19);
-            this.chbxCnpjCarro.TabIndex = 75;
-            this.chbxCnpjCarro.Text = "CNPJ";
-            this.chbxCnpjCarro.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.chbxCnpjCarro.UseSelectable = true;
-            this.chbxCnpjCarro.CheckedChanged += new System.EventHandler(this.chbxCnpjCarro_CheckedChanged);
+            this.lblIdCarro.AutoSize = true;
+            this.lblIdCarro.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdCarro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdCarro.ForeColor = System.Drawing.Color.Transparent;
+            this.lblIdCarro.Location = new System.Drawing.Point(126, 460);
+            this.lblIdCarro.Name = "lblIdCarro";
+            this.lblIdCarro.Size = new System.Drawing.Size(0, 16);
+            this.lblIdCarro.TabIndex = 73;
             // 
             // FrmCliente
             // 

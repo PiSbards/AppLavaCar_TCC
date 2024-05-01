@@ -98,8 +98,8 @@ namespace AppLavaCar.Controller
             while (dr.Read())
             {                
                 cliente.id = (int)dr["id"];
-                cliente.cpf = dr["cpf"].ToString();
                 cliente.nome = dr["nome"].ToString();
+                cliente.cpf = dr["cpf"].ToString();
                 cliente.telefone = dr["telefone"].ToString();
                 
             }

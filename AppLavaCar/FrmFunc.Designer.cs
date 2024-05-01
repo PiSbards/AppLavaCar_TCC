@@ -67,6 +67,7 @@
             this.dgvFunc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFunc.Location = new System.Drawing.Point(12, 324);
             this.dgvFunc.Name = "dgvFunc";
+            this.dgvFunc.ReadOnly = true;
             this.dgvFunc.Size = new System.Drawing.Size(915, 266);
             this.dgvFunc.TabIndex = 9;
             this.dgvFunc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFunc_CellClick);

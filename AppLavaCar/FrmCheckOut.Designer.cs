@@ -73,6 +73,7 @@
             this.dgvCheckout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCheckout.Location = new System.Drawing.Point(4, 452);
             this.dgvCheckout.Name = "dgvCheckout";
+            this.dgvCheckout.ReadOnly = true;
             this.dgvCheckout.Size = new System.Drawing.Size(968, 269);
             this.dgvCheckout.TabIndex = 0;
             this.dgvCheckout.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckout_CellClick);

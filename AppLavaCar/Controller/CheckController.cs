@@ -46,8 +46,8 @@ namespace AppLavaCar.Controller
         public void InserirCheckIn(string nome, string cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
             DateTime agendamento, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
         {
-            string sql = "INSERT INTO checkin(nome,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,observacao,imagem1" +
-                "imagem2,imagem3,imagem4,imagem5) VALUES(@nome,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento," +
+            string sql = "INSERT INTO checkin(nomeCliente,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,observacao,imagem1" +
+                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento," +
                 "@observacao1,@imagem1,@imagem2,@imagem3,@imagem4,@imagem5)";
             if (conn.State == ConnectionState.Closed)
             {
@@ -55,7 +55,7 @@ namespace AppLavaCar.Controller
             }
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@defeitos",MySqlDbType.VarChar).Value = defeitos;
@@ -121,8 +121,8 @@ namespace AppLavaCar.Controller
         public void InserirCheckOut(string nome, string cpf, string telefone, string defeitos, string clienteCiente, string tipoTratamento, string placaCarro, 
             DateTime agendamento,string pagamento, string observacao, string imagem1,string imagem2, string imagem3, string imagem4, string imagem5)
         {
-            string sql = "INSERT INTO checkout(nome,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,pagamento,observacao1,imagem1" +
-                "imagem2,imagem3,imagem4,imagem5) VALUES(@nome,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento,@pagamento" +
+            string sql = "INSERT INTO checkout(nomeCliente,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,pagamento,observacao1,imagem1" +
+                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento,@pagamento" +
                 "@observacao,@imagem1,@imagem2,@imagem3,@imagem4,@imagem5)";
             if (conn.State == ConnectionState.Closed)
             {
@@ -130,7 +130,7 @@ namespace AppLavaCar.Controller
             }
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
                 cmd.Parameters.Add("@defeitos", MySqlDbType.VarChar).Value = defeitos;
