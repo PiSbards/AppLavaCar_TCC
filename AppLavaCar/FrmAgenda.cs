@@ -44,9 +44,9 @@ namespace AppLavaCar
             ControllerGeral geral= new ControllerGeral();
             Agenda agenda = new Agenda();
             List<Agenda> li = controller.listaAgendaDia();
+            dgvAgenda.DataSource = li;            
             DateTime[] date = geral.BoldDates();
             Calendario.BoldedDates = date;
-            dgvAgenda.DataSource = li;            
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
@@ -153,6 +153,9 @@ namespace AppLavaCar
                             cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
                             cbxPlaca.Items.Clear();
+                            ControllerGeral geral = new ControllerGeral();
+                            DateTime[] date = geral.BoldDates();
+                            Calendario.BoldedDates = date;
                             this.txtNome.Focus();
                         }
                     }
@@ -236,6 +239,9 @@ namespace AppLavaCar
                             lblData.Text = "";
                             cbxTipo.Text = "";
                             cboHoraAgenda.Text = "00:00";
+                            ControllerGeral geral = new ControllerGeral();
+                            DateTime[] date = geral.BoldDates();
+                            Calendario.BoldedDates = date;
                             this.txtNome.Focus();
                         }
                     }
@@ -306,6 +312,9 @@ namespace AppLavaCar
                 lblData.Text = "";
                 cbxTipo.Text = "";
                 cboHoraAgenda.Text = "00:00";
+                ControllerGeral geral = new ControllerGeral();
+                DateTime[] date = geral.BoldDates();
+                Calendario.BoldedDates = date;
                 this.txtNome.Focus();
             }
             catch (Exception er)
@@ -341,6 +350,9 @@ namespace AppLavaCar
                 lblData.Text = "";
                 cbxTipo.Text = "";
                 cboHoraAgenda.Text = "00:00";
+                ControllerGeral geral = new ControllerGeral();
+                DateTime[] date = geral.BoldDates();
+                Calendario.BoldedDates = date;
                 this.txtNome.Focus();
             }
             catch (Exception er)
@@ -404,6 +416,9 @@ namespace AppLavaCar
                 lblData.Text = "";
                 cbxTipo.Text = "";
                 cboHoraAgenda.Text = "00:00";
+                ControllerGeral geral = new ControllerGeral();
+                DateTime[] date = geral.BoldDates();
+                Calendario.BoldedDates = date;
                 return;
             }
             agenda.ExcluirAgendamento(Convert.ToInt32(lblID.Text));
@@ -436,14 +451,18 @@ namespace AppLavaCar
 
         private void mtxtCPF_Leave(object sender, EventArgs e)
         {
-                    
+            
         }
 
         private void pbxRefreshPlaca_Click(object sender, EventArgs e)
         {
             cbxPlaca.Items.Clear();
             CarroController carro = new CarroController();
-            cbxPlaca.Items.Add(carro.CarregaCbxCarro(mtxtCPF.Text));
+            List<string> li = carro.CarregaCbxCarro(mtxtCPF.Text);
+            foreach (string placa in li)
+            {
+                cbxPlaca.Items.Add(placa);
+            }
         }
     }
 }
