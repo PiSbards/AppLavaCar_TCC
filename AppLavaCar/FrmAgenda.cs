@@ -63,197 +63,7 @@ namespace AppLavaCar
             cboHoraAgenda.Text = "00:00";
             cbxPlaca.Items.Clear();
             this.txtNome.Focus();
-        }
-
-        private void btnAgendar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ClienteController controller = new ClienteController();
-                AgendaController agendaController= new AgendaController();
-                Cliente cliente = new Cliente();
-                VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
-                if (chbxCNPJ.Checked == true)
-                {
-                    if (txtNome.Text == ""|| mtxtCPF.Text == ""|| mtxtTelefone.Text==""|| cbxPlaca.Text==""|| txtMarca.Text==""||txtModelo.Text==""|| cbxTipo.Text == ""|| cboHoraAgenda.Text == "00:00")
-                    {
-                        MessageBox.Show("Por favor, preencha todos os campos!","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                        lblID.Text = "";
-                        txtNome.Text = "";
-                        mtxtCPF.Text = "";
-                        mtxtTelefone.Text = "";
-                        txtModelo.Text = "";
-                        txtMarca.Text = "";
-                        cbxPlaca.Text = "";
-                        lblData.Text = "";
-                        cbxTipo.Text = "";
-                        cboHoraAgenda.Text = "00:00";
-                        cbxPlaca.Items.Clear();
-                        this.txtNome.Focus();
-                        return;
-                    }
-                    
-                    bool result = ve.IsCnpj(mtxtCPF.Text);
-                    if (result == false)
-                    {
-                        MessageBox.Show("CNPJ inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblID.Text = "";
-                        txtNome.Text = "";
-                        mtxtCPF.Text = "";
-                        mtxtTelefone.Text = "";
-                        txtModelo.Text = "";
-                        txtMarca.Text = "";
-                        cbxPlaca.Text = "";
-                        lblData.Text = "";
-                        cbxTipo.Text = "";
-                        cboHoraAgenda.Text = "00:00";
-                        cbxPlaca.Items.Clear();
-                        this.txtNome.Focus();
-                        return;
-                    }
-                    else
-                    {
-                        if (controller.RegistroRepetido(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim()) == true)
-                        {
-                            MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CNPJ e Telefone",
-                                "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            lblID.Text = "";
-                            txtNome.Text = "";
-                            mtxtCPF.Text = "";
-                            mtxtTelefone.Text = "";
-                            txtModelo.Text = "";
-                            txtMarca.Text = "";
-                            cbxPlaca.Text = "";
-                            lblData.Text = "";
-                            cbxTipo.Text = "";
-                            cboHoraAgenda.Text = "00:00";
-                            cbxPlaca.Items.Clear();
-                            this.txtNome.Focus();
-                            return;
-                        }
-                        else
-                        {
-                            DateTime dataHorario = Convert.ToDateTime(lblData.Text+" "+ cboHoraAgenda.Text);
-                            
-
-                            controller.Inserir(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim());
-
-                            agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text, mtxtTelefone.Text.Trim(),
-                                cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(), Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
-                            MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" +Environment.NewLine+
-                                $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            lblID.Text = "";
-                            txtNome.Text = "";
-                            mtxtCPF.Text = "";
-                            mtxtTelefone.Text = "";
-                            txtModelo.Text = "";
-                            txtMarca.Text = "";
-                            cbxPlaca.Text = "";
-                            lblData.Text = "";
-                            cbxTipo.Text = "";
-                            cboHoraAgenda.Text = "00:00";
-                            cbxPlaca.Items.Clear();
-                            ControllerGeral geral = new ControllerGeral();
-                            DateTime[] date = geral.BoldDates();
-                            Calendario.BoldedDates = date;
-                            this.txtNome.Focus();
-                        }
-                    }
-                }
-                else if(chbxCNPJ.Checked == false)
-                {
-                    if (txtNome.Text == "" || mtxtCPF.Text == "" || mtxtTelefone.Text == "" || cbxPlaca.Text == "" || txtMarca.Text == "" || txtModelo.Text == "" || cbxTipo.Text == "" || cboHoraAgenda.Text == "00:00")
-                    {
-                        MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblID.Text = "";
-                        txtNome.Text = "";
-                        mtxtCPF.Text = "";
-                        mtxtTelefone.Text = "";
-                        txtModelo.Text = "";
-                        txtMarca.Text = "";
-                        cbxPlaca.Text = "";
-                        lblData.Text = "";
-                        cbxTipo.Text = "";
-                        cboHoraAgenda.Text = "00:00";
-                        cbxPlaca.Items.Clear();
-                        this.txtNome.Focus();
-                        return;
-                    }
-                    bool result = ve.IsCpf(mtxtCPF.Text);
-                    if (result == false)
-                    {
-                        MessageBox.Show("CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblID.Text = "";
-                        txtNome.Text = "";
-                        mtxtCPF.Text = "";
-                        mtxtTelefone.Text = "";
-                        txtModelo.Text = "";
-                        txtMarca.Text = "";
-                        cbxPlaca.Text = "";
-                        lblData.Text = "";
-                        cbxTipo.Text = "";
-                        cboHoraAgenda.Text = "00:00";
-                        cbxPlaca.Items.Clear();
-                        this.txtNome.Focus();
-                        return;
-                    }
-                    else if(result == true)
-                    {
-                        bool repetido = controller.RegistroRepetido(txtNome.Text, mtxtCPF.Text.Trim(), mtxtTelefone.Text);
-                        if ( repetido == true)
-                        {
-                            MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CPF e telefone",
-                                "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            lblID.Text = "";
-                            txtNome.Text = "";
-                            mtxtCPF.Text = "";
-                            mtxtTelefone.Text = "";
-                            txtModelo.Text = "";
-                            txtMarca.Text = "";
-                            cbxPlaca.Text = "";
-                            lblData.Text = "";
-                            cbxTipo.Text = "";
-                            cboHoraAgenda.Text = "00:00";
-                            cbxPlaca.Items.Clear();
-                            this.txtNome.Focus();
-                            return;
-                        }
-                        else
-                        {
-                            DateTime dataHorario = Convert.ToDateTime(lblData.Text.Trim() + " "+cboHoraAgenda.Text.Trim());
-                            
-                            controller.Inserir(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim());
-
-                            agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim(),cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(),
-                                Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
-
-                            MessageBox.Show("Agendamento efetuado com sucesso! Cliente cadastrado" + Environment.NewLine+
-                                $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            lblID.Text = "";
-                            txtNome.Text = "";
-                            mtxtCPF.Text = "";
-                            mtxtTelefone.Text = "";
-                            txtModelo.Text = "";
-                            txtMarca.Text = "";
-                            cbxPlaca.Text = "";
-                            lblData.Text = "";
-                            cbxTipo.Text = "";
-                            cboHoraAgenda.Text = "00:00";
-                            ControllerGeral geral = new ControllerGeral();
-                            DateTime[] date = geral.BoldDates();
-                            Calendario.BoldedDates = date;
-                            this.txtNome.Focus();
-                        }
-                    }
-                }
-
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        }       
         private void chbxCNPJ_CheckedChanged(object sender, EventArgs e)
         {
             if (chbxCNPJ.Checked == false)
@@ -405,7 +215,7 @@ namespace AppLavaCar
             AgendaController agenda = new AgendaController();
             if (lblID.Text == "")
             {
-                MessageBox.Show("Selecione o agendamento para efetuar o cancelamento", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um agendamento, na tabela,para efetuar o cancelamento", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblID.Text = "";
                 txtNome.Text = "";
                 mtxtCPF.Text = "";
@@ -463,6 +273,12 @@ namespace AppLavaCar
             {
                 cbxPlaca.Items.Add(placa);
             }
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            FrmNovoCliente cliente = new FrmNovoCliente();
+            cliente.Show();
         }
     }
 }

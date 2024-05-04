@@ -364,11 +364,11 @@
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.Color.Black;
-            this.btnCheckOut.Location = new System.Drawing.Point(672, 727);
+            this.btnCheckOut.Location = new System.Drawing.Point(667, 727);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(165, 28);
+            this.btnCheckOut.Size = new System.Drawing.Size(170, 28);
             this.btnCheckOut.TabIndex = 67;
-            this.btnCheckOut.Text = "REALIZAR CHECK-OUT";
+            this.btnCheckOut.Text = "REALIZAR DEVOLUÇÃO";
             this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 

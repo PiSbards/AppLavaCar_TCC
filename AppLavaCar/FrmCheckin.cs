@@ -200,6 +200,11 @@ namespace AppLavaCar
                 cbxNao2.Checked = false;
                 cbxSim.Checked = false;
                 cbxSim2.Checked = false;
+                pbxFoto1.Image = null;
+                pbxFoto2.Image = null;
+                pbxFoto3.Image = null;
+                pbxFoto4.Image = null;
+                pbxFoto5.Image = null;
             }
             catch (Exception er)
             {

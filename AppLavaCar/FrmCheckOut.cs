@@ -78,11 +78,11 @@ namespace AppLavaCar
                 lblDefeito.Text = "";
                 lblClienteCiente.Text = "";
                 txtObservacao.Text = "";
-                pbxFoto1.ImageLocation = null;
-                pbxFoto2.ImageLocation = null;
-                pbxFoto3.ImageLocation = null;
-                pbxFoto4.ImageLocation = null;
-                pbxFoto5.ImageLocation = null;
+                pbxFoto1.Image = null;
+                pbxFoto2.Image = null;
+                pbxFoto3.Image = null;
+                pbxFoto4.Image = null;
+                pbxFoto5.Image = null;
             }
         }
     }

@@ -31,7 +31,7 @@ namespace AppLavaCar.Controller
                 check.tipoTratamento = dr["tipoTratamento"].ToString();
                 check.placaCarro = dr["placaCarro"].ToString();
                 check.agendamento = (DateTime)dr["agendamento"];
-                check.observacao1 = dr["observacao1"].ToString();
+                check.observacao1 = dr["observacao"].ToString();
                 check.imagem1 = dr["imagem1"].ToString();
                 check.imagem2 = dr["imagem2"].ToString();
                 check.imagem3 = dr["imagem3"].ToString();
@@ -46,8 +46,8 @@ namespace AppLavaCar.Controller
         public void InserirCheckIn(string nome, string cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
             DateTime agendamento, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
         {
-            string sql = "INSERT INTO checkin(nomeCliente,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,observacao,imagem1" +
-                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento," +
+            string sql = "INSERT INTO checkin(nomeCliente,cpf,telefone,placaCarro,tipoTratamento,agendamento,clienteCiente,defeitos,observacao,imagem1," +
+                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento,@clienteCiente,@defeitos," +
                 "@observacao1,@imagem1,@imagem2,@imagem3,@imagem4,@imagem5)";
             if (conn.State == ConnectionState.Closed)
             {
@@ -77,7 +77,7 @@ namespace AppLavaCar.Controller
         }
         public void ExcluirCheckin(int id)
         {
-            string sql = "DELETE * FROM checkin WHERE id='" + id + "'";
+            string sql = "DELETE FROM checkin WHERE id='" + id + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -121,9 +121,9 @@ namespace AppLavaCar.Controller
         public void InserirCheckOut(string nome, string cpf, string telefone, string defeitos, string clienteCiente, string tipoTratamento, string placaCarro, 
             DateTime agendamento,string pagamento, string observacao, string imagem1,string imagem2, string imagem3, string imagem4, string imagem5)
         {
-            string sql = "INSERT INTO checkout(nomeCliente,cpf,telefone,defeitos,clienteCiente,tipoTratamento,placaCarro,agendamento,pagamento,observacao1,imagem1" +
-                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@defeitos,@clienteCiente,@tipoTratamento,@placaCarro,@agendamento,@pagamento" +
-                "@observacao,@imagem1,@imagem2,@imagem3,@imagem4,@imagem5)";
+            string sql = "INSERT INTO checkout(nomeCliente,cpf,telefone,placaCarro,tipoTratamento,agendamento,pagamento,clienteCiente,defeitos,observacao,imagem1," +
+                "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento,@pagamento,@clienteCiente,@defeitos," +
+                "@observacao1,@imagem1,@imagem2,@imagem3,@imagem4,@imagem5)";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
