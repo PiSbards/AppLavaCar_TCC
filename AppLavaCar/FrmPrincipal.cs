@@ -147,6 +147,12 @@ namespace AppLavaCar
             CheckController controller = new CheckController();
             List<CheckIn> li = controller.listaCheckin();
             dgvAgendamento.DataSource = li;
+            AgendaController agenda = new AgendaController();
+            List<Agenda> agendamento = agenda.listaAgendaDia();
+            dgvAgendaDoDia.DataSource = agendamento;
+
+            lblData.Text = DateTime.Today.ToString("D");
+            lblAgendamentoDia.Text = agendamento.Count.ToString();
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -262,6 +268,11 @@ namespace AppLavaCar
         {
             FrmCheckOut Checkout = new FrmCheckOut();
             Checkout.Show();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

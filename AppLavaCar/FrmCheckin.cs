@@ -89,7 +89,7 @@ namespace AppLavaCar
                 if (pbxFoto1.ImageLocation == null)
                 {
                     pbxFoto1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pbxFoto1.ImageLocation = imagem;
+                    pbxFoto1.ImageLocation = imagem;                    
                 }
                 else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation == null)
                 {
@@ -134,26 +134,31 @@ namespace AppLavaCar
                 string foto3 = txtFoto3.Text.Replace(" ", "");
                 string foto4 = txtFoto4.Text.Replace(" ", "");
                 string foto5 = txtFoto5.Text.Replace(" ", "");
-                string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
+                string caminho = "@C:\\AppLavaCar\\Fotos";
                 if (pbxFoto1.ImageLocation != null)
                 {
                     pbxFoto1.Image.Save( caminho + foto1 + ".jpg");
+                    foto1 = pbxFoto1.ImageLocation;
                 }
                 if (pbxFoto2.ImageLocation != null)
                 {
                     pbxFoto2.Image.Save(caminho + foto2 + ".jpg");
+                    foto2 = pbxFoto2.ImageLocation;
                 }
                 if (pbxFoto3.ImageLocation != null)
                 {
                     pbxFoto3.Image.Save(caminho + foto3 + ".jpg");
+                    foto3 = pbxFoto3.ImageLocation;
                 }
                 if (pbxFoto4.ImageLocation != null)
                 {
                     pbxFoto4.Image.Save(caminho + foto4 + ".jpg");
+                    foto4 = pbxFoto4.ImageLocation;
                 }
                 if (pbxFoto5.ImageLocation != null)
                 {
                     pbxFoto5.Image.Save(caminho + foto5 + ".jpg");
+                    foto5 = pbxFoto5.ImageLocation;
                 }
                 CheckController check = new CheckController();
                 string defeito;
@@ -222,8 +227,8 @@ namespace AppLavaCar
                 lblNomeCliente.Text = row.Cells[1].Value.ToString();
                 lblCPF.Text = row.Cells[2].Value.ToString();
                 lblTelefone.Text = row.Cells[3].Value.ToString();
-                lblPlacaCarro.Text = row.Cells[4].Value.ToString();
-                lblTipoTratamento.Text = row.Cells[5].Value.ToString();
+                lblPlacaCarro.Text = row.Cells[5].Value.ToString();
+                lblTipoTratamento.Text = row.Cells[4].Value.ToString();
                 lblAgendamento.Text = row.Cells[6].Value.ToString();
             }
         }

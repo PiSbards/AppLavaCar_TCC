@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.GraficoSemana = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GraficoMes = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -75,27 +75,34 @@
             this.dgvAgendamento = new System.Windows.Forms.DataGridView();
             this.lblChefe = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvAgendaDoDia = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblAgendamentoDia = new System.Windows.Forms.Label();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoSemana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoMes)).BeginInit();
             this.MenuBarra.SuspendLayout();
             this.MenuConteudo.SuspendLayout();
             this.PTimer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).BeginInit();
             this.SuspendLayout();
             // 
             // GraficoSemana
             // 
             this.GraficoSemana.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.GraficoSemana.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.GraficoSemana.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.GraficoSemana.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.GraficoSemana.Legends.Add(legend7);
             this.GraficoSemana.Location = new System.Drawing.Point(836, 509);
             this.GraficoSemana.Name = "GraficoSemana";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.GraficoSemana.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.GraficoSemana.Series.Add(series7);
             this.GraficoSemana.Size = new System.Drawing.Size(300, 300);
             this.GraficoSemana.TabIndex = 0;
             this.GraficoSemana.Text = "Carros Semanais";
@@ -103,16 +110,16 @@
             // GraficoMes
             // 
             this.GraficoMes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.GraficoMes.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.GraficoMes.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.GraficoMes.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.GraficoMes.Legends.Add(legend8);
             this.GraficoMes.Location = new System.Drawing.Point(1180, 509);
             this.GraficoMes.Name = "GraficoMes";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.GraficoMes.Series.Add(series4);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.GraficoMes.Series.Add(series8);
             this.GraficoMes.Size = new System.Drawing.Size(300, 300);
             this.GraficoMes.TabIndex = 2;
             this.GraficoMes.Text = "chart2";
@@ -588,19 +595,86 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // dgvAgendaDoDia
+            // 
+            this.dgvAgendaDoDia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAgendaDoDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgendaDoDia.Location = new System.Drawing.Point(83, 480);
+            this.dgvAgendaDoDia.Name = "dgvAgendaDoDia";
+            this.dgvAgendaDoDia.ReadOnly = true;
+            this.dgvAgendaDoDia.Size = new System.Drawing.Size(404, 340);
+            this.dgvAgendaDoDia.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(349, 461);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 16);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "AGENDAMENTOS NO DIA:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(349, 89);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(136, 16);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "CARROS NA LOJA";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(80, 9);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(0, 24);
+            this.lblData.TabIndex = 52;
+            // 
+            // lblAgendamentoDia
+            // 
+            this.lblAgendamentoDia.AutoSize = true;
+            this.lblAgendamentoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgendamentoDia.Location = new System.Drawing.Point(544, 461);
+            this.lblAgendamentoDia.Name = "lblAgendamentoDia";
+            this.lblAgendamentoDia.Size = new System.Drawing.Size(0, 16);
+            this.lblAgendamentoDia.TabIndex = 53;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizar.Location = new System.Drawing.Point(83, 75);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(126, 27);
+            this.btnAtualizar.TabIndex = 54;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1526, 821);
             this.ControlBox = false;
-            this.Controls.Add(this.lblChefe);
+            this.Controls.Add(this.lblAgendamentoDia);
             this.Controls.Add(this.MenuConteudo);
+            this.Controls.Add(this.lblData);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblChefe);
             this.Controls.Add(this.MenuBarra);
             this.Controls.Add(this.GraficoMes);
             this.Controls.Add(this.dgvAgendamento);
             this.Controls.Add(this.PTimer);
             this.Controls.Add(this.GraficoSemana);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvAgendaDoDia);
+            this.Controls.Add(this.btnAtualizar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Movable = false;
@@ -617,6 +691,7 @@
             this.PTimer.ResumeLayout(false);
             this.PTimer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,5 +738,11 @@
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Label lblAgendamento;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgvAgendaDoDia;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblAgendamentoDia;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
