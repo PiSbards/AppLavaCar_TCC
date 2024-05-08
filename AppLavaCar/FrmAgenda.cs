@@ -40,8 +40,8 @@ namespace AppLavaCar
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
-            AgendaController controller = new AgendaController();
             ControllerGeral geral= new ControllerGeral();
+            AgendaController controller = new AgendaController();
             Agenda agenda = new Agenda();
             List<Agenda> li = controller.listaAgendaDia();
             dgvAgenda.DataSource = li;            
@@ -125,6 +125,10 @@ namespace AppLavaCar
                 ControllerGeral geral = new ControllerGeral();
                 DateTime[] date = geral.BoldDates();
                 Calendario.BoldedDates = date;
+                
+                Agenda agenda = new Agenda();
+                List<Agenda> li = agendaController.listaAgendaDia();
+                dgvAgenda.DataSource = li;
                 this.txtNome.Focus();
             }
             catch (Exception er)
@@ -148,6 +152,7 @@ namespace AppLavaCar
                 agendaController.AlterarAgendamento(Convert.ToInt32(lblID.Text.Trim()), txtNome.Text, mtxtCPF.Text.Trim(),
                     mtxtTelefone.Text,cbxPlaca.Text, cbxTipo.Text, Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm")));
                 MessageBox.Show(this,"Agendamento atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 List<Agenda> li = agendaController.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
                 dgvAgenda.DataSource = li;
                 lblID.Text = "";
@@ -228,7 +233,7 @@ namespace AppLavaCar
                 cboHoraAgenda.Text = "00:00";
                 ControllerGeral geral = new ControllerGeral();
                 DateTime[] date = geral.BoldDates();
-                Calendario.BoldedDates = date;
+                Calendario.BoldedDates = date;                
                 return;
             }
             agenda.ExcluirAgendamento(Convert.ToInt32(lblID.Text));

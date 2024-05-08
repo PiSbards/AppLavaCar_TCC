@@ -81,7 +81,7 @@ namespace AppLavaCar
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Title = "Selecionar Imagem...";
-            dialog.Filter = "Arquivos de Imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.pdf|Todos os Arquivos|*.*";
+            dialog.Filter = "Arquivos de Imagem|*.bmp;*.jpg;*.jpeg;*.png;*.gif;|Todos os Arquivos|*.*";
             dialog.Multiselect = true;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -134,31 +134,40 @@ namespace AppLavaCar
                 string foto3 = txtFoto3.Text.Replace(" ", "");
                 string foto4 = txtFoto4.Text.Replace(" ", "");
                 string foto5 = txtFoto5.Text.Replace(" ", "");
-                string caminho = "@C:\\AppLavaCar\\Fotos";
-                if (pbxFoto1.ImageLocation != null)
+                string caminho = "C:\\AppLavaCar\\AppLavaCar\\Fotos";
+                if (pbxFoto1.Image != null && pbxFoto1.Image !=null)
                 {
-                    pbxFoto1.Image.Save( caminho + foto1 + ".jpg");
-                    foto1 = pbxFoto1.ImageLocation;
+                    string novoCaminho = caminho + "\\" + foto1 + ".jpg";
+                    pbxFoto1.Image.Save(novoCaminho);
+                    foto1 = novoCaminho;
                 }
-                if (pbxFoto2.ImageLocation != null)
+                if (pbxFoto2.Image != null && pbxFoto2.Image != null)
                 {
-                    pbxFoto2.Image.Save(caminho + foto2 + ".jpg");
-                    foto2 = pbxFoto2.ImageLocation;
+                    string novoCaminho = caminho + "\\" + foto2 + ".jpg";
+                    pbxFoto2.Image.Save(novoCaminho);
+                    foto2 = novoCaminho;
+
                 }
-                if (pbxFoto3.ImageLocation != null)
+                if (pbxFoto3.Image != null && pbxFoto3.Image != null)
                 {
-                    pbxFoto3.Image.Save(caminho + foto3 + ".jpg");
-                    foto3 = pbxFoto3.ImageLocation;
+                    string novoCaminho = caminho + "\\" + foto3 + ".jpg";
+                    pbxFoto3.Image.Save(novoCaminho);
+                    foto3 = novoCaminho;
+
                 }
-                if (pbxFoto4.ImageLocation != null)
+                if (pbxFoto4.Image != null && pbxFoto4.Image != null)
                 {
-                    pbxFoto4.Image.Save(caminho + foto4 + ".jpg");
-                    foto4 = pbxFoto4.ImageLocation;
+                    string novoCaminho = caminho + "\\" + foto4 + ".jpg";
+                    pbxFoto4.Image.Save(novoCaminho);
+                    foto4 = novoCaminho;
+
                 }
-                if (pbxFoto5.ImageLocation != null)
+                if (pbxFoto5.Image != null && pbxFoto5.Image != null)
                 {
-                    pbxFoto5.Image.Save(caminho + foto5 + ".jpg");
-                    foto5 = pbxFoto5.ImageLocation;
+                    string novoCaminho = caminho + "\\" + foto5 + ".jpg";
+                    pbxFoto5.Image.Save(novoCaminho);
+                    foto5 = novoCaminho;
+
                 }
                 CheckController check = new CheckController();
                 string defeito;

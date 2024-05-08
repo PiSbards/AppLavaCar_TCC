@@ -24,6 +24,12 @@ namespace AppLavaCar
             CheckController controller = new CheckController();
             List<CheckIn> li = controller.listaCheckin();
             dgvCheckout.DataSource = li;
+
+            pbxFoto1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxFoto2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxFoto3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxFoto4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxFoto5.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -45,7 +51,7 @@ namespace AppLavaCar
             lblDefeito.Text = row.Cells[7].Value.ToString();
             lblClienteCiente.Text = row.Cells[8].Value.ToString();
             txtObservacao.Text = row.Cells[9].Value.ToString();
-            pbxFoto1.ImageLocation = row.Cells[10].Value.ToString();
+            pbxFoto1.ImageLocation = row.Cells[10].Value.ToString();            
             pbxFoto2.ImageLocation = row.Cells[11].Value.ToString();
             pbxFoto3.ImageLocation = row.Cells[12].Value.ToString();
             pbxFoto4.ImageLocation = row.Cells[13].Value.ToString();

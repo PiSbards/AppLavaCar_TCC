@@ -265,7 +265,7 @@
             this.btnArquivo.BackColor = System.Drawing.Color.Transparent;
             this.btnArquivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArquivo.Location = new System.Drawing.Point(174, 9);
+            this.btnArquivo.Location = new System.Drawing.Point(67, 3);
             this.btnArquivo.Name = "btnArquivo";
             this.btnArquivo.Size = new System.Drawing.Size(121, 30);
             this.btnArquivo.TabIndex = 7;
@@ -294,9 +294,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "FOTOS/ARQUIVO:";
+            this.label1.Text = "FOTOS:";
             // 
             // pbxFoto1
             // 

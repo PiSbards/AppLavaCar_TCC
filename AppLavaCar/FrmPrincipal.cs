@@ -272,7 +272,15 @@ namespace AppLavaCar
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            CheckIn check = new CheckIn();
+            CheckController controller = new CheckController();
+            List<CheckIn> li = controller.listaCheckin();
+            dgvAgendamento.DataSource = li;
+            AgendaController agenda = new AgendaController();
+            List<Agenda> agendamento = agenda.listaAgendaDia();
+            dgvAgendaDoDia.DataSource = agendamento;
+            
+            lblAgendamentoDia.Text = agendamento.Count.ToString();
         }
     }
 }
