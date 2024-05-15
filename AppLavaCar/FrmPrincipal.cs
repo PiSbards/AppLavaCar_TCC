@@ -1,10 +1,12 @@
 ﻿using AppLavaCar.Controller;
 using AppLavaCar.Model;
 using MetroFramework;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -153,6 +155,40 @@ namespace AppLavaCar
 
             lblData.Text = DateTime.Today.ToString("D");
             lblAgendamentoDia.Text = agendamento.Count.ToString();
+
+            string sql = "SELECT tipoTratamento,COUNT(id) as total FROM checkout GROUP BY tipoTratamento";
+            string sql2 = "SELECT 'agenda' AS nomeCliente, COUNT(id) AS total FROM agenda " +
+                "UNION ALL SELECT 'checkin' AS nomeCliente, COUNT(id) AS total FROM checkin " +
+                "UNION ALL SELECT 'checkout' AS nomeCliente, COUNT(id) AS total FROM checkout";
+            MySqlConnection conn = new MySqlConnection("server=sql.freedb.tech;port=3306;database=freedb_DbProvisorio;user id=freedb_PipsProvisorio;password=8Jc4zG&SThRn#H4;charset=utf8");
+            
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+            MySqlDataReader dataReader;
+            MySqlDataReader dataReader2;
+            try
+            {
+                conn.Open();
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    this.chTipoTratamento.Series["Total"].Points.AddXY(dataReader.GetString("tipoTratamento"), dataReader.GetInt32("total"));
+                }
+                conn.Close();
+                conn.Open();
+                dataReader2 = cmd.ExecuteReader();
+                while (dataReader2.Read())
+                {
+                    //this.chTipoTratamento.Series["Total"].Points.AddXY(dataReader2.GetString("nomeCliente"), dataReader2.GetInt32("total"));
+                    lblTeste.Text = dataReader2["nomeCliente"].ToString();
+                }
+            }
+            catch (Exception er)
+            {
+                
+                MessageBox.Show(er.Message,"Erro",MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -169,94 +205,8 @@ namespace AppLavaCar
 
         private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                CarroController car = new CarroController();                               
-                DataGridViewRow row = this.dgvAgendamento.Rows[e.RowIndex];
-                this.dgvAgendamento.Rows[e.RowIndex].Selected = true;
-                
-                Carro carro = car.LocalizarPelaPlaca(row.Cells[4].Value.ToString().Trim());
-                lblMarca.Text = carro.marca;
-                lblModelo.Text = carro.modelo;
-                lblNomeCliente.Text = row.Cells[1].Value.ToString();
-                lblTipoTratamento.Text = row.Cells[5].Value.ToString().Trim();
-                lblPlaca.Text = row.Cells[4].Value.ToString();
-                var data = Convert.ToDateTime(row.Cells[6].Value);                
-                lblAgendamento.Text = data.ToString("dd/MM/yyyy HH:mm");
-
-                if (lblTipoTratamento.Text == "Lavagem Simples - R$60,00".Trim())
-                {
-                    lblTempoEstimado.Text = "1H15min";
-                    lblTimer.Text = "01:15:00";
-                }
-                else if (lblTipoTratamento.Text == "Lavagem Completa - R$70,00".Trim())
-                {
-                    lblTempoEstimado.Text = "1H45min";
-                    lblTimer.Text = "01:45:00";
-                }
-                else if (lblTipoTratamento.Text == "Lavagem Completa + Enceramento - R$90,00".Trim())
-                {
-                    lblTempoEstimado.Text = "2H15min";
-                    lblTimer.Text = "02:15:00";
-                }
-                else if (lblTipoTratamento.Text == "Combo Bronze - R$120,00".Trim())
-                {
-                    lblTempoEstimado.Text = "2H30min";
-                    lblTimer.Text = "02:30:00";
-                }
-                else if (lblTipoTratamento.Text == "Combo Prata - R$150,00".Trim())
-                {
-                    lblTempoEstimado.Text = "3H";
-                    lblTimer.Text = "03:00:00";
-                }
-                else if (lblTipoTratamento.Text == "Combo Ouro - R$200,00".Trim())
-                {
-                    lblTempoEstimado.Text = "3H30min";
-                    lblTimer.Text = "03:30:00";
-                } 
-            }
-        }
-
-        private void btnTimer_Click(object sender, EventArgs e)
-        {
-            string[] totalSeconds = lblTimer.Text.Split();            
-            int minutes = Convert.ToInt32(totalSeconds[0]);
-            int seconds = Convert.ToInt32(totalSeconds[1]);
-            if (lblTipoTratamento.Text == "Lavagem Simples - R$60,00".Trim() || lblTipoTratamento.Text == "Lavagem Completa - R$70,00".Trim())
-            {
-                timeLeft = (minutes * 120) + seconds;
-                timer1.Start();
-            }            
-            else if (lblTipoTratamento.Text == "Lavagem Completa + Enceramento - R$90,00".Trim() || lblTipoTratamento.Text == "Combo Bronze - R$120,00".Trim())
-            {
-                timeLeft = (minutes * 180) + seconds;
-                timer1.Start();
-            }            
-            else if (lblTipoTratamento.Text == "Combo Prata - R$150,00".Trim() || lblTipoTratamento.Text == "Combo Ouro - R$200,00".Trim())
-            {
-                timeLeft = (minutes * 240) + seconds;
-                timer1.Start();
-            }            
             
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-            if (timeLeft > 0)
-            {
-                timeLeft = timeLeft - 1;
-                var timespan = TimeSpan.FromSeconds(timeLeft);
-                lblTimer.Text = timespan.ToString(@"HH\:mm\:ss");
-                //lblTimer.Text = (int.Parse(lblTimer.Text) - 1).ToString();
-            }
-            else
-            {
-                timer1.Stop();
-                SystemSounds.Exclamation.Play();
-                MetroMessageBox.Show(this,"O tempo do procedimento acabou!","ATENÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-        }
+        }        
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
