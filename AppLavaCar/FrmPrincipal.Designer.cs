@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MenuBarra = new System.Windows.Forms.Panel();
             this.MenuConteudo = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.btnAgenda2 = new System.Windows.Forms.Button();
             this.btnCheckin = new System.Windows.Forms.Button();
@@ -49,8 +53,8 @@
             this.lblData = new System.Windows.Forms.Label();
             this.lblAgendamentoDia = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.chTipoTratamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnRelatorio2 = new System.Windows.Forms.Button();
             this.btnCheckOut2 = new System.Windows.Forms.Button();
             this.btnCheckin2 = new System.Windows.Forms.Button();
             this.btnSair2 = new System.Windows.Forms.Button();
@@ -58,13 +62,13 @@
             this.btnAgenda1 = new System.Windows.Forms.Button();
             this.btnFunc1 = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.chTipoTratamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTeste = new System.Windows.Forms.Label();
+            this.chSituacao = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MenuBarra.SuspendLayout();
             this.MenuConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chTipoTratamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chSituacao)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuBarra
@@ -72,7 +76,7 @@
             this.MenuBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuBarra.BackColor = System.Drawing.Color.MidnightBlue;
-            this.MenuBarra.Controls.Add(this.button1);
+            this.MenuBarra.Controls.Add(this.btnRelatorio2);
             this.MenuBarra.Controls.Add(this.btnCheckOut2);
             this.MenuBarra.Controls.Add(this.btnCheckin2);
             this.MenuBarra.Controls.Add(this.btnSair2);
@@ -90,7 +94,7 @@
             this.MenuConteudo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MenuConteudo.BackColor = System.Drawing.Color.MidnightBlue;
-            this.MenuConteudo.Controls.Add(this.button2);
+            this.MenuConteudo.Controls.Add(this.btnRelatorio);
             this.MenuConteudo.Controls.Add(this.btnCheckOut);
             this.MenuConteudo.Controls.Add(this.btnAgenda2);
             this.MenuConteudo.Controls.Add(this.btnCheckin);
@@ -102,6 +106,22 @@
             this.MenuConteudo.Name = "MenuConteudo";
             this.MenuConteudo.Size = new System.Drawing.Size(200, 818);
             this.MenuConteudo.TabIndex = 5;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.ForeColor = System.Drawing.Color.White;
+            this.btnRelatorio.Location = new System.Drawing.Point(4, 399);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(190, 44);
+            this.btnRelatorio.TabIndex = 15;
+            this.btnRelatorio.Text = "RELATÓRIOS";
+            this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // btnCheckOut
             // 
@@ -213,13 +233,11 @@
             // 
             // dgvAgendamento
             // 
-            this.dgvAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAgendamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgendamento.Location = new System.Drawing.Point(83, 108);
             this.dgvAgendamento.Name = "dgvAgendamento";
             this.dgvAgendamento.ReadOnly = true;
-            this.dgvAgendamento.Size = new System.Drawing.Size(404, 340);
+            this.dgvAgendamento.Size = new System.Drawing.Size(758, 340);
             this.dgvAgendamento.TabIndex = 7;
             this.dgvAgendamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellClick);
             // 
@@ -236,13 +254,11 @@
             // 
             // dgvAgendaDoDia
             // 
-            this.dgvAgendaDoDia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAgendaDoDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgendaDoDia.Location = new System.Drawing.Point(83, 480);
             this.dgvAgendaDoDia.Name = "dgvAgendaDoDia";
             this.dgvAgendaDoDia.ReadOnly = true;
-            this.dgvAgendaDoDia.Size = new System.Drawing.Size(404, 340);
+            this.dgvAgendaDoDia.Size = new System.Drawing.Size(758, 340);
             this.dgvAgendaDoDia.TabIndex = 45;
             // 
             // label2
@@ -295,33 +311,37 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
-            // button2
+            // chTipoTratamento
             // 
-            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(4, 399);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 44);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "RELATÓRIOS";
-            this.button2.UseVisualStyleBackColor = false;
+            chartArea1.Name = "ChartArea1";
+            this.chTipoTratamento.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chTipoTratamento.Legends.Add(legend1);
+            this.chTipoTratamento.Location = new System.Drawing.Point(1023, 108);
+            this.chTipoTratamento.Name = "chTipoTratamento";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Total";
+            series1.YValuesPerPoint = 2;
+            this.chTipoTratamento.Series.Add(series1);
+            this.chTipoTratamento.Size = new System.Drawing.Size(500, 339);
+            this.chTipoTratamento.TabIndex = 55;
+            this.chTipoTratamento.Text = "Tipo de Tratamento";
             // 
-            // button1
+            // btnRelatorio2
             // 
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.BackgroundImage = global::AppLavaCar.Properties.Resources.aceitaram;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(4, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 46);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRelatorio2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnRelatorio2.BackgroundImage = global::AppLavaCar.Properties.Resources.relatorio;
+            this.btnRelatorio2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRelatorio2.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio2.Location = new System.Drawing.Point(4, 399);
+            this.btnRelatorio2.Name = "btnRelatorio2";
+            this.btnRelatorio2.Size = new System.Drawing.Size(45, 46);
+            this.btnRelatorio2.TabIndex = 10;
+            this.btnRelatorio2.UseVisualStyleBackColor = false;
+            this.btnRelatorio2.Click += new System.EventHandler(this.btnRelatorio2_Click);
             // 
             // btnCheckOut2
             // 
@@ -429,32 +449,23 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // chTipoTratamento
+            // chSituacao
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chTipoTratamento.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chTipoTratamento.Legends.Add(legend1);
-            this.chTipoTratamento.Location = new System.Drawing.Point(892, 89);
-            this.chTipoTratamento.Name = "chTipoTratamento";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Total";
-            series1.YValuesPerPoint = 2;
-            this.chTipoTratamento.Series.Add(series1);
-            this.chTipoTratamento.Size = new System.Drawing.Size(500, 339);
-            this.chTipoTratamento.TabIndex = 55;
-            this.chTipoTratamento.Text = "Tipo de Tratamento";
-            // 
-            // lblTeste
-            // 
-            this.lblTeste.AutoSize = true;
-            this.lblTeste.Location = new System.Drawing.Point(1030, 549);
-            this.lblTeste.Name = "lblTeste";
-            this.lblTeste.Size = new System.Drawing.Size(35, 13);
-            this.lblTeste.TabIndex = 56;
-            this.lblTeste.Text = "label1";
+            chartArea2.Name = "ChartArea1";
+            this.chSituacao.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chSituacao.Legends.Add(legend2);
+            this.chSituacao.Location = new System.Drawing.Point(1002, 481);
+            this.chSituacao.Name = "chSituacao";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Total";
+            series2.YValuesPerPoint = 2;
+            this.chSituacao.Series.Add(series2);
+            this.chSituacao.Size = new System.Drawing.Size(500, 339);
+            this.chSituacao.TabIndex = 56;
+            this.chSituacao.Text = "Situação dos carros";
             // 
             // FrmPrincipal
             // 
@@ -462,7 +473,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1526, 821);
             this.ControlBox = false;
-            this.Controls.Add(this.lblTeste);
+            this.Controls.Add(this.chSituacao);
             this.Controls.Add(this.chTipoTratamento);
             this.Controls.Add(this.lblAgendamentoDia);
             this.Controls.Add(this.MenuConteudo);
@@ -488,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chTipoTratamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chSituacao)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,9 +530,9 @@
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblAgendamentoDia;
         private System.Windows.Forms.Button btnAtualizar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRelatorio2;
+        private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.DataVisualization.Charting.Chart chTipoTratamento;
-        private System.Windows.Forms.Label lblTeste;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chSituacao;
     }
 }

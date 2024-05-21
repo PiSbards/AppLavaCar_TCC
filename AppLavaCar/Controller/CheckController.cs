@@ -106,7 +106,7 @@ namespace AppLavaCar.Controller
                 check.placaCarro = dr["placaCarro"].ToString();
                 check.agendamento = (DateTime)dr["agendamento"];
                 check.pagamento= dr["pagamento"].ToString();                
-                check.observacao = dr["observacao1"].ToString();
+                check.observacao = dr["observacao"].ToString();
                 check.imagem1 = dr["imagem1"].ToString();
                 check.imagem2 = dr["imagem2"].ToString();
                 check.imagem3 = dr["imagem3"].ToString();
@@ -150,5 +150,70 @@ namespace AppLavaCar.Controller
 
             conn.Close();
         }
+        public CheckOut LocalizarCheckOut(string cpf)
+        {
+            string sql = "SELECT * FROM checkout WHERE cpf= '"+ cpf +"' ";
+            CheckOut check = new CheckOut();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql,conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {                
+                check.id = (int)dr["id"];
+                check.nomeCliente = dr["nomeCliente"].ToString();
+                check.cpf = dr["cpf"].ToString();
+                check.telefone = dr["telefone"].ToString();
+                check.clienteCiente = dr["clienteCiente"].ToString();
+                check.tipoTratamento = dr["tipoTratamento"].ToString();
+                check.defeitos = dr["defeitos"].ToString();
+                check.placaCarro = dr["placaCarro"].ToString();
+                check.agendamento = (DateTime)dr["agendamento"];
+                check.pagamento = dr["pagamento"].ToString();
+                check.observacao = dr["observacao"].ToString();
+                check.imagem1 = dr["imagem1"].ToString();
+                check.imagem2 = dr["imagem2"].ToString();
+                check.imagem3 = dr["imagem3"].ToString();
+                check.imagem4 = dr["imagem4"].ToString();
+                check.imagem5 = dr["imagem5"].ToString();
+
+            }
+            dr.Close();
+            conn.Close();
+            return check;
+        }
+        public List<CheckOut> FiltrarPorTipo(string tipoTratamento)
+        {
+            List<CheckOut> li = new List<CheckOut>();            
+            string sql = "SELECT * FROM checkout WHERE tipoTratamento = @tipoTratamento";            
+            conn.Open();            
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@tipoTratamento", tipoTratamento);            
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                CheckOut check = new CheckOut();
+                check.id = (int)dr["id"];
+                check.nomeCliente = dr["nomeCliente"].ToString();
+                check.cpf = dr["cpf"].ToString();
+                check.telefone = dr["telefone"].ToString();
+                check.clienteCiente = dr["clienteCiente"].ToString();
+                check.tipoTratamento = dr["tipoTratamento"].ToString();
+                check.defeitos = dr["defeitos"].ToString();
+                check.placaCarro = dr["placaCarro"].ToString();
+                check.agendamento = (DateTime)dr["agendamento"];
+                check.pagamento = dr["pagamento"].ToString();
+                check.observacao = dr["observacao"].ToString();
+                check.imagem1 = dr["imagem1"].ToString();
+                check.imagem2 = dr["imagem2"].ToString();
+                check.imagem3 = dr["imagem3"].ToString();
+                check.imagem4 = dr["imagem4"].ToString();
+                check.imagem5 = dr["imagem5"].ToString();
+                li.Add(check);
+            }            
+            dr.Close();
+            conn.Close();
+            return li;
+        }
+
     }
 }

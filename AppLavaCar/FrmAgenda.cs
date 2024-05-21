@@ -41,8 +41,7 @@ namespace AppLavaCar
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
             ControllerGeral geral= new ControllerGeral();
-            AgendaController controller = new AgendaController();
-            Agenda agenda = new Agenda();
+            AgendaController controller = new AgendaController();            
             List<Agenda> li = controller.listaAgendaDia();
             dgvAgenda.DataSource = li;            
             DateTime[] date = geral.BoldDates();
