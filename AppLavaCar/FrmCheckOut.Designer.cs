@@ -408,7 +408,7 @@
             this.Movable = false;
             this.Name = "FrmCheckOut";
             this.Resizable = false;
-            this.Text = "Check - out";
+            this.Text = "Entrega de Veículo";
             this.Load += new System.EventHandler(this.FrmCheckOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckout)).EndInit();
             this.panel1.ResumeLayout(false);

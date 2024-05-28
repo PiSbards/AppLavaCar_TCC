@@ -105,30 +105,41 @@ namespace AppLavaCar
             {                
                 AgendaController agendaController = new AgendaController();
                 Cliente cliente = new Cliente();
-                DateTime dataHorario = Convert.ToDateTime(lblData.Text + " " + cboHoraAgenda.Text);                
+                DateTime dataHorario = Convert.ToDateTime(lblData.Text + " " + cboHoraAgenda.Text);
+                List<Agenda> ag = agendaController.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
+                foreach (var item in ag)
+                {
+                    if (dataHorario == item.agendamento)
+                    {
+                        MessageBox.Show("Infelizmente este horário já possui reserva, por favor selecione outro","Atenção",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim(), cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(),
+                        Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
+                        MessageBox.Show(this, "Agendamento efetuado com sucesso!" + Environment.NewLine +
+                            $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblID.Text = "";
+                        txtNome.Text = "";
+                        mtxtCPF.Text = "";
+                        mtxtTelefone.Text = "";
+                        txtModelo.Text = "";
+                        txtMarca.Text = "";
+                        cbxPlaca.Text = "";
+                        lblData.Text = "";
+                        cbxTipo.Text = "";
+                        cboHoraAgenda.Text = "00:00";
+                        ControllerGeral geral = new ControllerGeral();
+                        DateTime[] date = geral.BoldDates();
+                        Calendario.BoldedDates = date;
 
-                agendaController.AgendarCliente(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim(), cbxPlaca.Text.Trim(), cbxTipo.Text.Trim(),
-                    Convert.ToDateTime(dataHorario.ToString("yyyy/MM/dd HH:mm").Trim()));
-                MessageBox.Show(this, "Agendamento efetuado com sucesso!" + Environment.NewLine +
-                    $"Informações: {dataHorario.ToString("dd/MM/yyyy HH:mm")}", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblID.Text = "";
-                txtNome.Text = "";
-                mtxtCPF.Text = "";
-                mtxtTelefone.Text = "";
-                txtModelo.Text = "";
-                txtMarca.Text = "";
-                cbxPlaca.Text = "";
-                lblData.Text = "";
-                cbxTipo.Text = "";
-                cboHoraAgenda.Text = "00:00";
-                ControllerGeral geral = new ControllerGeral();
-                DateTime[] date = geral.BoldDates();
-                Calendario.BoldedDates = date;
-                
-                Agenda agenda = new Agenda();
-                List<Agenda> li = agendaController.listaAgendaDia();
-                dgvAgenda.DataSource = li;
-                this.txtNome.Focus();
+                        Agenda agenda = new Agenda();
+                        List<Agenda> li = agendaController.listaAgendaDia();
+                        dgvAgenda.DataSource = li;
+                        this.txtNome.Focus();
+                    }
+                }
             }
             catch (Exception er)
             {

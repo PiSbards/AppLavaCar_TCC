@@ -56,8 +56,17 @@ namespace AppLavaCar
         private void cbxTipo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CheckController controller = new CheckController();
-            List<CheckOut> check = controller.FiltrarPorTipo(cbxTipo.SelectedItem.ToString());
-            dgvHistorico.DataSource = check;            
+            if (cbxTipo.SelectedItem.ToString() == "Todos")
+            {
+                List<CheckOut> list = controller.listaCheckOut();
+                dgvHistorico.DataSource = list;
+            }
+            else
+            {
+                List<CheckOut> check = controller.FiltrarPorTipo(cbxTipo.SelectedItem.ToString());
+                dgvHistorico.DataSource = check;
+            }
+                        
         }
         private void btnSair_Click(object sender, EventArgs e)
         {

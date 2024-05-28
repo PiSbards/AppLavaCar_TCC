@@ -28,14 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MenuBarra = new System.Windows.Forms.Panel();
+            this.btnRelatorio2 = new System.Windows.Forms.Button();
+            this.btnCheckOut2 = new System.Windows.Forms.Button();
+            this.btnCheckin2 = new System.Windows.Forms.Button();
+            this.btnSair2 = new System.Windows.Forms.Button();
+            this.btnCliente1 = new System.Windows.Forms.Button();
+            this.btnAgenda1 = new System.Windows.Forms.Button();
+            this.btnFunc1 = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.MenuConteudo = new System.Windows.Forms.Panel();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
@@ -54,14 +62,6 @@
             this.lblAgendamentoDia = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.chTipoTratamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnRelatorio2 = new System.Windows.Forms.Button();
-            this.btnCheckOut2 = new System.Windows.Forms.Button();
-            this.btnCheckin2 = new System.Windows.Forms.Button();
-            this.btnSair2 = new System.Windows.Forms.Button();
-            this.btnCliente1 = new System.Windows.Forms.Button();
-            this.btnAgenda1 = new System.Windows.Forms.Button();
-            this.btnFunc1 = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.chSituacao = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MenuBarra.SuspendLayout();
             this.MenuConteudo.SuspendLayout();
@@ -88,6 +88,126 @@
             this.MenuBarra.Name = "MenuBarra";
             this.MenuBarra.Size = new System.Drawing.Size(56, 818);
             this.MenuBarra.TabIndex = 4;
+            // 
+            // btnRelatorio2
+            // 
+            this.btnRelatorio2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnRelatorio2.BackgroundImage = global::AppLavaCar.Properties.Resources.relatorio;
+            this.btnRelatorio2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRelatorio2.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio2.Location = new System.Drawing.Point(4, 399);
+            this.btnRelatorio2.Name = "btnRelatorio2";
+            this.btnRelatorio2.Size = new System.Drawing.Size(45, 46);
+            this.btnRelatorio2.TabIndex = 10;
+            this.btnRelatorio2.UseVisualStyleBackColor = false;
+            this.btnRelatorio2.Click += new System.EventHandler(this.btnRelatorio2_Click);
+            // 
+            // btnCheckOut2
+            // 
+            this.btnCheckOut2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCheckOut2.BackgroundImage = global::AppLavaCar.Properties.Resources.aceitaram;
+            this.btnCheckOut2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckOut2.FlatAppearance.BorderSize = 0;
+            this.btnCheckOut2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOut2.Location = new System.Drawing.Point(4, 341);
+            this.btnCheckOut2.Name = "btnCheckOut2";
+            this.btnCheckOut2.Size = new System.Drawing.Size(45, 46);
+            this.btnCheckOut2.TabIndex = 9;
+            this.btnCheckOut2.UseVisualStyleBackColor = false;
+            this.btnCheckOut2.Click += new System.EventHandler(this.btnCheckOut2_Click);
+            // 
+            // btnCheckin2
+            // 
+            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
+            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckin2.FlatAppearance.BorderSize = 0;
+            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
+            this.btnCheckin2.Name = "btnCheckin2";
+            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
+            this.btnCheckin2.TabIndex = 8;
+            this.btnCheckin2.UseVisualStyleBackColor = false;
+            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
+            // 
+            // btnSair2
+            // 
+            this.btnSair2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair2.BackColor = System.Drawing.Color.Transparent;
+            this.btnSair2.BackgroundImage = global::AppLavaCar.Properties.Resources.sair__2_;
+            this.btnSair2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSair2.FlatAppearance.BorderSize = 0;
+            this.btnSair2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSair2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair2.ForeColor = System.Drawing.Color.Snow;
+            this.btnSair2.Location = new System.Drawing.Point(4, 760);
+            this.btnSair2.Name = "btnSair2";
+            this.btnSair2.Size = new System.Drawing.Size(45, 44);
+            this.btnSair2.TabIndex = 6;
+            this.btnSair2.UseVisualStyleBackColor = false;
+            this.btnSair2.Click += new System.EventHandler(this.btnSair2_Click);
+            // 
+            // btnCliente1
+            // 
+            this.btnCliente1.BackColor = System.Drawing.Color.Transparent;
+            this.btnCliente1.BackgroundImage = global::AppLavaCar.Properties.Resources.cliente;
+            this.btnCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCliente1.FlatAppearance.BorderSize = 0;
+            this.btnCliente1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCliente1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente1.Location = new System.Drawing.Point(4, 228);
+            this.btnCliente1.Name = "btnCliente1";
+            this.btnCliente1.Size = new System.Drawing.Size(45, 44);
+            this.btnCliente1.TabIndex = 4;
+            this.btnCliente1.UseVisualStyleBackColor = false;
+            this.btnCliente1.Click += new System.EventHandler(this.btnCliente1_Click);
+            // 
+            // btnAgenda1
+            // 
+            this.btnAgenda1.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgenda1.BackgroundImage = global::AppLavaCar.Properties.Resources.Agenda;
+            this.btnAgenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgenda1.FlatAppearance.BorderSize = 0;
+            this.btnAgenda1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnAgenda1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgenda1.Location = new System.Drawing.Point(4, 169);
+            this.btnAgenda1.Name = "btnAgenda1";
+            this.btnAgenda1.Size = new System.Drawing.Size(45, 44);
+            this.btnAgenda1.TabIndex = 3;
+            this.btnAgenda1.UseVisualStyleBackColor = false;
+            this.btnAgenda1.Click += new System.EventHandler(this.btnAgenda1_Click);
+            // 
+            // btnFunc1
+            // 
+            this.btnFunc1.BackColor = System.Drawing.Color.Transparent;
+            this.btnFunc1.BackgroundImage = global::AppLavaCar.Properties.Resources.funcionario;
+            this.btnFunc1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFunc1.FlatAppearance.BorderSize = 0;
+            this.btnFunc1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFunc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunc1.Location = new System.Drawing.Point(4, 108);
+            this.btnFunc1.Name = "btnFunc1";
+            this.btnFunc1.Size = new System.Drawing.Size(45, 44);
+            this.btnFunc1.TabIndex = 2;
+            this.btnFunc1.UseVisualStyleBackColor = false;
+            this.btnFunc1.Click += new System.EventHandler(this.btnFunc1_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Location = new System.Drawing.Point(4, 4);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(45, 44);
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // MenuConteudo
             // 
@@ -313,9 +433,14 @@
             // 
             // chTipoTratamento
             // 
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.Inclination = 20;
             chartArea1.Name = "ChartArea1";
             this.chTipoTratamento.ChartAreas.Add(chartArea1);
+            legend1.IsDockedInsideChartArea = false;
             legend1.Name = "Legend1";
+            legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+            legend1.Title = "Legenda";
             this.chTipoTratamento.Legends.Add(legend1);
             this.chTipoTratamento.Location = new System.Drawing.Point(1023, 108);
             this.chTipoTratamento.Name = "chTipoTratamento";
@@ -323,137 +448,22 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.Legend = "Legend1";
             series1.Name = "Total";
+            series1.SmartLabelStyle.Enabled = false;
             series1.YValuesPerPoint = 2;
             this.chTipoTratamento.Series.Add(series1);
             this.chTipoTratamento.Size = new System.Drawing.Size(500, 339);
             this.chTipoTratamento.TabIndex = 55;
             this.chTipoTratamento.Text = "Tipo de Tratamento";
             // 
-            // btnRelatorio2
-            // 
-            this.btnRelatorio2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnRelatorio2.BackgroundImage = global::AppLavaCar.Properties.Resources.relatorio;
-            this.btnRelatorio2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRelatorio2.FlatAppearance.BorderSize = 0;
-            this.btnRelatorio2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio2.Location = new System.Drawing.Point(4, 399);
-            this.btnRelatorio2.Name = "btnRelatorio2";
-            this.btnRelatorio2.Size = new System.Drawing.Size(45, 46);
-            this.btnRelatorio2.TabIndex = 10;
-            this.btnRelatorio2.UseVisualStyleBackColor = false;
-            this.btnRelatorio2.Click += new System.EventHandler(this.btnRelatorio2_Click);
-            // 
-            // btnCheckOut2
-            // 
-            this.btnCheckOut2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnCheckOut2.BackgroundImage = global::AppLavaCar.Properties.Resources.aceitaram;
-            this.btnCheckOut2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckOut2.FlatAppearance.BorderSize = 0;
-            this.btnCheckOut2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckOut2.Location = new System.Drawing.Point(4, 341);
-            this.btnCheckOut2.Name = "btnCheckOut2";
-            this.btnCheckOut2.Size = new System.Drawing.Size(45, 46);
-            this.btnCheckOut2.TabIndex = 9;
-            this.btnCheckOut2.UseVisualStyleBackColor = false;
-            this.btnCheckOut2.Click += new System.EventHandler(this.btnCheckOut2_Click);
-            // 
-            // btnCheckin2
-            // 
-            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
-            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckin2.FlatAppearance.BorderSize = 0;
-            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
-            this.btnCheckin2.Name = "btnCheckin2";
-            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
-            this.btnCheckin2.TabIndex = 8;
-            this.btnCheckin2.UseVisualStyleBackColor = false;
-            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
-            // 
-            // btnSair2
-            // 
-            this.btnSair2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSair2.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair2.BackgroundImage = global::AppLavaCar.Properties.Resources.sair__2_;
-            this.btnSair2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSair2.FlatAppearance.BorderSize = 0;
-            this.btnSair2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnSair2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair2.ForeColor = System.Drawing.Color.Snow;
-            this.btnSair2.Location = new System.Drawing.Point(4, 760);
-            this.btnSair2.Name = "btnSair2";
-            this.btnSair2.Size = new System.Drawing.Size(45, 44);
-            this.btnSair2.TabIndex = 6;
-            this.btnSair2.UseVisualStyleBackColor = false;
-            this.btnSair2.Click += new System.EventHandler(this.btnSair2_Click);
-            // 
-            // btnCliente1
-            // 
-            this.btnCliente1.BackColor = System.Drawing.Color.Transparent;
-            this.btnCliente1.BackgroundImage = global::AppLavaCar.Properties.Resources.cliente;
-            this.btnCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCliente1.FlatAppearance.BorderSize = 0;
-            this.btnCliente1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCliente1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente1.Location = new System.Drawing.Point(4, 228);
-            this.btnCliente1.Name = "btnCliente1";
-            this.btnCliente1.Size = new System.Drawing.Size(45, 44);
-            this.btnCliente1.TabIndex = 4;
-            this.btnCliente1.UseVisualStyleBackColor = false;
-            this.btnCliente1.Click += new System.EventHandler(this.btnCliente1_Click);
-            // 
-            // btnAgenda1
-            // 
-            this.btnAgenda1.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgenda1.BackgroundImage = global::AppLavaCar.Properties.Resources.Agenda;
-            this.btnAgenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgenda1.FlatAppearance.BorderSize = 0;
-            this.btnAgenda1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnAgenda1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda1.Location = new System.Drawing.Point(4, 169);
-            this.btnAgenda1.Name = "btnAgenda1";
-            this.btnAgenda1.Size = new System.Drawing.Size(45, 44);
-            this.btnAgenda1.TabIndex = 3;
-            this.btnAgenda1.UseVisualStyleBackColor = false;
-            this.btnAgenda1.Click += new System.EventHandler(this.btnAgenda1_Click);
-            // 
-            // btnFunc1
-            // 
-            this.btnFunc1.BackColor = System.Drawing.Color.Transparent;
-            this.btnFunc1.BackgroundImage = global::AppLavaCar.Properties.Resources.funcionario;
-            this.btnFunc1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFunc1.FlatAppearance.BorderSize = 0;
-            this.btnFunc1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnFunc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunc1.Location = new System.Drawing.Point(4, 108);
-            this.btnFunc1.Name = "btnFunc1";
-            this.btnFunc1.Size = new System.Drawing.Size(45, 44);
-            this.btnFunc1.TabIndex = 2;
-            this.btnFunc1.UseVisualStyleBackColor = false;
-            this.btnFunc1.Click += new System.EventHandler(this.btnFunc1_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
-            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Location = new System.Drawing.Point(4, 4);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(45, 44);
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // chSituacao
             // 
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Area3DStyle.Inclination = 20;
             chartArea2.Name = "ChartArea1";
             this.chSituacao.ChartAreas.Add(chartArea2);
+            legend2.IsDockedInsideChartArea = false;
             legend2.Name = "Legend1";
+            legend2.Title = "Legenda";
             this.chSituacao.Legends.Add(legend2);
             this.chSituacao.Location = new System.Drawing.Point(1002, 481);
             this.chSituacao.Name = "chSituacao";
@@ -461,6 +471,7 @@
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series2.Legend = "Legend1";
             series2.Name = "Total";
+            series2.SmartLabelStyle.Enabled = false;
             series2.YValuesPerPoint = 2;
             this.chSituacao.Series.Add(series2);
             this.chSituacao.Size = new System.Drawing.Size(500, 339);

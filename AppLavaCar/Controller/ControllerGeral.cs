@@ -32,6 +32,51 @@ namespace AppLavaCar.Controller
             conn.Close();
             return date;
         }
+        public void AtualizarGraficos(System.Windows.Forms.DataVisualization.Charting.Chart chTipoTratamento, System.Windows.Forms.DataVisualization.Charting.Chart chSituacao)
+        {
+            string sql = "SELECT tipoTratamento, COUNT(id) as total FROM checkout GROUP BY tipoTratamento";
+            string sql2 = "SELECT 'agenda' AS tabela, COUNT(id) AS total FROM agenda " +
+                "UNION ALL SELECT 'checkin' AS tabela, COUNT(id) AS total FROM checkin " +
+                "UNION ALL SELECT 'checkout' AS tabela, COUNT(id) AS total FROM checkout";
+
+            using (conn)
+            {
+                try
+                {
+                    conn.Open();
+
+                    chTipoTratamento.Series["Total"].Points.Clear();
+                    chSituacao.Series["Total"].Points.Clear();
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                chTipoTratamento.Series["Total"].Points.AddXY(dataReader.GetString("tipoTratamento"), dataReader.GetInt32("total"));
+                            }
+                        }
+                    }
+
+                    using (MySqlCommand cmd2 = new MySqlCommand(sql2, conn))
+                    {
+                        using (MySqlDataReader dataReader2 = cmd2.ExecuteReader())
+                        {
+                            while (dataReader2.Read())
+                            {
+                                chSituacao.Series["Total"].Points.AddXY(dataReader2.GetString("tabela"), dataReader2.GetInt32("total"));
+                            }
+                        }
+                    }
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK);
+                }
+            }
+        }
+
 
     }
 }

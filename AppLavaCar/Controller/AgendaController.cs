@@ -27,8 +27,8 @@ namespace AppLavaCar.Controller
                 agenda.nomeCliente = dr["nomeCliente"].ToString();
                 agenda.cpf = dr["cpf"].ToString();
                 agenda.telefone = dr["telefone"].ToString();
-                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.placaCarro = dr["placaCarro"].ToString();
+                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.agendamento = (DateTime)dr["agendamento"];
                 li.Add(agenda);
             }
@@ -52,8 +52,8 @@ namespace AppLavaCar.Controller
                 agenda.nomeCliente = dr["nomeCliente"].ToString();
                 agenda.cpf = dr["cpf"].ToString();
                 agenda.telefone = dr["telefone"].ToString();
-                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.placaCarro = dr["placaCarro"].ToString();
+                agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.agendamento = (DateTime)dr["agendamento"];
                 li.Add(agenda);
             }
@@ -75,8 +75,8 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
 
                 cmd.CommandType = CommandType.Text;
@@ -128,8 +128,8 @@ namespace AppLavaCar.Controller
                 agenda.id = (int)dr["id"];
                 agenda.cpf = dr["cpf"].ToString();
                 agenda.nomeCliente = dr["nomeCliente"].ToString();
-                agenda.placaCarro = dr["placaCarro"].ToString();
                 agenda.telefone = dr["telefone"].ToString();
+                agenda.placaCarro = dr["placaCarro"].ToString();
                 agenda.tipoTratamento = dr["tipoTratamento"].ToString();
                 agenda.agendamento = (DateTime)dr["agendamento"];
             }

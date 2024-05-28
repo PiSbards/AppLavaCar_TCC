@@ -15,6 +15,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
@@ -156,46 +157,9 @@ namespace AppLavaCar
             lblData.Text = DateTime.Today.ToString("D");
             lblAgendamentoDia.Text = agendamento.Count.ToString();
 
-            string sql = "SELECT tipoTratamento, COUNT(id) as total FROM checkout GROUP BY tipoTratamento";
-            string sql2 = "SELECT 'agenda' AS tabela, COUNT(id) AS total FROM agenda " +
-                "UNION ALL SELECT 'checkin' AS tabela, COUNT(id) AS total FROM checkin " +
-                "UNION ALL SELECT 'checkout' AS tabela, COUNT(id) AS total FROM checkout";
-
-            using (MySqlConnection conn = new MySqlConnection("server=sql.freedb.tech;port=3306;database=freedb_DbProvisorio;user id=freedb_PipsProvisorio;password=8Jc4zG&SThRn#H4;charset=utf8"))
-            {
-                try
-                {
-                    conn.Open();
-
-                    
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        using (MySqlDataReader dataReader = cmd.ExecuteReader())
-                        {
-                            while (dataReader.Read())
-                            {
-                                this.chTipoTratamento.Series["Total"].Points.AddXY(dataReader.GetString("tipoTratamento"), dataReader.GetInt32("total"));
-                            }
-                        }
-                    }
-
-                    
-                    using (MySqlCommand cmd2 = new MySqlCommand(sql2, conn))
-                    {
-                        using (MySqlDataReader dataReader2 = cmd2.ExecuteReader())
-                        {
-                            while (dataReader2.Read())
-                            {
-                                this.chSituacao.Series["Total"].Points.AddXY(dataReader2.GetString("tabela"), dataReader2.GetInt32("total"));
-                            }
-                        }
-                    }
-                }
-                catch (Exception er)
-                {
-                    MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK);
-                }
-            }
+            
+            ControllerGeral geral = new ControllerGeral();
+            geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
 
         }
 
@@ -236,9 +200,11 @@ namespace AppLavaCar
             dgvAgendamento.DataSource = li;
             AgendaController agenda = new AgendaController();
             List<Agenda> agendamento = agenda.listaAgendaDia();
-            dgvAgendaDoDia.DataSource = agendamento;
-            
+            dgvAgendaDoDia.DataSource = agendamento;            
             lblAgendamentoDia.Text = agendamento.Count.ToString();
+            ControllerGeral geral = new ControllerGeral();
+            geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
+
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)

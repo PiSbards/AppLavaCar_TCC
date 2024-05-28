@@ -43,8 +43,8 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }        
-        public void InserirCheckIn(string nome, string cpf, string telefone,string defeitos,string clienteCiente,string tipoTratamento , string placaCarro,
-            DateTime agendamento, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
+        public void InserirCheckIn(string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento,
+            string clienteCiente, string defeitos, string observacao1, string imagem1,string imagem2,string imagem3,string imagem4,string imagem5)
         {
             string sql = "INSERT INTO checkin(nomeCliente,cpf,telefone,placaCarro,tipoTratamento,agendamento,clienteCiente,defeitos,observacao,imagem1," +
                 "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento,@clienteCiente,@defeitos," +
@@ -58,11 +58,11 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@defeitos",MySqlDbType.VarChar).Value = defeitos;
-                cmd.Parameters.Add("@clienteCiente",MySqlDbType.VarChar).Value= clienteCiente;                
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
+                cmd.Parameters.Add("@clienteCiente",MySqlDbType.VarChar).Value= clienteCiente;                
+                cmd.Parameters.Add("@defeitos",MySqlDbType.VarChar).Value = defeitos;
                 cmd.Parameters.Add("@observacao1", MySqlDbType.VarChar).Value = observacao1;
                 cmd.Parameters.Add("@imagem1", MySqlDbType.VarChar).Value = imagem1;
                 cmd.Parameters.Add("@imagem2", MySqlDbType.VarChar).Value = imagem2;
@@ -118,8 +118,8 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }
-        public void InserirCheckOut(string nome, string cpf, string telefone, string defeitos, string clienteCiente, string tipoTratamento, string placaCarro, 
-            DateTime agendamento,string pagamento, string observacao, string imagem1,string imagem2, string imagem3, string imagem4, string imagem5)
+        public void InserirCheckOut(string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento, string pagamento,
+            string clienteCiente, string defeitos, string observacao, string imagem1, string imagem2, string imagem3, string imagem4, string imagem5)
         {
             string sql = "INSERT INTO checkout(nomeCliente,cpf,telefone,placaCarro,tipoTratamento,agendamento,pagamento,clienteCiente,defeitos,observacao,imagem1," +
                 "imagem2,imagem3,imagem4,imagem5) VALUES(@nomeCliente,@cpf,@telefone,@placaCarro,@tipoTratamento,@agendamento,@pagamento,@clienteCiente,@defeitos," +
@@ -133,12 +133,12 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
                 cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@defeitos", MySqlDbType.VarChar).Value = defeitos;
-                cmd.Parameters.Add("@clienteCiente", MySqlDbType.VarChar).Value = clienteCiente;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
                 cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
                 cmd.Parameters.Add("@pagamento", MySqlDbType.VarChar).Value = pagamento;
+                cmd.Parameters.Add("@clienteCiente", MySqlDbType.VarChar).Value = clienteCiente;
+                cmd.Parameters.Add("@defeitos", MySqlDbType.VarChar).Value = defeitos;
                 cmd.Parameters.Add("@observacao1", MySqlDbType.VarChar).Value = observacao;
                 cmd.Parameters.Add("@imagem1", MySqlDbType.VarChar).Value = imagem1;
                 cmd.Parameters.Add("@imagem2", MySqlDbType.VarChar).Value = imagem2;
@@ -149,38 +149,7 @@ namespace AppLavaCar.Controller
             }
 
             conn.Close();
-        }
-        public CheckOut LocalizarCheckOut(string cpf)
-        {
-            string sql = "SELECT * FROM checkout WHERE cpf= '"+ cpf +"' ";
-            CheckOut check = new CheckOut();
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql,conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {                
-                check.id = (int)dr["id"];
-                check.nomeCliente = dr["nomeCliente"].ToString();
-                check.cpf = dr["cpf"].ToString();
-                check.telefone = dr["telefone"].ToString();
-                check.clienteCiente = dr["clienteCiente"].ToString();
-                check.tipoTratamento = dr["tipoTratamento"].ToString();
-                check.defeitos = dr["defeitos"].ToString();
-                check.placaCarro = dr["placaCarro"].ToString();
-                check.agendamento = (DateTime)dr["agendamento"];
-                check.pagamento = dr["pagamento"].ToString();
-                check.observacao = dr["observacao"].ToString();
-                check.imagem1 = dr["imagem1"].ToString();
-                check.imagem2 = dr["imagem2"].ToString();
-                check.imagem3 = dr["imagem3"].ToString();
-                check.imagem4 = dr["imagem4"].ToString();
-                check.imagem5 = dr["imagem5"].ToString();
-
-            }
-            dr.Close();
-            conn.Close();
-            return check;
-        }
+        }        
         public List<CheckOut> FiltrarPorTipo(string tipoTratamento)
         {
             List<CheckOut> li = new List<CheckOut>();            

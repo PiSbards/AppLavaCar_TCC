@@ -384,6 +384,7 @@
             // 
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
+            "Todos",
             "Lavagem Simples - R$60,00",
             "Lavagem Completa - R$70,00",
             "Lavagem Completa + Enceramento - R$90,00",
@@ -445,7 +446,7 @@
             this.Movable = false;
             this.Name = "FrmRelatorio";
             this.Resizable = false;
-            this.Text = "Histórico";
+            this.Text = "Histórico/Relatório de Lavagens";
             this.Load += new System.EventHandler(this.FrmRelatorio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
