@@ -87,7 +87,7 @@
             // mtxtCpf
             // 
             this.mtxtCpf.Location = new System.Drawing.Point(112, 166);
-            this.mtxtCpf.Mask = "999.999.999-99";
+            this.mtxtCpf.Mask = "999,999,999-99";
             this.mtxtCpf.Name = "mtxtCpf";
             this.mtxtCpf.Size = new System.Drawing.Size(198, 20);
             this.mtxtCpf.TabIndex = 6;

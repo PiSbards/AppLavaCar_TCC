@@ -105,6 +105,7 @@
     <Compile Include="Controller\CheckController.cs" />
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\ControllerGeral.cs" />
+    <Compile Include="Controller\Cripto.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\VerificacaoCpfCnpj.cs" />
     <Compile Include="FrmAgenda.cs">

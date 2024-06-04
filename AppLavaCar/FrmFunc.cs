@@ -14,10 +14,12 @@ using MetroFramework;
 namespace AppLavaCar
 {
     public partial class FrmFunc : MetroFramework.Forms.MetroForm
-    {        
+    {
+        Cripto b;
         public FrmFunc()
         {
             InitializeComponent();
+            b = new Cripto();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -54,7 +56,8 @@ namespace AppLavaCar
                         {
                             gerente = true;
                         }
-                        user.Inserir(txtNome.Text, mtxtCpf.Text.Trim(), txtSenha.Text, txtEmail.Text, gerente);
+                        string senha = b.Base64Encode(txtSenha.Text);
+                        user.Inserir(txtNome.Text, mtxtCpf.Text.Trim(), senha, txtEmail.Text, gerente);
                         MessageBox.Show("Funcionário inserido com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         List<Funcionario> li = user.listaFuncionario();
                         dgvFunc.DataSource = li;
@@ -119,8 +122,9 @@ namespace AppLavaCar
                 if (chkbSim.Checked)
                 {
                    gerente = true;
-                }                               
-                controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()),txtNome.Text, mtxtCpf.Text.Trim(),txtSenha.Text,txtEmail.Text,gerente);
+                }     
+                string senha = b.Base64Encode(txtSenha.Text);
+                controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()),txtNome.Text, mtxtCpf.Text.Trim(),senha,txtEmail.Text,gerente);
                 MessageBox.Show("Cadastro de funcionário atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<Funcionario> funcionario = controller.listaFuncionario();
                 dgvFunc.DataSource = funcionario;
@@ -183,7 +187,8 @@ namespace AppLavaCar
                 Funcionario func = controller.Localizar(id);
                 mtxtCpf.Text = Convert.ToString(func.cpf);
                 txtNome.Text = func.nome;
-                txtSenha.Text = func.senha;
+                string senha = b.Base64Decode(func.senha);
+                txtSenha.Text = senha;
                 txtEmail.Text = func.email;
                 if (func.gerente == "SIM")
                 {
@@ -209,7 +214,7 @@ namespace AppLavaCar
                 txtId.Text = row.Cells[0].Value.ToString();
                 txtNome.Text = row.Cells[1].Value.ToString();
                 mtxtCpf.Text = row.Cells[2].Value.ToString();
-                txtSenha.Text = row.Cells[3].Value.ToString();
+                txtSenha.Text = row.Cells[3].Value.ToString();               
                 txtEmail.Text = row.Cells[4].Value.ToString();
                 if (row.Cells[5].Value.ToString() == "SIM")
                 {

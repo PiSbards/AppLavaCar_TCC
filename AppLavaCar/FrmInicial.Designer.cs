@@ -32,10 +32,10 @@
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.llblSenha = new System.Windows.Forms.LinkLabel();
+            this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,13 +86,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "SENHA:";
             // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(245, 377);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(207, 20);
-            this.txtUsuario.TabIndex = 11;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -124,24 +117,33 @@
             this.llblSenha.Text = "Esqueceu a senha?";
             this.llblSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSenha_LinkClicked);
             // 
+            // mtxtCPF
+            // 
+            this.mtxtCPF.Location = new System.Drawing.Point(245, 378);
+            this.mtxtCPF.Mask = "999,999,999-99";
+            this.mtxtCPF.Name = "mtxtCPF";
+            this.mtxtCPF.Size = new System.Drawing.Size(207, 20);
+            this.mtxtCPF.TabIndex = 19;
+            // 
             // FrmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(714, 574);
+            this.Controls.Add(this.mtxtCPF);
             this.Controls.Add(this.llblSenha);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "FrmInicial";
             this.Resizable = false;
             this.Text = "Lavagem Especializada";
+            this.Load += new System.EventHandler(this.FrmInicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,10 +155,10 @@
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel llblSenha;
+        private System.Windows.Forms.MaskedTextBox mtxtCPF;
     }
 }
 

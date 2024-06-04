@@ -14,9 +14,11 @@ namespace AppLavaCar
 {
     public partial class FrmSenha : MetroFramework.Forms.MetroForm
     {
+        private Cripto b;
         public FrmSenha()
         {
             InitializeComponent();
+            b = new Cripto();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -31,15 +33,23 @@ namespace AppLavaCar
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (txtSenha1 == txtSenha2 )
+            if (txtSenha1.Text == txtSenha2.Text )
             {
-                string senha = txtSenha2.Text;                
-                controller.AlterarSenha(senha, mtxtCpf.Text.Trim());
-                MessageBox.Show("A Senha foi alterada com Sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mtxtCpf.Text = "";
-                txtSenha1.Text = "";
-                txtSenha2.Text = "";
-                this.Hide();
+                bool result = controller.LocalizarPorCPF(mtxtCpf.Text);
+                if(result == true)
+                {
+                    string senha = b.Base64Encode(txtSenha2.Text);
+                    controller.AlterarSenha(senha, mtxtCpf.Text.Trim());
+                    MessageBox.Show("A Senha foi alterada com Sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mtxtCpf.Text = "";
+                    txtSenha1.Text = "";
+                    txtSenha2.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("CPF Não identificado, por favor verifique", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {

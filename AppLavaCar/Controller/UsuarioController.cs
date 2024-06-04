@@ -31,10 +31,10 @@ namespace AppLavaCar.Controller
             }
             conn.Close();
         }
-        public Funcionario Login(string cpf)
+        public Funcionario Login(string cpf, string senha)
         {
             Funcionario funcionario = new Funcionario();
-            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'";
+            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'AND senha='"+senha+"'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -46,10 +46,10 @@ namespace AppLavaCar.Controller
                 funcionario.id = (int)dr["id"];
                 funcionario.nome = dr["nome"].ToString();
                 funcionario.cpf = dr["cpf"].ToString();
-                funcionario.senha = dr["epi"].ToString();
+                funcionario.senha = dr["senha"].ToString();
                 funcionario.email = dr["email"].ToString();
-                bool gerente = (bool)dr["gerente"];
-                if (gerente != false)
+                var gerente = (int)dr["gerente"];
+                if (gerente == 1)
                 {
                     funcionario.gerente = "SIM";
                 }
@@ -78,8 +78,8 @@ namespace AppLavaCar.Controller
                 func.nome = dr["nome"].ToString();
                 func.senha = dr["senha"].ToString();
                 func.email = dr["email"].ToString();
-                bool gerente = (bool)dr["gerente"];
-                if (gerente != false)
+                int gerente = (int)dr["gerente"];
+                if (gerente == 1)
                 {
                     func.gerente = "SIM";
                 }
@@ -163,8 +163,8 @@ namespace AppLavaCar.Controller
                 funcionario.cpf = dr["cpf"].ToString();
                 funcionario.senha = dr["epi"].ToString();
                 funcionario.email = dr["email"].ToString();
-                bool gerente = (bool)dr["gerente"];
-                if (gerente != false)
+                int gerente = (int)dr["gerente"];
+                if (gerente == 1)
                 {
                     funcionario.gerente = "SIM";
                 }
@@ -177,6 +177,23 @@ namespace AppLavaCar.Controller
             dr.Close();
             conn.Close();
             return funcionario;
+        }
+        public bool LocalizarPorCPF(string cpf)
+        {
+            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'";
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            var result = cmd.ExecuteScalar();
+            if (result != null)
+            {
+                return (int)result > 0;
+            }
+            conn.Close();
+            return false;
         }
 
         public bool RegistroRepetido(string nome, string cpf)

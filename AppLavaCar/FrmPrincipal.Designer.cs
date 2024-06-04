@@ -468,11 +468,11 @@
             this.chSituacao.Location = new System.Drawing.Point(1002, 481);
             this.chSituacao.Name = "chSituacao";
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
             series2.Legend = "Legend1";
             series2.Name = "Total";
             series2.SmartLabelStyle.Enabled = false;
-            series2.YValuesPerPoint = 2;
+            series2.YValuesPerPoint = 4;
             this.chSituacao.Series.Add(series2);
             this.chSituacao.Size = new System.Drawing.Size(500, 339);
             this.chSituacao.TabIndex = 56;

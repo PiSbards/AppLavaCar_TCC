@@ -1,6 +1,7 @@
 ﻿using AppLavaCar.Controller;
 using AppLavaCar.Model;
 using MetroFramework;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,31 +17,30 @@ namespace AppLavaCar
 {
     public partial class FrmInicial : MetroFramework.Forms.MetroForm
     {
+        private Cripto b;
         public FrmInicial()
         {
             InitializeComponent();
+            b = new Cripto();
             
         }       
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
-        {
-            bool gerente = true;
-            string chefe = "sim";
-            FrmPrincipal principal = new FrmPrincipal(gerente,chefe);
-            principal.Show();
-            this.Hide();
-            /*VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+        {            
+            VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
             UsuarioController controller = new UsuarioController();
-            bool cpf = ve.ValidarCPF(txtUsuario.Text);
+            bool cpf = ve.IsCpf(mtxtCPF.Text);
             if (cpf == true)
             {
-                Funcionario func = controller.Login(Convert.ToInt32(txtUsuario.Text.Trim()));
-                if (func.cpf == Convert.ToInt32(txtUsuario.Text.Trim()) && func.senha == txtSenha.Text)
+                string senha = b.Base64Encode(txtSenha.Text);
+                Funcionario func = controller.Login(mtxtCPF.Text.Trim(),senha);
+                func.senha = b.Base64Decode(func.senha);
+                if (func.cpf == mtxtCPF.Text.Trim() && func.senha == txtSenha.Text.Trim())
                 {
                     if (func.gerente == "SIM")
                     {
                         bool gerente = true;
-                        string chefe = sim;
+                        string chefe = "sim";
                         FrmPrincipal principalGerente = new FrmPrincipal(gerente,chefe);
                         principalGerente.Show();
                         this.Hide();
@@ -60,10 +60,10 @@ namespace AppLavaCar
             else
             {
                 MessageBox.Show("CPF inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                txtUsuario.Text = "";
+                mtxtCPF.Text = "";
                 txtSenha.Text = "";
-            }*/
-            
+            }
+
         }
 
         private void btnSair_Click_1(object sender, EventArgs e)
@@ -75,6 +75,11 @@ namespace AppLavaCar
         {
             FrmSenha senha = new FrmSenha();
             senha.Show();
+        }
+
+        private void FrmInicial_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = mtxtCPF;
         }
     }
 }
