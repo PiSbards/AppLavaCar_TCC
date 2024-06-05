@@ -73,5 +73,27 @@ namespace AppLavaCar
             this.Hide();
         }
 
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            CheckController controller = new CheckController();
+            if (txtNomeCliente.Text == "")
+            {
+                MessageBox.Show("Por favor insira o nome para efetuar o filtro", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                List<CheckOut> check = controller.FiltrarPorNome(txtNomeCliente.Text);
+                if (check == null)
+                {
+                    MessageBox.Show("Cliente não encontrado, Por Favor verefique o nome dado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    dgvHistorico.DataSource = check;
+                }
+            }
+        }
     }
 }

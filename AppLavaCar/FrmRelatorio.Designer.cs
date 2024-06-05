@@ -62,6 +62,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtNomeCliente = new System.Windows.Forms.TextBox();
+            this.btnLocalizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).BeginInit();
@@ -409,12 +412,49 @@
             this.label15.TabIndex = 98;
             this.label15.Text = "Tipo Lavagem:";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(25, 119);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(110, 16);
+            this.label16.TabIndex = 100;
+            this.label16.Text = "Nome do Cliente:";
+            // 
+            // txtNomeCliente
+            // 
+            this.txtNomeCliente.Location = new System.Drawing.Point(141, 118);
+            this.txtNomeCliente.Name = "txtNomeCliente";
+            this.txtNomeCliente.Size = new System.Drawing.Size(193, 20);
+            this.txtNomeCliente.TabIndex = 101;
+            // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalizar.BackgroundImage = global::AppLavaCar.Properties.Resources.lupa;
+            this.btnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLocalizar.FlatAppearance.BorderSize = 0;
+            this.btnLocalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnLocalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalizar.Location = new System.Drawing.Point(340, 105);
+            this.btnLocalizar.Name = "btnLocalizar";
+            this.btnLocalizar.Size = new System.Drawing.Size(45, 43);
+            this.btnLocalizar.TabIndex = 102;
+            this.btnLocalizar.UseVisualStyleBackColor = false;
+            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
+            // 
             // FrmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 846);
             this.ControlBox = false;
+            this.Controls.Add(this.btnLocalizar);
+            this.Controls.Add(this.txtNomeCliente);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.cbxTipo);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);
@@ -497,5 +537,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.Button btnLocalizar;
     }
 }
