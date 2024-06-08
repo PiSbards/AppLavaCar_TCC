@@ -30,8 +30,10 @@ namespace AppLavaCar
             InitializeComponent();
             btnFunc1.Enabled = false;
             btnFunc2.Enabled = false;
+            btnRelatorio.Enabled = false;
+            btnRelatorio2.Enabled = false;
         }
-        public FrmPrincipal(bool gerente,string chefe)
+        public FrmPrincipal(bool gerente, string chefe)
         {
             InitializeComponent();
             lblChefe.Text = chefe;
@@ -41,17 +43,17 @@ namespace AppLavaCar
         {
             if (Hidden == true)
             {
-                
+
                 MenuConteudo.Width = 200;
-                
+
                 Hidden = false;
             }
             else
-            {                
-                MenuConteudo.Width = 0;                
+            {
+                MenuConteudo.Width = 0;
                 Hidden = true;
             }
-        }        
+        }
 
         private void btnFunc1_Click(object sender, EventArgs e)
         {
@@ -78,14 +80,14 @@ namespace AppLavaCar
         {
             FrmCliente cliente = new FrmCliente();
             cliente.Show();
-            
+
         }
 
         private void btnSair2_Click(object sender, EventArgs e)
         {
             FrmInicial inicial = new FrmInicial();
-            var resposta = MetroMessageBox.Show(this,"Deseja realmente sair?","SAIR",MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
-            if(resposta == DialogResult.OK)
+            var resposta = MetroMessageBox.Show(this, "Deseja realmente sair?", "SAIR", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+            if (resposta == DialogResult.OK)
             {
                 inicial.Show();
                 this.Hide();
@@ -94,18 +96,18 @@ namespace AppLavaCar
             {
                 return;
             }
-            
-        }        
+
+        }
 
         private void btnFunc2_Click(object sender, EventArgs e)
         {
             FrmFunc func = new FrmFunc();
             func.Show();
-            
+
         }
 
         private void btnAgenda2_Click(object sender, EventArgs e)
-        {            
+        {
             if (lblChefe.Text == "SIM".ToLower())
             {
                 bool gerente = true;
@@ -116,20 +118,20 @@ namespace AppLavaCar
             {
                 FrmAgenda agenda1 = new FrmAgenda();
                 agenda1.Show();
-            }  
+            }
         }
 
         private void btnCliente2_Click(object sender, EventArgs e)
         {
             FrmCliente cliente = new FrmCliente();
             cliente.Show();
-            
+
         }
 
         private void btnSair1_Click(object sender, EventArgs e)
         {
             FrmInicial inicial = new FrmInicial();
-            var resposta = MetroMessageBox.Show(this,"Deseja realmente sair?", "SAIR", MessageBoxButtons.OKCancel);
+            var resposta = MetroMessageBox.Show(this, "Deseja realmente sair?", "SAIR", MessageBoxButtons.OKCancel);
             if (resposta == DialogResult.OK)
             {
                 inicial.Show();
@@ -153,11 +155,8 @@ namespace AppLavaCar
             AgendaController agenda = new AgendaController();
             List<Agenda> agendamento = agenda.listaAgendaDia();
             dgvAgendaDoDia.DataSource = agendamento;
-
             lblData.Text = DateTime.Today.ToString("D");
             lblAgendamentoDia.Text = agendamento.Count.ToString();
-
-            
             ControllerGeral geral = new ControllerGeral();
             geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
 
@@ -166,7 +165,7 @@ namespace AppLavaCar
         private void btnCheckin_Click(object sender, EventArgs e)
         {
             FrmCheckin check = new FrmCheckin();
-            check.Show();            
+            check.Show();
         }
 
         private void btnCheckin2_Click(object sender, EventArgs e)
@@ -177,8 +176,8 @@ namespace AppLavaCar
 
         private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-        }        
+
+        }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
@@ -200,7 +199,7 @@ namespace AppLavaCar
             dgvAgendamento.DataSource = li;
             AgendaController agenda = new AgendaController();
             List<Agenda> agendamento = agenda.listaAgendaDia();
-            dgvAgendaDoDia.DataSource = agendamento;            
+            dgvAgendaDoDia.DataSource = agendamento;
             lblAgendamentoDia.Text = agendamento.Count.ToString();
             ControllerGeral geral = new ControllerGeral();
             geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);

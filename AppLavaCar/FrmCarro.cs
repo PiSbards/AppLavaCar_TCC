@@ -33,12 +33,12 @@ namespace AppLavaCar
             if (chbxCNPJ.Checked == false)
             {
                 lblCPF.Text = "CPF";
-                mtxtCPF.Mask = "999.999.999-00";
+                mtxtCPF.Mask = "999,999,999-00";
             }
             else if (chbxCNPJ.Checked == true)
             {
                 lblCPF.Text = "CNPJ";
-                mtxtCPF.Mask = "99.999.999 /9999-99";
+                mtxtCPF.Mask = "999,999,999 /9999-99";
             }
         }
 

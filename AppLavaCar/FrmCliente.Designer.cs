@@ -237,7 +237,7 @@
             // mtxtCpf
             // 
             this.mtxtCpf.Location = new System.Drawing.Point(3, 63);
-            this.mtxtCpf.Mask = "999.999.999-99";
+            this.mtxtCpf.Mask = "999,999,999-99";
             this.mtxtCpf.Name = "mtxtCpf";
             this.mtxtCpf.Size = new System.Drawing.Size(164, 20);
             this.mtxtCpf.TabIndex = 67;
@@ -281,7 +281,7 @@
             this.tcControl.Controls.Add(this.tpCarro);
             this.tcControl.Location = new System.Drawing.Point(3, 14);
             this.tcControl.Name = "tcControl";
-            this.tcControl.SelectedIndex = 0;
+            this.tcControl.SelectedIndex = 1;
             this.tcControl.Size = new System.Drawing.Size(535, 443);
             this.tcControl.TabIndex = 72;
             this.tcControl.UseSelectable = true;
@@ -358,7 +358,7 @@
             // mktCpfDono
             // 
             this.mktCpfDono.Location = new System.Drawing.Point(208, 98);
-            this.mktCpfDono.Mask = "999.999.999-99";
+            this.mktCpfDono.Mask = "999,999,999-99";
             this.mktCpfDono.Name = "mktCpfDono";
             this.mktCpfDono.Size = new System.Drawing.Size(127, 20);
             this.mktCpfDono.TabIndex = 74;

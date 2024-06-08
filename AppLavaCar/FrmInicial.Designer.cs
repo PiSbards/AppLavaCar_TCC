@@ -46,7 +46,7 @@
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(369, 509);
+            this.btnSair.Location = new System.Drawing.Point(364, 509);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(108, 42);
             this.btnSair.TabIndex = 15;
@@ -60,7 +60,7 @@
             this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(238, 509);
+            this.btnEntrar.Location = new System.Drawing.Point(233, 509);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(108, 42);
             this.btnEntrar.TabIndex = 14;
@@ -70,7 +70,7 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(245, 426);
+            this.txtSenha.Location = new System.Drawing.Point(240, 426);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(207, 20);
             this.txtSenha.TabIndex = 13;
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(242, 407);
+            this.label2.Location = new System.Drawing.Point(237, 407);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 12;
@@ -90,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(242, 358);
+            this.label1.Location = new System.Drawing.Point(237, 358);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 10;
@@ -109,7 +109,7 @@
             this.llblSenha.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
             this.llblSenha.AutoSize = true;
             this.llblSenha.LinkColor = System.Drawing.Color.Black;
-            this.llblSenha.Location = new System.Drawing.Point(350, 449);
+            this.llblSenha.Location = new System.Drawing.Point(345, 449);
             this.llblSenha.Name = "llblSenha";
             this.llblSenha.Size = new System.Drawing.Size(102, 13);
             this.llblSenha.TabIndex = 18;
@@ -119,7 +119,7 @@
             // 
             // mtxtCPF
             // 
-            this.mtxtCPF.Location = new System.Drawing.Point(245, 378);
+            this.mtxtCPF.Location = new System.Drawing.Point(240, 378);
             this.mtxtCPF.Mask = "999,999,999-99";
             this.mtxtCPF.Name = "mtxtCPF";
             this.mtxtCPF.Size = new System.Drawing.Size(207, 20);

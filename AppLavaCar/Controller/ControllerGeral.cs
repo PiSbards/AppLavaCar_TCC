@@ -76,7 +76,9 @@ namespace AppLavaCar.Controller
                 }
             }
         }
-
-
+        //public string indicadormodelo()
+        //{
+          //  string sql = "select ";
+        //}
     }
 }

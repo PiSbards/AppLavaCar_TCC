@@ -149,12 +149,12 @@ namespace AppLavaCar
             if (chbxCNPJ.Checked == false)
             {
                 lblCpf.Text = "CPF";
-                mtxtCpf.Mask = "999.999.999-00";
+                mtxtCpf.Mask = "999,999,999-00";
             }
             else if (chbxCNPJ.Checked == true)
             {
                 lblCpf.Text = "CNPJ";
-                mtxtCpf.Mask = "99.999.999/9999-99";
+                mtxtCpf.Mask = "99,999,999/9999-99";
             }
         }
 
@@ -163,12 +163,12 @@ namespace AppLavaCar
             if (chbxCnpjCarro.Checked == false)
             {
                 lblCpfCarro.Text = "CPF";
-                mktCpfDono.Mask = "999.999.999-00";
+                mktCpfDono.Mask = "999,999,999-00";
             }
             else if (chbxCnpjCarro.Checked == true)
             {
                 lblCpfCarro.Text = "CNPJ";
-                mktCpfDono.Mask = "99.999.999/9999-99";
+                mktCpfDono.Mask = "99,999,999/9999-99";
             }
         }
 
