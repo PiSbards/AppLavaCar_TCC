@@ -66,17 +66,14 @@
             this.pcbxDevolucao = new System.Windows.Forms.PictureBox();
             this.pcbxCheckin = new System.Windows.Forms.PictureBox();
             this.pcbxAgendamento = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTratamento = new System.Windows.Forms.Label();
             this.lbltop1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbltop2 = new System.Windows.Forms.Label();
             this.lblTop3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -89,9 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbxDevolucao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbxCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbxAgendamento)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuBarra
@@ -530,37 +524,28 @@
             this.pcbxAgendamento.TabIndex = 59;
             this.pcbxAgendamento.TabStop = false;
             // 
-            // panel1
+            // lblModelo
             // 
-            this.panel1.Controls.Add(this.lblModelo);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1432, 108);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 142);
-            this.panel1.TabIndex = 59;
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.Location = new System.Drawing.Point(1527, 158);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(0, 24);
+            this.lblModelo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 21);
+            this.label1.Location = new System.Drawing.Point(1476, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modelo de Veículo mais lavado:";
             // 
-            // lblModelo
-            // 
-            this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(32, 66);
-            this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(35, 13);
-            this.lblModelo.TabIndex = 1;
-            this.lblModelo.Text = "label4";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 17);
+            this.label4.Location = new System.Drawing.Point(1476, 377);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(178, 13);
             this.label4.TabIndex = 2;
@@ -569,7 +554,7 @@
             // lblTratamento
             // 
             this.lblTratamento.AutoSize = true;
-            this.lblTratamento.Location = new System.Drawing.Point(32, 91);
+            this.lblTratamento.Location = new System.Drawing.Point(1492, 427);
             this.lblTratamento.Name = "lblTratamento";
             this.lblTratamento.Size = new System.Drawing.Size(35, 13);
             this.lblTratamento.TabIndex = 3;
@@ -578,7 +563,7 @@
             // lbltop1
             // 
             this.lbltop1.AutoSize = true;
-            this.lbltop1.Location = new System.Drawing.Point(32, 54);
+            this.lbltop1.Location = new System.Drawing.Point(1476, 585);
             this.lbltop1.Name = "lbltop1";
             this.lbltop1.Size = new System.Drawing.Size(35, 13);
             this.lbltop1.TabIndex = 5;
@@ -587,7 +572,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 15);
+            this.label7.Location = new System.Drawing.Point(1528, 546);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 4;
@@ -596,7 +581,7 @@
             // lbltop2
             // 
             this.lbltop2.AutoSize = true;
-            this.lbltop2.Location = new System.Drawing.Point(32, 107);
+            this.lbltop2.Location = new System.Drawing.Point(1476, 638);
             this.lbltop2.Name = "lbltop2";
             this.lbltop2.Size = new System.Drawing.Size(35, 13);
             this.lbltop2.TabIndex = 6;
@@ -605,31 +590,11 @@
             // lblTop3
             // 
             this.lblTop3.AutoSize = true;
-            this.lblTop3.Location = new System.Drawing.Point(32, 158);
+            this.lblTop3.Location = new System.Drawing.Point(1476, 689);
             this.lblTop3.Name = "lblTop3";
             this.lblTop3.Size = new System.Drawing.Size(35, 13);
             this.lblTop3.TabIndex = 7;
             this.lblTop3.Text = "label9";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.lblTratamento);
-            this.panel2.Location = new System.Drawing.Point(1432, 370);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(262, 164);
-            this.panel2.TabIndex = 60;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblTop3);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.lbltop1);
-            this.panel3.Controls.Add(this.lbltop2);
-            this.panel3.Location = new System.Drawing.Point(1432, 651);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(262, 203);
-            this.panel3.TabIndex = 60;
             // 
             // label5
             // 
@@ -664,11 +629,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1751, 984);
             this.ControlBox = false;
+            this.Controls.Add(this.lblTop3);
+            this.Controls.Add(this.lblModelo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbltop1);
+            this.Controls.Add(this.lbltop2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTratamento);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.MenuConteudo);
             this.Controls.Add(this.pcbxCheckin);
             this.Controls.Add(this.pcbxDevolucao);
@@ -703,12 +673,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbxDevolucao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbxCheckin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbxAgendamento)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -746,7 +710,6 @@
         private System.Windows.Forms.PictureBox pcbxAgendamento;
         private System.Windows.Forms.PictureBox pcbxDevolucao;
         private System.Windows.Forms.PictureBox pcbxCheckin;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTop3;
         private System.Windows.Forms.Label lbltop2;
@@ -755,8 +718,6 @@
         private System.Windows.Forms.Label lblTratamento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
