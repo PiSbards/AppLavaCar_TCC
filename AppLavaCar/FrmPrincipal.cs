@@ -245,5 +245,32 @@ namespace AppLavaCar
             FrmRelatorio rel = new FrmRelatorio();
             rel.Show();
         }
+
+        private void lblAgendaGrande_Click(object sender, EventArgs e)
+        {
+            if (lblChefe.Text == "SIM".ToLower())
+            {
+                bool gerente = true;
+                FrmAgenda agenda = new FrmAgenda(gerente);
+                agenda.Show();
+            }
+            else
+            {
+                FrmAgenda agenda1 = new FrmAgenda();
+                agenda1.Show();
+            }
+        }
+
+        private void lblCheckinGrande_Click(object sender, EventArgs e)
+        {
+            FrmCheckin check = new FrmCheckin();
+            check.Show();
+        }
+
+        private void lblCheckoutGrande_Click(object sender, EventArgs e)
+        {
+            FrmCheckOut Checkout = new FrmCheckOut();
+            Checkout.Show();
+        }
     }
 }

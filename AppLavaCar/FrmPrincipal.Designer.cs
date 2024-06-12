@@ -28,22 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MenuBarra = new System.Windows.Forms.Panel();
-            this.btnRelatorio2 = new System.Windows.Forms.Button();
-            this.btnCheckOut2 = new System.Windows.Forms.Button();
-            this.btnCheckin2 = new System.Windows.Forms.Button();
-            this.btnSair2 = new System.Windows.Forms.Button();
-            this.btnCliente1 = new System.Windows.Forms.Button();
-            this.btnAgenda1 = new System.Windows.Forms.Button();
-            this.btnFunc1 = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.MenuConteudo = new System.Windows.Forms.Panel();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
@@ -63,9 +55,6 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.chTipoTratamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chSituacao = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pcbxDevolucao = new System.Windows.Forms.PictureBox();
-            this.pcbxCheckin = new System.Windows.Forms.PictureBox();
-            this.pcbxAgendamento = new System.Windows.Forms.PictureBox();
             this.lblModelo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,15 +66,29 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRelatorio2 = new System.Windows.Forms.Button();
+            this.btnCheckOut2 = new System.Windows.Forms.Button();
+            this.btnCheckin2 = new System.Windows.Forms.Button();
+            this.btnSair2 = new System.Windows.Forms.Button();
+            this.btnCliente1 = new System.Windows.Forms.Button();
+            this.btnAgenda1 = new System.Windows.Forms.Button();
+            this.btnFunc1 = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.lblAgendaGrande = new System.Windows.Forms.Button();
+            this.lblCheckinGrande = new System.Windows.Forms.Button();
+            this.lblCheckoutGrande = new System.Windows.Forms.Button();
             this.MenuBarra.SuspendLayout();
             this.MenuConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chTipoTratamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chSituacao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxDevolucao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxCheckin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxAgendamento)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuBarra
@@ -105,128 +108,6 @@
             this.MenuBarra.Name = "MenuBarra";
             this.MenuBarra.Size = new System.Drawing.Size(56, 981);
             this.MenuBarra.TabIndex = 4;
-            // 
-            // btnRelatorio2
-            // 
-            this.btnRelatorio2.BackColor = System.Drawing.Color.Transparent;
-            this.btnRelatorio2.BackgroundImage = global::AppLavaCar.Properties.Resources.relatorio;
-            this.btnRelatorio2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRelatorio2.FlatAppearance.BorderSize = 0;
-            this.btnRelatorio2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnRelatorio2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio2.Location = new System.Drawing.Point(4, 399);
-            this.btnRelatorio2.Name = "btnRelatorio2";
-            this.btnRelatorio2.Size = new System.Drawing.Size(45, 46);
-            this.btnRelatorio2.TabIndex = 10;
-            this.btnRelatorio2.UseVisualStyleBackColor = false;
-            this.btnRelatorio2.Click += new System.EventHandler(this.btnRelatorio2_Click);
-            // 
-            // btnCheckOut2
-            // 
-            this.btnCheckOut2.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckOut2.BackgroundImage = global::AppLavaCar.Properties.Resources.aceitaram;
-            this.btnCheckOut2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckOut2.FlatAppearance.BorderSize = 0;
-            this.btnCheckOut2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCheckOut2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckOut2.Location = new System.Drawing.Point(4, 341);
-            this.btnCheckOut2.Name = "btnCheckOut2";
-            this.btnCheckOut2.Size = new System.Drawing.Size(45, 46);
-            this.btnCheckOut2.TabIndex = 9;
-            this.btnCheckOut2.UseVisualStyleBackColor = false;
-            this.btnCheckOut2.Click += new System.EventHandler(this.btnCheckOut2_Click);
-            // 
-            // btnCheckin2
-            // 
-            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
-            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckin2.FlatAppearance.BorderSize = 0;
-            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
-            this.btnCheckin2.Name = "btnCheckin2";
-            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
-            this.btnCheckin2.TabIndex = 8;
-            this.btnCheckin2.UseVisualStyleBackColor = false;
-            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
-            // 
-            // btnSair2
-            // 
-            this.btnSair2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSair2.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair2.BackgroundImage = global::AppLavaCar.Properties.Resources.sair__2_;
-            this.btnSair2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSair2.FlatAppearance.BorderSize = 0;
-            this.btnSair2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnSair2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair2.ForeColor = System.Drawing.Color.Snow;
-            this.btnSair2.Location = new System.Drawing.Point(4, 923);
-            this.btnSair2.Name = "btnSair2";
-            this.btnSair2.Size = new System.Drawing.Size(45, 44);
-            this.btnSair2.TabIndex = 6;
-            this.btnSair2.UseVisualStyleBackColor = false;
-            this.btnSair2.Click += new System.EventHandler(this.btnSair2_Click);
-            // 
-            // btnCliente1
-            // 
-            this.btnCliente1.BackColor = System.Drawing.Color.Transparent;
-            this.btnCliente1.BackgroundImage = global::AppLavaCar.Properties.Resources.cliente;
-            this.btnCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCliente1.FlatAppearance.BorderSize = 0;
-            this.btnCliente1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnCliente1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente1.Location = new System.Drawing.Point(4, 228);
-            this.btnCliente1.Name = "btnCliente1";
-            this.btnCliente1.Size = new System.Drawing.Size(45, 44);
-            this.btnCliente1.TabIndex = 4;
-            this.btnCliente1.UseVisualStyleBackColor = false;
-            this.btnCliente1.Click += new System.EventHandler(this.btnCliente1_Click);
-            // 
-            // btnAgenda1
-            // 
-            this.btnAgenda1.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgenda1.BackgroundImage = global::AppLavaCar.Properties.Resources.Agenda;
-            this.btnAgenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgenda1.FlatAppearance.BorderSize = 0;
-            this.btnAgenda1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnAgenda1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda1.Location = new System.Drawing.Point(4, 169);
-            this.btnAgenda1.Name = "btnAgenda1";
-            this.btnAgenda1.Size = new System.Drawing.Size(45, 44);
-            this.btnAgenda1.TabIndex = 3;
-            this.btnAgenda1.UseVisualStyleBackColor = false;
-            this.btnAgenda1.Click += new System.EventHandler(this.btnAgenda1_Click);
-            // 
-            // btnFunc1
-            // 
-            this.btnFunc1.BackColor = System.Drawing.Color.Transparent;
-            this.btnFunc1.BackgroundImage = global::AppLavaCar.Properties.Resources.funcionario;
-            this.btnFunc1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFunc1.FlatAppearance.BorderSize = 0;
-            this.btnFunc1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnFunc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunc1.Location = new System.Drawing.Point(4, 108);
-            this.btnFunc1.Name = "btnFunc1";
-            this.btnFunc1.Size = new System.Drawing.Size(45, 44);
-            this.btnFunc1.TabIndex = 2;
-            this.btnFunc1.UseVisualStyleBackColor = false;
-            this.btnFunc1.Click += new System.EventHandler(this.btnFunc1_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
-            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Location = new System.Drawing.Point(4, 4);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(45, 44);
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // MenuConteudo
             // 
@@ -372,8 +253,9 @@
             // 
             // dgvAgendamento
             // 
+            this.dgvAgendamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAgendamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgendamento.Location = new System.Drawing.Point(83, 108);
+            this.dgvAgendamento.Location = new System.Drawing.Point(83, 82);
             this.dgvAgendamento.Name = "dgvAgendamento";
             this.dgvAgendamento.ReadOnly = true;
             this.dgvAgendamento.Size = new System.Drawing.Size(758, 340);
@@ -393,8 +275,9 @@
             // 
             // dgvAgendaDoDia
             // 
+            this.dgvAgendaDoDia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAgendaDoDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgendaDoDia.Location = new System.Drawing.Point(83, 480);
+            this.dgvAgendaDoDia.Location = new System.Drawing.Point(83, 448);
             this.dgvAgendaDoDia.Name = "dgvAgendaDoDia";
             this.dgvAgendaDoDia.ReadOnly = true;
             this.dgvAgendaDoDia.Size = new System.Drawing.Size(758, 340);
@@ -402,9 +285,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(349, 461);
+            this.label2.Location = new System.Drawing.Point(349, 429);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(193, 16);
             this.label2.TabIndex = 49;
@@ -412,9 +296,12 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(349, 89);
+            this.label10.Location = new System.Drawing.Point(349, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(136, 16);
             this.label10.TabIndex = 50;
@@ -422,6 +309,9 @@
             // 
             // lblData
             // 
+            this.lblData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.Location = new System.Drawing.Point(80, 9);
@@ -431,18 +321,20 @@
             // 
             // lblAgendamentoDia
             // 
+            this.lblAgendamentoDia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAgendamentoDia.AutoSize = true;
             this.lblAgendamentoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgendamentoDia.Location = new System.Drawing.Point(544, 461);
+            this.lblAgendamentoDia.Location = new System.Drawing.Point(544, 429);
             this.lblAgendamentoDia.Name = "lblAgendamentoDia";
             this.lblAgendamentoDia.Size = new System.Drawing.Size(0, 16);
             this.lblAgendamentoDia.TabIndex = 53;
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizar.Location = new System.Drawing.Point(83, 75);
+            this.btnAtualizar.Location = new System.Drawing.Point(83, 49);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(126, 27);
             this.btnAtualizar.TabIndex = 54;
@@ -452,83 +344,63 @@
             // 
             // chTipoTratamento
             // 
-            chartArea3.Area3DStyle.Enable3D = true;
-            chartArea3.Area3DStyle.Inclination = 20;
-            chartArea3.Name = "ChartArea1";
-            this.chTipoTratamento.ChartAreas.Add(chartArea3);
-            legend3.IsDockedInsideChartArea = false;
-            legend3.Name = "Legend1";
-            legend3.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-            legend3.Title = "Legenda";
-            this.chTipoTratamento.Legends.Add(legend3);
-            this.chTipoTratamento.Location = new System.Drawing.Point(869, 108);
+            this.chTipoTratamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            chartArea9.Area3DStyle.Enable3D = true;
+            chartArea9.Area3DStyle.Inclination = 20;
+            chartArea9.Name = "ChartArea1";
+            this.chTipoTratamento.ChartAreas.Add(chartArea9);
+            legend9.IsDockedInsideChartArea = false;
+            legend9.Name = "Legend1";
+            legend9.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+            legend9.Title = "Legenda";
+            this.chTipoTratamento.Legends.Add(legend9);
+            this.chTipoTratamento.Location = new System.Drawing.Point(933, 82);
             this.chTipoTratamento.Name = "chTipoTratamento";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.LabelForeColor = System.Drawing.Color.Transparent;
-            series3.Legend = "Legend1";
-            series3.Name = "Total";
-            series3.SmartLabelStyle.Enabled = false;
-            series3.YValuesPerPoint = 2;
-            this.chTipoTratamento.Series.Add(series3);
-            this.chTipoTratamento.Size = new System.Drawing.Size(557, 339);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.LabelForeColor = System.Drawing.Color.Transparent;
+            series9.Legend = "Legend1";
+            series9.Name = "Total";
+            series9.SmartLabelStyle.Enabled = false;
+            series9.YValuesPerPoint = 2;
+            this.chTipoTratamento.Series.Add(series9);
+            this.chTipoTratamento.Size = new System.Drawing.Size(500, 340);
             this.chTipoTratamento.TabIndex = 55;
             this.chTipoTratamento.Text = "Tipo de Tratamento";
             // 
             // chSituacao
             // 
-            chartArea4.Area3DStyle.Enable3D = true;
-            chartArea4.Area3DStyle.Inclination = 20;
-            chartArea4.Name = "ChartArea1";
-            this.chSituacao.ChartAreas.Add(chartArea4);
-            legend4.IsDockedInsideChartArea = false;
-            legend4.Name = "Legend1";
-            legend4.Title = "Legenda";
-            this.chSituacao.Legends.Add(legend4);
-            this.chSituacao.Location = new System.Drawing.Point(847, 481);
+            this.chSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            chartArea10.Area3DStyle.Enable3D = true;
+            chartArea10.Area3DStyle.Inclination = 20;
+            chartArea10.Name = "ChartArea1";
+            this.chSituacao.ChartAreas.Add(chartArea10);
+            legend10.IsDockedInsideChartArea = false;
+            legend10.Name = "Legend1";
+            legend10.Title = "Legenda";
+            this.chSituacao.Legends.Add(legend10);
+            this.chSituacao.Location = new System.Drawing.Point(933, 480);
             this.chSituacao.Name = "chSituacao";
             this.chSituacao.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.LabelForeColor = System.Drawing.Color.Transparent;
-            series4.Legend = "Legend1";
-            series4.Name = "Total";
-            series4.SmartLabelStyle.Enabled = false;
-            series4.YValuesPerPoint = 4;
-            this.chSituacao.Series.Add(series4);
-            this.chSituacao.Size = new System.Drawing.Size(500, 339);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series10.LabelForeColor = System.Drawing.Color.Transparent;
+            series10.Legend = "Legend1";
+            series10.Name = "Total";
+            series10.SmartLabelStyle.Enabled = false;
+            series10.YValuesPerPoint = 4;
+            this.chSituacao.Series.Add(series10);
+            this.chSituacao.Size = new System.Drawing.Size(433, 286);
             this.chSituacao.TabIndex = 56;
             this.chSituacao.Text = "Situação dos carros";
-            // 
-            // pcbxDevolucao
-            // 
-            this.pcbxDevolucao.Location = new System.Drawing.Point(629, 840);
-            this.pcbxDevolucao.Name = "pcbxDevolucao";
-            this.pcbxDevolucao.Size = new System.Drawing.Size(156, 102);
-            this.pcbxDevolucao.TabIndex = 57;
-            this.pcbxDevolucao.TabStop = false;
-            // 
-            // pcbxCheckin
-            // 
-            this.pcbxCheckin.Location = new System.Drawing.Point(329, 840);
-            this.pcbxCheckin.Name = "pcbxCheckin";
-            this.pcbxCheckin.Size = new System.Drawing.Size(156, 102);
-            this.pcbxCheckin.TabIndex = 58;
-            this.pcbxCheckin.TabStop = false;
-            // 
-            // pcbxAgendamento
-            // 
-            this.pcbxAgendamento.Location = new System.Drawing.Point(84, 839);
-            this.pcbxAgendamento.Name = "pcbxAgendamento";
-            this.pcbxAgendamento.Size = new System.Drawing.Size(156, 102);
-            this.pcbxAgendamento.TabIndex = 59;
-            this.pcbxAgendamento.TabStop = false;
             // 
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.Location = new System.Drawing.Point(1527, 158);
+            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.Location = new System.Drawing.Point(123, 54);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(0, 24);
             this.lblModelo.TabIndex = 1;
@@ -536,70 +408,73 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1476, 113);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(46, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 13);
+            this.label1.Size = new System.Drawing.Size(247, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modelo de Veículo mais lavado:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1476, 377);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(178, 13);
+            this.label4.Size = new System.Drawing.Size(279, 18);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tipo de Tratamento mais agendado:";
             // 
             // lblTratamento
             // 
             this.lblTratamento.AutoSize = true;
-            this.lblTratamento.Location = new System.Drawing.Point(1492, 427);
+            this.lblTratamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTratamento.Location = new System.Drawing.Point(83, 54);
             this.lblTratamento.Name = "lblTratamento";
-            this.lblTratamento.Size = new System.Drawing.Size(35, 13);
+            this.lblTratamento.Size = new System.Drawing.Size(0, 20);
             this.lblTratamento.TabIndex = 3;
-            this.lblTratamento.Text = "label5";
             // 
             // lbltop1
             // 
             this.lbltop1.AutoSize = true;
-            this.lbltop1.Location = new System.Drawing.Point(1476, 585);
+            this.lbltop1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltop1.Location = new System.Drawing.Point(22, 85);
             this.lbltop1.Name = "lbltop1";
-            this.lbltop1.Size = new System.Drawing.Size(35, 13);
+            this.lbltop1.Size = new System.Drawing.Size(0, 18);
             this.lbltop1.TabIndex = 5;
-            this.lbltop1.Text = "label6";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1528, 546);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(106, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.Size = new System.Drawing.Size(107, 16);
             this.label7.TabIndex = 4;
             this.label7.Text = "Top 3 Clientes";
             // 
             // lbltop2
             // 
             this.lbltop2.AutoSize = true;
-            this.lbltop2.Location = new System.Drawing.Point(1476, 638);
+            this.lbltop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltop2.Location = new System.Drawing.Point(22, 138);
             this.lbltop2.Name = "lbltop2";
-            this.lbltop2.Size = new System.Drawing.Size(35, 13);
+            this.lbltop2.Size = new System.Drawing.Size(0, 18);
             this.lbltop2.TabIndex = 6;
-            this.lbltop2.Text = "label8";
             // 
             // lblTop3
             // 
             this.lblTop3.AutoSize = true;
-            this.lblTop3.Location = new System.Drawing.Point(1476, 689);
+            this.lblTop3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTop3.Location = new System.Drawing.Point(22, 189);
             this.lblTop3.Name = "lblTop3";
-            this.lblTop3.Size = new System.Drawing.Size(35, 13);
+            this.lblTop3.Size = new System.Drawing.Size(0, 18);
             this.lblTop3.TabIndex = 7;
-            this.lblTop3.Text = "label9";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(374, 959);
+            this.label5.Location = new System.Drawing.Point(407, 959);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 4;
@@ -608,7 +483,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(641, 959);
+            this.label6.Location = new System.Drawing.Point(660, 959);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 13);
             this.label6.TabIndex = 61;
@@ -623,25 +498,217 @@
             this.label8.TabIndex = 62;
             this.label8.Text = "AGENDAMENTO";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblModelo);
+            this.panel1.Location = new System.Drawing.Point(1514, 89);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(317, 100);
+            this.panel1.TabIndex = 63;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Yellow;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.lblTratamento);
+            this.panel2.Location = new System.Drawing.Point(1514, 292);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(317, 100);
+            this.panel2.TabIndex = 64;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.YellowGreen;
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lbltop2);
+            this.panel3.Controls.Add(this.lbltop1);
+            this.panel3.Controls.Add(this.lblTop3);
+            this.panel3.Location = new System.Drawing.Point(1514, 480);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(317, 279);
+            this.panel3.TabIndex = 65;
+            // 
+            // btnRelatorio2
+            // 
+            this.btnRelatorio2.BackColor = System.Drawing.Color.Transparent;
+            this.btnRelatorio2.BackgroundImage = global::AppLavaCar.Properties.Resources.relatorio;
+            this.btnRelatorio2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRelatorio2.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnRelatorio2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio2.Location = new System.Drawing.Point(4, 399);
+            this.btnRelatorio2.Name = "btnRelatorio2";
+            this.btnRelatorio2.Size = new System.Drawing.Size(45, 46);
+            this.btnRelatorio2.TabIndex = 10;
+            this.btnRelatorio2.UseVisualStyleBackColor = false;
+            this.btnRelatorio2.Click += new System.EventHandler(this.btnRelatorio2_Click);
+            // 
+            // btnCheckOut2
+            // 
+            this.btnCheckOut2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckOut2.BackgroundImage = global::AppLavaCar.Properties.Resources.aceitaram;
+            this.btnCheckOut2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckOut2.FlatAppearance.BorderSize = 0;
+            this.btnCheckOut2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheckOut2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOut2.Location = new System.Drawing.Point(4, 341);
+            this.btnCheckOut2.Name = "btnCheckOut2";
+            this.btnCheckOut2.Size = new System.Drawing.Size(45, 46);
+            this.btnCheckOut2.TabIndex = 9;
+            this.btnCheckOut2.UseVisualStyleBackColor = false;
+            this.btnCheckOut2.Click += new System.EventHandler(this.btnCheckOut2_Click);
+            // 
+            // btnCheckin2
+            // 
+            this.btnCheckin2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckin2.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in;
+            this.btnCheckin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckin2.FlatAppearance.BorderSize = 0;
+            this.btnCheckin2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCheckin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckin2.Location = new System.Drawing.Point(4, 287);
+            this.btnCheckin2.Name = "btnCheckin2";
+            this.btnCheckin2.Size = new System.Drawing.Size(45, 44);
+            this.btnCheckin2.TabIndex = 8;
+            this.btnCheckin2.UseVisualStyleBackColor = false;
+            this.btnCheckin2.Click += new System.EventHandler(this.btnCheckin2_Click);
+            // 
+            // btnSair2
+            // 
+            this.btnSair2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair2.BackColor = System.Drawing.Color.Transparent;
+            this.btnSair2.BackgroundImage = global::AppLavaCar.Properties.Resources.sair__2_;
+            this.btnSair2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSair2.FlatAppearance.BorderSize = 0;
+            this.btnSair2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSair2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair2.ForeColor = System.Drawing.Color.Snow;
+            this.btnSair2.Location = new System.Drawing.Point(4, 923);
+            this.btnSair2.Name = "btnSair2";
+            this.btnSair2.Size = new System.Drawing.Size(45, 44);
+            this.btnSair2.TabIndex = 6;
+            this.btnSair2.UseVisualStyleBackColor = false;
+            this.btnSair2.Click += new System.EventHandler(this.btnSair2_Click);
+            // 
+            // btnCliente1
+            // 
+            this.btnCliente1.BackColor = System.Drawing.Color.Transparent;
+            this.btnCliente1.BackgroundImage = global::AppLavaCar.Properties.Resources.cliente;
+            this.btnCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCliente1.FlatAppearance.BorderSize = 0;
+            this.btnCliente1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCliente1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente1.Location = new System.Drawing.Point(4, 228);
+            this.btnCliente1.Name = "btnCliente1";
+            this.btnCliente1.Size = new System.Drawing.Size(45, 44);
+            this.btnCliente1.TabIndex = 4;
+            this.btnCliente1.UseVisualStyleBackColor = false;
+            this.btnCliente1.Click += new System.EventHandler(this.btnCliente1_Click);
+            // 
+            // btnAgenda1
+            // 
+            this.btnAgenda1.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgenda1.BackgroundImage = global::AppLavaCar.Properties.Resources.Agenda;
+            this.btnAgenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgenda1.FlatAppearance.BorderSize = 0;
+            this.btnAgenda1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnAgenda1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgenda1.Location = new System.Drawing.Point(4, 169);
+            this.btnAgenda1.Name = "btnAgenda1";
+            this.btnAgenda1.Size = new System.Drawing.Size(45, 44);
+            this.btnAgenda1.TabIndex = 3;
+            this.btnAgenda1.UseVisualStyleBackColor = false;
+            this.btnAgenda1.Click += new System.EventHandler(this.btnAgenda1_Click);
+            // 
+            // btnFunc1
+            // 
+            this.btnFunc1.BackColor = System.Drawing.Color.Transparent;
+            this.btnFunc1.BackgroundImage = global::AppLavaCar.Properties.Resources.funcionario;
+            this.btnFunc1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFunc1.FlatAppearance.BorderSize = 0;
+            this.btnFunc1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFunc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunc1.Location = new System.Drawing.Point(4, 108);
+            this.btnFunc1.Name = "btnFunc1";
+            this.btnFunc1.Size = new System.Drawing.Size(45, 44);
+            this.btnFunc1.TabIndex = 2;
+            this.btnFunc1.UseVisualStyleBackColor = false;
+            this.btnFunc1.Click += new System.EventHandler(this.btnFunc1_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Location = new System.Drawing.Point(4, 4);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(45, 44);
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // lblAgendaGrande
+            // 
+            this.lblAgendaGrande.BackColor = System.Drawing.Color.Transparent;
+            this.lblAgendaGrande.BackgroundImage = global::AppLavaCar.Properties.Resources.AgendaGrande;
+            this.lblAgendaGrande.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lblAgendaGrande.FlatAppearance.BorderSize = 0;
+            this.lblAgendaGrande.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblAgendaGrande.ForeColor = System.Drawing.Color.Transparent;
+            this.lblAgendaGrande.Location = new System.Drawing.Point(105, 853);
+            this.lblAgendaGrande.Name = "lblAgendaGrande";
+            this.lblAgendaGrande.Size = new System.Drawing.Size(129, 88);
+            this.lblAgendaGrande.TabIndex = 66;
+            this.lblAgendaGrande.UseVisualStyleBackColor = false;
+            this.lblAgendaGrande.Click += new System.EventHandler(this.lblAgendaGrande_Click);
+            // 
+            // lblCheckinGrande
+            // 
+            this.lblCheckinGrande.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckinGrande.BackgroundImage = global::AppLavaCar.Properties.Resources.check_in_grande;
+            this.lblCheckinGrande.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lblCheckinGrande.FlatAppearance.BorderSize = 0;
+            this.lblCheckinGrande.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCheckinGrande.Location = new System.Drawing.Point(367, 853);
+            this.lblCheckinGrande.Name = "lblCheckinGrande";
+            this.lblCheckinGrande.Size = new System.Drawing.Size(129, 88);
+            this.lblCheckinGrande.TabIndex = 67;
+            this.lblCheckinGrande.UseVisualStyleBackColor = false;
+            this.lblCheckinGrande.Click += new System.EventHandler(this.lblCheckinGrande_Click);
+            // 
+            // lblCheckoutGrande
+            // 
+            this.lblCheckoutGrande.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckoutGrande.BackgroundImage = global::AppLavaCar.Properties.Resources.checkoutGrande;
+            this.lblCheckoutGrande.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lblCheckoutGrande.FlatAppearance.BorderSize = 0;
+            this.lblCheckoutGrande.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCheckoutGrande.Location = new System.Drawing.Point(663, 853);
+            this.lblCheckoutGrande.Name = "lblCheckoutGrande";
+            this.lblCheckoutGrande.Size = new System.Drawing.Size(129, 88);
+            this.lblCheckoutGrande.TabIndex = 68;
+            this.lblCheckoutGrande.UseVisualStyleBackColor = false;
+            this.lblCheckoutGrande.Click += new System.EventHandler(this.lblCheckoutGrande_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1751, 984);
+            this.ClientSize = new System.Drawing.Size(1851, 984);
             this.ControlBox = false;
-            this.Controls.Add(this.lblTop3);
-            this.Controls.Add(this.lblModelo);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lbltop1);
-            this.Controls.Add(this.lbltop2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTratamento);
+            this.Controls.Add(this.lblCheckoutGrande);
+            this.Controls.Add(this.lblCheckinGrande);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.MenuConteudo);
-            this.Controls.Add(this.pcbxCheckin);
-            this.Controls.Add(this.pcbxDevolucao);
             this.Controls.Add(this.chSituacao);
             this.Controls.Add(this.chTipoTratamento);
             this.Controls.Add(this.lblAgendamentoDia);
@@ -654,7 +721,7 @@
             this.Controls.Add(this.dgvAgendaDoDia);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.pcbxAgendamento);
+            this.Controls.Add(this.lblAgendaGrande);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Movable = false;
@@ -670,9 +737,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendaDoDia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chTipoTratamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chSituacao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxDevolucao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxCheckin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbxAgendamento)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -707,9 +777,6 @@
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.DataVisualization.Charting.Chart chTipoTratamento;
         private System.Windows.Forms.DataVisualization.Charting.Chart chSituacao;
-        private System.Windows.Forms.PictureBox pcbxAgendamento;
-        private System.Windows.Forms.PictureBox pcbxDevolucao;
-        private System.Windows.Forms.PictureBox pcbxCheckin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTop3;
         private System.Windows.Forms.Label lbltop2;
@@ -721,5 +788,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button lblAgendaGrande;
+        private System.Windows.Forms.Button lblCheckinGrande;
+        private System.Windows.Forms.Button lblCheckoutGrande;
     }
 }

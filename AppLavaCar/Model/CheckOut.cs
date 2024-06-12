@@ -12,12 +12,12 @@ namespace AppLavaCar.Model
         public string nomeCliente { get; set; }
         public string cpf { get; set; }
         public string telefone { get; set; }        
-        public string tipoTratamento { get; set; }
         public string placaCarro { get; set; }
+        public string tipoTratamento { get; set; }
         public DateTime agendamento { get; set; }
+        public string pagamento { get; set; }
         public string defeitos { get; set; }
         public string clienteCiente { get; set; }
-        public string pagamento { get; set; }
         public string observacao { get; set; }
         public string imagem1 { get; set; }
         public string imagem2 { get; set; }

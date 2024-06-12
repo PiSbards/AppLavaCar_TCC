@@ -288,5 +288,14 @@
   <ItemGroup>
     <None Include="Resources\relatorio.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgendaGrande.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-in grande.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkoutGrande.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -103,7 +103,6 @@
             this.metroTabPage1.Controls.Add(this.pbxRefreshPlaca);
             this.metroTabPage1.Controls.Add(this.btnLocalizar);
             this.metroTabPage1.Controls.Add(this.btnSomenteAgendar);
-            this.metroTabPage1.Controls.Add(this.lblData);
             this.metroTabPage1.Controls.Add(this.btnReiniciar);
             this.metroTabPage1.Controls.Add(this.mtxtTelefone);
             this.metroTabPage1.Controls.Add(this.mtxtCPF);
@@ -256,7 +255,7 @@
             this.lblData.BackColor = System.Drawing.Color.Transparent;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.Transparent;
-            this.lblData.Location = new System.Drawing.Point(403, 241);
+            this.lblData.Location = new System.Drawing.Point(32, 294);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(0, 16);
             this.lblData.TabIndex = 47;
@@ -514,6 +513,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.Calendario);
+            this.Controls.Add(this.lblData);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;

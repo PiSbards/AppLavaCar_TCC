@@ -145,7 +145,7 @@ namespace AppLavaCar.Controller
                                 string cpf = dr["cpf"].ToString();
                                 string count = dr["count"].ToString();
 
-                                string resultado = $"Nome: {nomeCliente}, CPF: {cpf}";
+                                string resultado = $"Nome: {nomeCliente},\n CPF: {cpf}";
                                 resultados.Add(resultado);
                             }
                         }

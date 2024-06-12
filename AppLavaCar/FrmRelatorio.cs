@@ -36,14 +36,15 @@ namespace AppLavaCar
             lblPlacaCarro.Text = row.Cells[4].Value.ToString();
             lblTipoTratamento.Text = row.Cells[5].Value.ToString();
             lblAgendamento.Text = row.Cells[6].Value.ToString();
-            lblDefeito.Text = row.Cells[7].Value.ToString();
-            lblClienteCiente.Text = row.Cells[8].Value.ToString();
-            txtObservacao.Text = row.Cells[9].Value.ToString();
-            pbxFoto1.ImageLocation = row.Cells[10].Value.ToString();
-            pbxFoto2.ImageLocation = row.Cells[11].Value.ToString();
-            pbxFoto3.ImageLocation = row.Cells[12].Value.ToString();
-            pbxFoto4.ImageLocation = row.Cells[13].Value.ToString();
-            pbxFoto5.ImageLocation = row.Cells[14].Value.ToString();
+            lblSituacao.Text = row.Cells[7].Value.ToString();
+            lblDefeito.Text = row.Cells[8].Value.ToString();
+            lblClienteCiente.Text = row.Cells[9].Value.ToString();
+            txtObservacao.Text = row.Cells[10].Value.ToString();
+            pbxFoto1.ImageLocation = row.Cells[11].Value.ToString();
+            pbxFoto2.ImageLocation = row.Cells[12].Value.ToString();
+            pbxFoto3.ImageLocation = row.Cells[13].Value.ToString();
+            pbxFoto4.ImageLocation = row.Cells[14].Value.ToString();
+            pbxFoto5.ImageLocation = row.Cells[15].Value.ToString();
         }
         private void dgvHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

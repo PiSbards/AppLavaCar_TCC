@@ -83,9 +83,39 @@ namespace AppLavaCar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AgendaGrande {
+            get {
+                object obj = ResourceManager.GetObject("AgendaGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_in {
             get {
                 object obj = ResourceManager.GetObject("check_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_in_grande {
+            get {
+                object obj = ResourceManager.GetObject("check_in_grande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkoutGrande {
+            get {
+                object obj = ResourceManager.GetObject("checkoutGrande", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
