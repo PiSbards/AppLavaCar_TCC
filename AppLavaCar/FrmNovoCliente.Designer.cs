@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNovoCliente));
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.chbxCNPJ = new MetroFramework.Controls.MetroCheckBox();
@@ -148,6 +149,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Movable = false;
             this.Name = "FrmNovoCliente";
             this.Resizable = false;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRelatorio));
             this.btnSair = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.lblClienteCiente = new System.Windows.Forms.Label();
@@ -37,12 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxFoto5 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto4 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto3 = new System.Windows.Forms.PictureBox();
-            this.pbxFoto2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbxFoto1 = new System.Windows.Forms.PictureBox();
             this.lblAgendamento = new System.Windows.Forms.Label();
             this.dgvHistorico = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
@@ -65,13 +61,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.btnLocalizar = new System.Windows.Forms.Button();
+            this.pbxFoto5 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto4 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto3 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto2 = new System.Windows.Forms.PictureBox();
+            this.pbxFoto1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorico)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -170,38 +171,6 @@
             this.panel1.Size = new System.Drawing.Size(506, 343);
             this.panel1.TabIndex = 69;
             // 
-            // pbxFoto5
-            // 
-            this.pbxFoto5.Location = new System.Drawing.Point(173, 177);
-            this.pbxFoto5.Name = "pbxFoto5";
-            this.pbxFoto5.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto5.TabIndex = 4;
-            this.pbxFoto5.TabStop = false;
-            // 
-            // pbxFoto4
-            // 
-            this.pbxFoto4.Location = new System.Drawing.Point(2, 177);
-            this.pbxFoto4.Name = "pbxFoto4";
-            this.pbxFoto4.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto4.TabIndex = 3;
-            this.pbxFoto4.TabStop = false;
-            // 
-            // pbxFoto3
-            // 
-            this.pbxFoto3.Location = new System.Drawing.Point(338, 51);
-            this.pbxFoto3.Name = "pbxFoto3";
-            this.pbxFoto3.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto3.TabIndex = 2;
-            this.pbxFoto3.TabStop = false;
-            // 
-            // pbxFoto2
-            // 
-            this.pbxFoto2.Location = new System.Drawing.Point(170, 51);
-            this.pbxFoto2.Name = "pbxFoto2";
-            this.pbxFoto2.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto2.TabIndex = 1;
-            this.pbxFoto2.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -210,14 +179,6 @@
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "FOTOS:";
-            // 
-            // pbxFoto1
-            // 
-            this.pbxFoto1.Location = new System.Drawing.Point(2, 51);
-            this.pbxFoto1.Name = "pbxFoto1";
-            this.pbxFoto1.Size = new System.Drawing.Size(162, 120);
-            this.pbxFoto1.TabIndex = 0;
-            this.pbxFoto1.TabStop = false;
             // 
             // lblAgendamento
             // 
@@ -446,6 +407,46 @@
             this.btnLocalizar.UseVisualStyleBackColor = false;
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
             // 
+            // pbxFoto5
+            // 
+            this.pbxFoto5.Location = new System.Drawing.Point(173, 177);
+            this.pbxFoto5.Name = "pbxFoto5";
+            this.pbxFoto5.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto5.TabIndex = 4;
+            this.pbxFoto5.TabStop = false;
+            // 
+            // pbxFoto4
+            // 
+            this.pbxFoto4.Location = new System.Drawing.Point(2, 177);
+            this.pbxFoto4.Name = "pbxFoto4";
+            this.pbxFoto4.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto4.TabIndex = 3;
+            this.pbxFoto4.TabStop = false;
+            // 
+            // pbxFoto3
+            // 
+            this.pbxFoto3.Location = new System.Drawing.Point(338, 51);
+            this.pbxFoto3.Name = "pbxFoto3";
+            this.pbxFoto3.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto3.TabIndex = 2;
+            this.pbxFoto3.TabStop = false;
+            // 
+            // pbxFoto2
+            // 
+            this.pbxFoto2.Location = new System.Drawing.Point(170, 51);
+            this.pbxFoto2.Name = "pbxFoto2";
+            this.pbxFoto2.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto2.TabIndex = 1;
+            this.pbxFoto2.TabStop = false;
+            // 
+            // pbxFoto1
+            // 
+            this.pbxFoto1.Location = new System.Drawing.Point(2, 51);
+            this.pbxFoto1.Name = "pbxFoto1";
+            this.pbxFoto1.Size = new System.Drawing.Size(162, 120);
+            this.pbxFoto1.TabIndex = 0;
+            this.pbxFoto1.TabStop = false;
+            // 
             // FrmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,6 +484,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblPlacaCarro);
             this.Controls.Add(this.lblCPF);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Movable = false;
             this.Name = "FrmRelatorio";
             this.Resizable = false;
@@ -490,12 +492,12 @@
             this.Load += new System.EventHandler(this.FrmRelatorio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,9 +37,10 @@ namespace AppLavaCar
                 var cpf = ve.IsCpf(mtxtCpf.Text);
                 if (cpf == true)
                 {
-                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim()) == true)
+                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim(),txtEmail.Text) == true)
                     {
-                        MessageBox.Show("Pessoa já existe em nossa base de dados!!", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Pessoa já existe em nossa base de dados!!\n" +
+                            " CPF ou Email já cadastrados", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtId.Text = "";
                         txtNome.Text = "";
                         mtxtCpf.Text = "";
@@ -116,25 +117,60 @@ namespace AppLavaCar
             }
             try
             {
-                bool gerente = false;
-                Funcionario func = new Funcionario();
-                UsuarioController controller = new UsuarioController();
-                if (chkbSim.Checked)
+                VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+                var cpf = ve.IsCpf(mtxtCpf.Text);
+                if (cpf == true)
                 {
-                   gerente = true;
-                }     
-                string senha = b.Base64Encode(txtSenha.Text);
-                controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()),txtNome.Text, mtxtCpf.Text.Trim(),senha,txtEmail.Text,gerente);
-                MessageBox.Show("Cadastro de funcionário atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Funcionario> funcionario = controller.listaFuncionario();
-                dgvFunc.DataSource = funcionario;
-                txtId.Text = "";
-                txtNome.Text = "";
-                mtxtCpf.Text = "";
-                txtSenha.Text = "";
-                txtEmail.Text = "";
-                chkbSim.Checked = false;
-                this.txtNome.Focus();
+                    UsuarioController user = new UsuarioController();
+                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim(), txtEmail.Text) == true)
+                    {
+                        MessageBox.Show("Estas informações já existem em nossa base de dados!!\n" +
+                                " CPF ou Email já cadastrados", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtId.Text = "";
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtSenha.Text = "";
+                        txtEmail.Text = "";
+                        chkbSim.Checked = false;
+                        this.txtId.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        bool gerente = false;
+                        Funcionario func = new Funcionario();
+                        UsuarioController controller = new UsuarioController();
+                        if (chkbSim.Checked)
+                        {
+                            gerente = true;
+                        }
+                        string senha = b.Base64Encode(txtSenha.Text);
+                        controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), senha, txtEmail.Text, gerente);
+                        MessageBox.Show("Cadastro de funcionário atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        List<Funcionario> funcionario = controller.listaFuncionario();
+                        dgvFunc.DataSource = funcionario;
+                        txtId.Text = "";
+                        txtNome.Text = "";
+                        mtxtCpf.Text = "";
+                        txtSenha.Text = "";
+                        txtEmail.Text = "";
+                        chkbSim.Checked = false;
+                        this.txtNome.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("CPF Inválido - Por Favor reescreva","ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtId.Text = "";
+                    txtNome.Text = "";
+                    mtxtCpf.Text = "";
+                    txtSenha.Text = "";
+                    txtEmail.Text = "";
+                    chkbSim.Checked = false;
+                    this.txtId.Focus();
+                    return;
+                }
+                            
             }
             catch (Exception er)
             {

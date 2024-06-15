@@ -42,7 +42,6 @@
             this.pbxRefreshPlaca = new System.Windows.Forms.PictureBox();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.btnSomenteAgendar = new System.Windows.Forms.Button();
-            this.lblData = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
@@ -60,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblCPF = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dgvAgenda = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -249,17 +249,6 @@
             this.btnSomenteAgendar.UseVisualStyleBackColor = false;
             this.btnSomenteAgendar.Click += new System.EventHandler(this.btnSomenteAgendar_Click);
             // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.BackColor = System.Drawing.Color.Transparent;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.ForeColor = System.Drawing.Color.Transparent;
-            this.lblData.Location = new System.Drawing.Point(32, 294);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(0, 16);
-            this.lblData.TabIndex = 47;
-            // 
             // btnReiniciar
             // 
             this.btnReiniciar.BackColor = System.Drawing.Color.Transparent;
@@ -437,6 +426,17 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Cliente:";
             // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.BackColor = System.Drawing.Color.Transparent;
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.Transparent;
+            this.lblData.Location = new System.Drawing.Point(32, 294);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(0, 16);
+            this.lblData.TabIndex = 47;
+            // 
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.Crimson;
@@ -514,6 +514,7 @@
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.Calendario);
             this.Controls.Add(this.lblData);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;

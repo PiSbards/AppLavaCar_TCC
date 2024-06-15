@@ -49,18 +49,59 @@ namespace AppLavaCar
                 return;
             }
             try
-            {                
+            {    
                 Cliente cliente = new Cliente();
-                ClienteController controller = new ClienteController();                
-                controller.Atualizar(Convert.ToInt32(lblIdCliente.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), txtTelefone.Text);
-                MessageBox.Show("Cadastro de Cliente atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Cliente> li = controller.listaCliente();
-                dgvCliente.DataSource = li;
-                lblIdCliente.Text = "";
-                txtNome.Text = "";
-                mtxtCpf.Text = "";
-                txtTelefone.Text = "";                
-                this.txtNome.Focus();
+                ClienteController controller = new ClienteController();
+                VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
+                if (chbxCNPJ.Checked == true)
+                {
+                    var result = ve.IsCnpj(mtxtCpf.Text);
+                    if (result == true)
+                    {
+                        if (controller.RegistroRepetido(mtxtCpf.Text) == true)
+                        {
+                            MessageBox.Show("Este CNPJ já esta em uso, por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        else
+                        {
+                            controller.Atualizar(Convert.ToInt32(lblIdCliente.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), txtTelefone.Text);
+                            MessageBox.Show("Cadastro de Cliente atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvCliente.DataSource = li;
+                            lblIdCliente.Text = "";
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            this.txtNome.Focus();
+                        }
+                    }                    
+                }
+                else
+                {
+                    var result = ve.IsCpf(mtxtCpf.Text);
+                    if (result == true)
+                    {
+                        if (controller.RegistroRepetido(mtxtCpf.Text) == true)
+                        {
+                            MessageBox.Show("Este CPF já esta em uso, por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        else
+                        {
+                            controller.Atualizar(Convert.ToInt32(lblIdCliente.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), txtTelefone.Text);
+                            MessageBox.Show("Cadastro de Cliente atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvCliente.DataSource = li;
+                            lblIdCliente.Text = "";
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            this.txtNome.Focus();
+                        }
+                    }
+                }
+                        
             }
             catch (Exception er)
             {

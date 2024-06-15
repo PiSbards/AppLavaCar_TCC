@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicial));
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.llblSenha = new System.Windows.Forms.LinkLabel();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(364, 509);
+            this.btnSair.Location = new System.Drawing.Point(368, 446);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(108, 42);
             this.btnSair.TabIndex = 15;
@@ -60,7 +61,7 @@
             this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(233, 509);
+            this.btnEntrar.Location = new System.Drawing.Point(237, 446);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(108, 42);
             this.btnEntrar.TabIndex = 14;
@@ -70,7 +71,7 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(240, 426);
+            this.txtSenha.Location = new System.Drawing.Point(244, 363);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(207, 20);
             this.txtSenha.TabIndex = 13;
@@ -80,7 +81,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(237, 407);
+            this.label2.Location = new System.Drawing.Point(241, 344);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 12;
@@ -90,26 +91,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 358);
+            this.label1.Location = new System.Drawing.Point(241, 295);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "Usuário(CPF):";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(57, 85);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(590, 242);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // llblSenha
             // 
             this.llblSenha.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
             this.llblSenha.AutoSize = true;
             this.llblSenha.LinkColor = System.Drawing.Color.Black;
-            this.llblSenha.Location = new System.Drawing.Point(345, 449);
+            this.llblSenha.Location = new System.Drawing.Point(349, 386);
             this.llblSenha.Name = "llblSenha";
             this.llblSenha.Size = new System.Drawing.Size(102, 13);
             this.llblSenha.TabIndex = 18;
@@ -119,18 +112,28 @@
             // 
             // mtxtCPF
             // 
-            this.mtxtCPF.Location = new System.Drawing.Point(240, 378);
+            this.mtxtCPF.Location = new System.Drawing.Point(244, 315);
             this.mtxtCPF.Mask = "999,999,999-99";
             this.mtxtCPF.Name = "mtxtCPF";
             this.mtxtCPF.Size = new System.Drawing.Size(207, 20);
             this.mtxtCPF.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppLavaCar.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(59, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(590, 242);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(714, 574);
+            this.ClientSize = new System.Drawing.Size(701, 526);
             this.Controls.Add(this.mtxtCPF);
             this.Controls.Add(this.llblSenha);
             this.Controls.Add(this.btnSair);
@@ -139,10 +142,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmInicial";
             this.Resizable = false;
-            this.Text = "Lavagem Especializada";
             this.Load += new System.EventHandler(this.FrmInicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

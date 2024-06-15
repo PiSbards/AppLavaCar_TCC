@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.btnSair = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -281,7 +282,7 @@
             this.tcControl.Controls.Add(this.tpCarro);
             this.tcControl.Location = new System.Drawing.Point(3, 14);
             this.tcControl.Name = "tcControl";
-            this.tcControl.SelectedIndex = 1;
+            this.tcControl.SelectedIndex = 0;
             this.tcControl.Size = new System.Drawing.Size(535, 443);
             this.tcControl.TabIndex = 72;
             this.tcControl.UseSelectable = true;
@@ -469,6 +470,7 @@
             this.Controls.Add(this.tcControl);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.lblIdCliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Movable = false;
             this.Name = "FrmCliente";
             this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 40);

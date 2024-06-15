@@ -13,7 +13,7 @@ namespace AppLavaCar.Controller
 {
     public class UsuarioController
     {
-        MySqlConnection conn = new MySqlConnection("server=sql.freedb.tech;port=3306;database=freedb_DbProvisorio;user id=freedb_PipsProvisorio;password=8Jc4zG&SThRn#H4;charset=utf8");
+        MySqlConnection conn = new MySqlConnection("server=sql10.freesqldatabase.com;port=3306;database=sql10714021;user id=sql10714021;password=1G5JjAjZ5H;charset=utf8");
 
         public void AlterarSenha(string senha, string cpf)
         {
@@ -196,9 +196,9 @@ namespace AppLavaCar.Controller
             return false;
         }
 
-        public bool RegistroRepetido(string nome, string cpf)
+        public bool RegistroRepetido(string nome, string cpf, string email)
         {
-            string sql = "SELECT * FROM funcionario WHERE nome='" + nome + "' AND cpf='" + cpf + "'";
+            string sql = "SELECT * FROM funcionario WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND email='"+email+"'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();

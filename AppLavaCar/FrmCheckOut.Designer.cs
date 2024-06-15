@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCheckOut));
             this.dgvCheckout = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbxFoto5 = new System.Windows.Forms.PictureBox();
@@ -403,6 +404,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblPlacaCarro);
             this.Controls.Add(this.lblCPF);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;

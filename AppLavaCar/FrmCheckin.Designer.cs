@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCheckin));
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSair = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -541,6 +542,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSair);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Movable = false;
             this.Name = "FrmCheckin";
             this.Resizable = false;
