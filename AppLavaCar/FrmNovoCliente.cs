@@ -59,7 +59,7 @@ namespace AppLavaCar
                 }
                 else
                 {
-                    if (controller.RegistroRepetido(txtNome.Text.Trim(),mtxtCPF.Text.Trim(),mtxtTelefone.Text.Trim()) == true)
+                    if (controller.RegistroRepetido(mtxtCPF.Text.Trim()) == true)
                     {
                         MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CNPJ e Telefone",
                                 "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -104,7 +104,7 @@ namespace AppLavaCar
                 }
                 else
                 {
-                    if (controller.RegistroRepetido(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim()) == true)
+                    if (controller.RegistroRepetido(mtxtCPF.Text.Trim()) == true)
                     {
                         MessageBox.Show("Cliente já existe em nossa base de dados! - Verifique o Nome,CPF e Telefone",
                                 "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);

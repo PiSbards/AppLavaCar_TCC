@@ -223,18 +223,27 @@ namespace AppLavaCar
             try
             {
                 Carro carro = new Carro();
-                CarroController controller = new CarroController();
-                controller.Atualizar(Convert.ToInt32(lblIdCarro.Text), txtPlaca.Text, txtNomeDono.Text,mktCpfDono.Text,txtMarca.Text,txtModelo.Text);
-                MessageBox.Show("Cadastro de Carro atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Carro> li = controller.listaCarro();
-                dgvCarro.DataSource = li;
-                lblIdCarro.Text = "";
-                txtPlaca.Text = "";
-                txtNomeDono.Text = "";
-                mktCpfDono.Text = "";
-                txtMarca.Text = "";
-                txtModelo.Text = "";
-                this.txtPlaca.Focus();
+                CarroController controller = new CarroController();                
+                if (controller.RegistroRepetido(txtPlaca.Text) == true)
+                {                    
+                    MessageBox.Show("Este carro já esta em uso,a placa já consta cadastrada.\n Por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    controller.Atualizar(Convert.ToInt32(lblIdCarro.Text), txtPlaca.Text, txtNomeDono.Text, mktCpfDono.Text, txtMarca.Text, txtModelo.Text);
+                    MessageBox.Show("Cadastro de Carro atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    List<Carro> li = controller.listaCarro();
+                    dgvCarro.DataSource = li;
+                    lblIdCarro.Text = "";
+                    txtPlaca.Text = "";
+                    txtNomeDono.Text = "";
+                    mktCpfDono.Text = "";
+                    txtMarca.Text = "";
+                    txtModelo.Text = "";
+                    this.txtPlaca.Focus();
+                }
+                
             }
             catch (Exception er)
             {

@@ -55,8 +55,17 @@ namespace AppLavaCar
                 return;
             }
             CarroController car = new CarroController();
-            car.Inserir(txtPlaca.Text,txtNomeDono.Text,mtxtCPF.Text,txtMarca.Text,txtModelo.Text);
-            MessageBox.Show("Carro inserido com sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (car.RegistroRepetido(txtPlaca.Text) == true)
+            {
+                MessageBox.Show("Este carro já esta em uso,a placa já consta cadastrada.\n Por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                car.Inserir(txtPlaca.Text, txtNomeDono.Text, mtxtCPF.Text, txtMarca.Text, txtModelo.Text);
+                MessageBox.Show("Carro inserido com sucesso!", "INFORMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }
