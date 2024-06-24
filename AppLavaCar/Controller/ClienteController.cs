@@ -110,7 +110,7 @@ namespace AppLavaCar.Controller
 
         public bool RegistroRepetido(string cpf)
         {
-            string sql = "SELECT * FROM cliente WHERE AND cpf='" + cpf + "'";
+            string sql = "SELECT * FROM cliente WHERE cpf='" + cpf + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
