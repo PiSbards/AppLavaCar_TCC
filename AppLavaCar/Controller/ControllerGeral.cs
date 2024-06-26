@@ -1,27 +1,25 @@
-﻿using AppLavaCar.Model;
-using MySqlConnector;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace AppLavaCar.Controller
 {
     public class ControllerGeral
     {
-        private string connectionString = "server=sql10.freesqldatabase.com;port=3306;database=sql10714021;user id=sql10714021;password=1G5JjAjZ5H;charset=utf8";
+        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\AppLavaCar\\AppLavaCar\\DbLavaCarro.mdf;Integrated Security=True";
 
         public DateTime[] BoldDates()
         {
             string sql = "SELECT agendamento FROM agenda";
             List<DateTime> li = new List<DateTime>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
@@ -43,31 +41,35 @@ namespace AppLavaCar.Controller
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
                     chTipoTratamento.Series["Total"].Points.Clear();
                     chSituacao.Series["Total"].Points.Clear();
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                        using (SqlDataReader dataReader = cmd.ExecuteReader())
                         {
                             while (dataReader.Read())
                             {
-                                chTipoTratamento.Series["Total"].Points.AddXY(dataReader.GetString("tipoTratamento"), dataReader.GetInt32("total"));
+                                string tipoTratamento = dataReader["tipoTratamento"].ToString();
+                                int total = Convert.ToInt32(dataReader["total"]);
+                                chTipoTratamento.Series["Total"].Points.AddXY(tipoTratamento, total);
                             }
                         }
                     }
 
-                    using (MySqlCommand cmd2 = new MySqlCommand(sql2, conn))
+                    using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
                     {
-                        using (MySqlDataReader dataReader2 = cmd2.ExecuteReader())
+                        using (SqlDataReader dataReader2 = cmd2.ExecuteReader())
                         {
                             while (dataReader2.Read())
                             {
-                                chSituacao.Series["Total"].Points.AddXY(dataReader2.GetString("tabela"), dataReader2.GetInt32("total"));
+                                string tabela = dataReader2["tabela"].ToString();
+                                int total = Convert.ToInt32(dataReader2["total"]);
+                                chSituacao.Series["Total"].Points.AddXY(tabela, total);
                             }
                         }
                     }
@@ -81,15 +83,15 @@ namespace AppLavaCar.Controller
 
         public string IndicadorModelo()
         {
-            string sql = "SELECT c.modelo, COUNT(*) as count FROM carro c, checkout ch WHERE c.placaCarro = ch.placaCarro GROUP BY c.modelo ORDER BY count DESC LIMIT 1";
+            string sql = "SELECT c.modelo, COUNT(*) as count FROM carro c, checkout ch WHERE c.placaCarro = ch.placaCarro GROUP BY c.modelo ORDER BY count DESC";
             string result = "";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
                         {
@@ -101,17 +103,18 @@ namespace AppLavaCar.Controller
 
             return result;
         }
+
         public string IndicadorTipoTratamento()
         {
-            string sql = "SELECT tipoTratamento, count(*) as count FROM checkout GROUP BY tipoTratamento ORDER BY count DESC LIMIT 1";
+            string sql = "SELECT tipoTratamento, count(*) as count FROM checkout GROUP BY tipoTratamento ORDER BY count DESC";
             string result = "";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
                         {
@@ -123,21 +126,22 @@ namespace AppLavaCar.Controller
 
             return result;
         }
+
         public List<string> ObterTop3Clientes()
         {
             List<string> resultados = new List<string>();
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    string sql = "SELECT nomeCliente, cpf, COUNT(*) as count FROM checkout GROUP BY nomeCliente ORDER BY count DESC LIMIT 3";
+                    string sql = "SELECT nomeCliente, cpf, COUNT(*) as count FROM checkout GROUP BY nomeCliente ORDER BY count DESC";
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        using (MySqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
                             while (dr.Read())
                             {
@@ -159,7 +163,5 @@ namespace AppLavaCar.Controller
 
             return resultados;
         }
-
     }
-
 }

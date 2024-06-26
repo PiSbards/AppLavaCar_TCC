@@ -21,8 +21,7 @@ namespace AppLavaCar
         public FrmInicial()
         {
             InitializeComponent();
-            b = new Cripto();
-            
+            b = new Cripto();            
         }       
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
@@ -33,9 +32,8 @@ namespace AppLavaCar
             if (cpf == true)
             {
                 string senha = b.Base64Encode(txtSenha.Text);
-                Funcionario func = controller.Login(mtxtCPF.Text.Trim(),senha);
-                func.senha = b.Base64Decode(func.senha);
-                if (func.cpf == mtxtCPF.Text.Trim() && func.senha == txtSenha.Text.Trim())
+                Funcionario func = controller.Login(mtxtCPF.Text.Trim(),senha);                
+                if (func.cpf.Trim() == mtxtCPF.Text.Trim() && func.senha.Trim() == senha)
                 {
                     if (func.gerente == "SIM")
                     {

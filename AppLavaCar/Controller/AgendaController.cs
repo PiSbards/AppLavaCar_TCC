@@ -3,6 +3,7 @@ using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +12,15 @@ namespace AppLavaCar.Controller
 {
     public class AgendaController
     {
-        MySqlConnection conn = new MySqlConnection("server=sql10.freesqldatabase.com;port=3306;database=sql10714021;user id=sql10714021;password=1G5JjAjZ5H;charset=utf8");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\AppLavaCar\\AppLavaCar\\DbLavaCarro.mdf;Integrated Security=True");
 
         public List<Agenda> listaAgendaDia()
         {
             List<Agenda> li = new List<Agenda>();
             string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = CURDATE()";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Agenda agenda = new Agenda();
@@ -42,9 +43,9 @@ namespace AppLavaCar.Controller
             data.ToString("yyyy/MM/dd");
             string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = @data";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add(new MySqlParameter("@data",data));
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add(new SqlParameter("@data",data));
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Agenda agenda = new Agenda();
@@ -69,15 +70,15 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
-                cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@nomeCliente", SqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@telefone", SqlDbType.VarChar).Value = telefone;
+                cmd.Parameters.Add("@placaCarro", SqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", SqlDbType.VarChar).Value = tipoTratamento;
+                cmd.Parameters.Add("@agendamento", SqlDbType.DateTime).Value = agendamento;
 
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
@@ -91,14 +92,14 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }            
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@tipoTratamento", MySqlDbType.VarChar).Value = tipoTratamento;
-                cmd.Parameters.Add("@agendamento", MySqlDbType.DateTime).Value = agendamento;
+                cmd.Parameters.Add("@nomeCliente", SqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@telefone", SqlDbType.VarChar).Value = telefone;
+                cmd.Parameters.Add("@placaCarro", SqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@tipoTratamento", SqlDbType.VarChar).Value = tipoTratamento;
+                cmd.Parameters.Add("@agendamento", SqlDbType.DateTime).Value = agendamento;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -109,7 +110,7 @@ namespace AppLavaCar.Controller
         {
             string sql = "DELETE FROM agenda WHERE id='" + id + "'";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -121,8 +122,8 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 agenda.id = (int)dr["id"];

@@ -13,7 +13,7 @@ namespace AppLavaCar.Controller
 {
     public class UsuarioController
     {
-        MySqlConnection conn = new MySqlConnection("server=sql10.freesqldatabase.com;port=3306;database=sql10714021;user id=sql10714021;password=1G5JjAjZ5H;charset=utf8");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\AppLavaCar\\AppLavaCar\\DbLavaCarro.mdf;Integrated Security=True");
 
         public void AlterarSenha(string senha, string cpf)
         {
@@ -22,10 +22,10 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {                                
-                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
+                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -39,8 +39,8 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 funcionario.id = (int)dr["id"];
@@ -48,8 +48,8 @@ namespace AppLavaCar.Controller
                 funcionario.cpf = dr["cpf"].ToString();
                 funcionario.senha = dr["senha"].ToString();
                 funcionario.email = dr["email"].ToString();
-                var gerente = (int)dr["gerente"];
-                if (gerente == 1)
+                var gerente = dr["gerente"];
+                if (Convert.ToInt32(gerente) == 1)
                 {
                     funcionario.gerente = "SIM";
                 }
@@ -68,8 +68,8 @@ namespace AppLavaCar.Controller
             List<Funcionario> li = new List<Funcionario>();
             string sql = "SELECT * FROM funcionario";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Funcionario func = new Funcionario();
@@ -101,13 +101,13 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
-                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
-                cmd.Parameters.Add("@gerente", MySqlDbType.Bool).Value = gerente;
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
+                cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                cmd.Parameters.Add("@gerente", SqlDbType.TinyInt).Value = gerente;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -122,14 +122,14 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = senha;
-                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
-                cmd.Parameters.Add("@gerente", MySqlDbType.Bool).Value = gerente;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = nome;
+                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
+                cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                cmd.Parameters.Add("@gerente", SqlDbType.TinyInt).Value = gerente;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -142,7 +142,7 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -154,8 +154,8 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 funcionario.id = (int)dr["id"];
@@ -185,7 +185,7 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             var result = cmd.ExecuteScalar();
             if (result != null)
@@ -203,7 +203,7 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             var result = cmd.ExecuteScalar();
             if (result != null)

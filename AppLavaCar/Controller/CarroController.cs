@@ -12,14 +12,14 @@ namespace AppLavaCar.Controller
 {
     public class CarroController
     {
-        MySqlConnection conn = new MySqlConnection("server=sql10.freesqldatabase.com;port=3306;database=sql10714021;user id=sql10714021;password=1G5JjAjZ5H;charset=utf8");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\AppLavaCar\\AppLavaCar\\DbLavaCarro.mdf;Integrated Security=True");
         public List<Carro> listaCarro()
         {
             List<Carro> li = new List<Carro>();
             string sql = "SELECT * FROM carro";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Carro carro = new Carro();
@@ -42,13 +42,13 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@nomeDono", MySqlDbType.VarChar).Value = nomeDono;
-                cmd.Parameters.Add("@cpfDono", MySqlDbType.VarChar).Value = cpfDono;
-                cmd.Parameters.Add("@marca",MySqlDbType.VarChar).Value = marca;
-                cmd.Parameters.Add("@modelo",MySqlDbType.VarChar).Value=modelo;
+                cmd.Parameters.Add("@placaCarro", SqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@nomeDono", SqlDbType.VarChar).Value = nomeDono;
+                cmd.Parameters.Add("@cpfDono", SqlDbType.VarChar).Value = cpfDono;
+                cmd.Parameters.Add("@marca",SqlDbType.VarChar).Value = marca;
+                cmd.Parameters.Add("@modelo",SqlDbType.VarChar).Value=modelo;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -62,14 +62,14 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-                cmd.Parameters.Add("@placaCarro", MySqlDbType.VarChar).Value = placaCarro;
-                cmd.Parameters.Add("@nomeDono", MySqlDbType.VarChar).Value = nomeDono;
-                cmd.Parameters.Add("@cpfDono", MySqlDbType.VarChar).Value = cpfDono;
-                cmd.Parameters.Add("@marca", MySqlDbType.VarChar).Value = marca;
-                cmd.Parameters.Add("@modelo", MySqlDbType.VarChar).Value = modelo;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@placaCarro", SqlDbType.VarChar).Value = placaCarro;
+                cmd.Parameters.Add("@nomeDono", SqlDbType.VarChar).Value = nomeDono;
+                cmd.Parameters.Add("@cpfDono", SqlDbType.VarChar).Value = cpfDono;
+                cmd.Parameters.Add("@marca", SqlDbType.VarChar).Value = marca;
+                cmd.Parameters.Add("@modelo", SqlDbType.VarChar).Value = modelo;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -82,7 +82,7 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -95,8 +95,8 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 carro.id = (int)dr["id"];
@@ -118,7 +118,7 @@ namespace AppLavaCar.Controller
             {
                 conn.Open();
             }
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             var result = cmd.ExecuteScalar();
             if (result != null)
@@ -132,9 +132,9 @@ namespace AppLavaCar.Controller
         {            
             string sql = "SELECT * FROM carro WHERE cpfDono='"+cpfDono+"'";
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
-            MySqlDataReader dr = cmd.ExecuteReader();
+            SqlDataReader dr = cmd.ExecuteReader();
             List<string> list = new List<string>();
             while (dr.Read())
             {               
