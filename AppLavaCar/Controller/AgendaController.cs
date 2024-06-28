@@ -17,7 +17,7 @@ namespace AppLavaCar.Controller
         public List<Agenda> listaAgendaDia()
         {
             List<Agenda> li = new List<Agenda>();
-            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = CURDATE()";
+            string sql = "SELECT * FROM agenda WHERE CAST(agendamento AS DATE) = CAST(GETDATE() AS DATE);";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -41,7 +41,7 @@ namespace AppLavaCar.Controller
         {
             List<Agenda> li = new List<Agenda>();
             data.ToString("yyyy/MM/dd");
-            string sql = "SELECT * FROM agenda WHERE DATE(agendamento) = @data";
+            string sql = "SELECT * FROM agenda WHERE CAST(agendamento AS DATE) = @data";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add(new SqlParameter("@data",data));

@@ -40,3 +40,4 @@ C:\AppLavaCar\AppLavaCar\obj\Debug\AppLavaCar.exe
 C:\AppLavaCar\AppLavaCar\obj\Debug\AppLavaCar.pdb
 C:\AppLavaCar\AppLavaCar\bin\Debug\DbLavaCarro.mdf
 C:\AppLavaCar\AppLavaCar\bin\Debug\DbLavaCarro_log.ldf
+C:\AppLavaCar\AppLavaCar\obj\Debug\AppLavaCar.csproj.SuggestedBindingRedirects.cache

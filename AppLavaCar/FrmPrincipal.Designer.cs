@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MenuBarra = new System.Windows.Forms.Panel();
             this.btnRelatorio2 = new System.Windows.Forms.Button();
             this.btnCheckOut2 = new System.Windows.Forms.Button();
@@ -468,25 +468,25 @@
             // 
             this.chTipoTratamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            chartArea1.Area3DStyle.Enable3D = true;
-            chartArea1.Area3DStyle.Inclination = 20;
-            chartArea1.Name = "ChartArea1";
-            this.chTipoTratamento.ChartAreas.Add(chartArea1);
-            legend1.IsDockedInsideChartArea = false;
-            legend1.Name = "Legend1";
-            legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-            legend1.Title = "Legenda";
-            this.chTipoTratamento.Legends.Add(legend1);
+            chartArea7.Area3DStyle.Enable3D = true;
+            chartArea7.Area3DStyle.Inclination = 20;
+            chartArea7.Name = "ChartArea1";
+            this.chTipoTratamento.ChartAreas.Add(chartArea7);
+            legend7.IsDockedInsideChartArea = false;
+            legend7.Name = "Legend1";
+            legend7.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+            legend7.Title = "Legenda";
+            this.chTipoTratamento.Legends.Add(legend7);
             this.chTipoTratamento.Location = new System.Drawing.Point(933, 82);
             this.chTipoTratamento.Name = "chTipoTratamento";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.LabelForeColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Total";
-            series1.SmartLabelStyle.Enabled = false;
-            series1.YValuesPerPoint = 2;
-            this.chTipoTratamento.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series7.LabelForeColor = System.Drawing.Color.Transparent;
+            series7.Legend = "Legend1";
+            series7.Name = "Total";
+            series7.SmartLabelStyle.Enabled = false;
+            series7.YValuesPerPoint = 2;
+            this.chTipoTratamento.Series.Add(series7);
             this.chTipoTratamento.Size = new System.Drawing.Size(500, 340);
             this.chTipoTratamento.TabIndex = 55;
             this.chTipoTratamento.Text = "Tipo de Tratamento";
@@ -495,25 +495,25 @@
             // 
             this.chSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            chartArea2.Area3DStyle.Enable3D = true;
-            chartArea2.Area3DStyle.Inclination = 20;
-            chartArea2.Name = "ChartArea1";
-            this.chSituacao.ChartAreas.Add(chartArea2);
-            legend2.IsDockedInsideChartArea = false;
-            legend2.Name = "Legend1";
-            legend2.Title = "Legenda";
-            this.chSituacao.Legends.Add(legend2);
+            chartArea8.Area3DStyle.Enable3D = true;
+            chartArea8.Area3DStyle.Inclination = 20;
+            chartArea8.Name = "ChartArea1";
+            this.chSituacao.ChartAreas.Add(chartArea8);
+            legend8.IsDockedInsideChartArea = false;
+            legend8.Name = "Legend1";
+            legend8.Title = "Legenda";
+            this.chSituacao.Legends.Add(legend8);
             this.chSituacao.Location = new System.Drawing.Point(933, 480);
             this.chSituacao.Name = "chSituacao";
             this.chSituacao.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.LabelForeColor = System.Drawing.Color.Transparent;
-            series2.Legend = "Legend1";
-            series2.Name = "Total";
-            series2.SmartLabelStyle.Enabled = false;
-            series2.YValuesPerPoint = 4;
-            this.chSituacao.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series8.LabelForeColor = System.Drawing.Color.Transparent;
+            series8.Legend = "Legend1";
+            series8.Name = "Total";
+            series8.SmartLabelStyle.Enabled = false;
+            series8.YValuesPerPoint = 4;
+            this.chSituacao.Series.Add(series8);
             this.chSituacao.Size = new System.Drawing.Size(433, 286);
             this.chSituacao.TabIndex = 56;
             this.chSituacao.Text = "Situação dos carros";
@@ -522,7 +522,7 @@
             // 
             this.lblModelo.AutoSize = true;
             this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.Location = new System.Drawing.Point(123, 54);
+            this.lblModelo.Location = new System.Drawing.Point(88, 57);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(0, 24);
             this.lblModelo.TabIndex = 1;
@@ -531,7 +531,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 9);
+            this.label1.Location = new System.Drawing.Point(38, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 18);
             this.label1.TabIndex = 0;
@@ -550,10 +550,10 @@
             // lblTratamento
             // 
             this.lblTratamento.AutoSize = true;
-            this.lblTratamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTratamento.Location = new System.Drawing.Point(83, 54);
+            this.lblTratamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTratamento.Location = new System.Drawing.Point(75, 54);
             this.lblTratamento.Name = "lblTratamento";
-            this.lblTratamento.Size = new System.Drawing.Size(0, 20);
+            this.lblTratamento.Size = new System.Drawing.Size(0, 18);
             this.lblTratamento.TabIndex = 3;
             // 
             // lbltop1
@@ -630,7 +630,7 @@
             this.panel1.Controls.Add(this.lblModelo);
             this.panel1.Location = new System.Drawing.Point(1514, 89);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(317, 100);
+            this.panel1.Size = new System.Drawing.Size(317, 129);
             this.panel1.TabIndex = 63;
             // 
             // panel2
@@ -640,7 +640,7 @@
             this.panel2.Controls.Add(this.lblTratamento);
             this.panel2.Location = new System.Drawing.Point(1514, 292);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(317, 100);
+            this.panel2.Size = new System.Drawing.Size(317, 118);
             this.panel2.TabIndex = 64;
             // 
             // panel3

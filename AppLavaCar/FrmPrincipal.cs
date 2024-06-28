@@ -160,17 +160,13 @@ namespace AppLavaCar
             ControllerGeral geral = new ControllerGeral();
             geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
             lblModelo.Text = geral.IndicadorModelo();
-            if (lblModelo.Text == null)
-            {
-                lblModelo.Text = "Não há Modelos";
-            }
             lblTratamento.Text = geral.IndicadorTipoTratamento();
-            if (lblTratamento.Text == null)
+            if (lblTratamento.Text == "Lavagem Completa + Enceramento - R$90,00")
             {
-                lblTratamento.Text = "Não foram realizados nenhum tratamento";
+                lblTratamento.Text = "Lavagem Completa + \n Enceramento - R$90,00";
             }
             List<string> top3 = geral.ObterTop3Clientes();
-            if (top3.Count>=3 )
+            if (top3.Count >= 3)
             {
                 lbltop1.Text = top3[0].ToString();
                 lbltop2.Text = top3[1].ToString();
@@ -182,12 +178,12 @@ namespace AppLavaCar
                 lbltop2.Text = top3[1].ToString();
                 lblTop3.Text = "";
             }
-            else if(top3.Count == 1)
+            else if (top3.Count == 1)
             {
                 lbltop1.Text = top3[0].ToString();
                 lbltop2.Text = "";
                 lblTop3.Text = "";
-            } 
+            }
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -231,7 +227,31 @@ namespace AppLavaCar
             lblAgendamentoDia.Text = agendamento.Count.ToString();
             ControllerGeral geral = new ControllerGeral();
             geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
-
+            lblModelo.Text = geral.IndicadorModelo(); 
+            lblTratamento.Text = geral.IndicadorTipoTratamento();            
+            if (lblTratamento.Text == "Lavagem Completa + Enceramento - R$90,00")
+            {
+                lblTratamento.Text = "Lavagem Completa + \n Enceramento - R$90,00";
+            }
+            List<string> top3 = geral.ObterTop3Clientes();
+            if (top3.Count >= 3)
+            {
+                lbltop1.Text = top3[0].ToString();
+                lbltop2.Text = top3[1].ToString();
+                lblTop3.Text = top3[2].ToString();
+            }
+            else if (top3.Count == 2)
+            {
+                lbltop1.Text = top3[0].ToString();
+                lbltop2.Text = top3[1].ToString();
+                lblTop3.Text = "";
+            }
+            else if (top3.Count == 1)
+            {
+                lbltop1.Text = top3[0].ToString();
+                lbltop2.Text = "";
+                lblTop3.Text = "";
+            }
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)

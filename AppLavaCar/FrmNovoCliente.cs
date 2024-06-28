@@ -47,7 +47,7 @@ namespace AppLavaCar
                     this.mtxtCPF.Focus();
                     return;
                 }
-                bool result = ve.IsCnpj(mtxtCPF.Text);
+                bool result = ve.IsCnpj(mtxtCPF.Text.Trim());
                 if (result == false)
                 {
                     MessageBox.Show("CNPJ inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,7 +92,7 @@ namespace AppLavaCar
                     this.mtxtCPF.Focus();
                     return;
                 }
-                bool result = ve.IsCpf(mtxtCPF.Text);
+                bool result = ve.IsCpf(mtxtCPF.Text.Trim());
                 if (result == false)
                 {
                     MessageBox.Show("CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);

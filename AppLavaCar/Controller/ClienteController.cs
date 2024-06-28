@@ -115,18 +115,20 @@ namespace AppLavaCar.Controller
 
         public bool RegistroRepetido(string cpf)
         {
-            string sql = "SELECT COUNT(*) FROM cliente WHERE cpf=@cpf";
+            string sql = "SELECT COUNT(*) FROM cliente WHERE cpf='"+cpf+"'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
             }
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            var result = cmd.ExecuteScalar();
+            if (result != null)
             {
-                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
-                var result = cmd.ExecuteScalar();
-                conn.Close();
-                return Convert.ToInt32(result) > 0;
+                return (int)result > 0;
             }
+            conn.Close();
+            return false;
         }
     }
 }

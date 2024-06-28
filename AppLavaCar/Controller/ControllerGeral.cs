@@ -35,9 +35,12 @@ namespace AppLavaCar.Controller
         public void AtualizarGraficos(System.Windows.Forms.DataVisualization.Charting.Chart chTipoTratamento, System.Windows.Forms.DataVisualization.Charting.Chart chSituacao)
         {
             string sql = "SELECT tipoTratamento, COUNT(id) as total FROM checkout GROUP BY tipoTratamento";
-            string sql2 = "SELECT 'agenda' AS tabela, COUNT(id) AS total FROM agenda " +
+            /*string sql2 = "SELECT 'agenda' AS tabela, COUNT(id) AS total FROM agenda " +
                           "UNION ALL SELECT 'checkin' AS tabela, COUNT(id) AS total FROM checkin " +
-                          "UNION ALL SELECT 'checkout' AS tabela, COUNT(id) AS total FROM checkout";
+                          "UNION ALL SELECT 'checkout' AS tabela, COUNT(id) AS total FROM checkout";*/
+            string sql2 = "SELECT 'agenda' AS tabela, COUNT(id) AS total FROM agenda WHERE DATEPART(YEAR, agendamento) = DATEPART(YEAR, GETDATE()) AND DATEPART(MONTH, agendamento) = DATEPART(MONTH, GETDATE())" +
+                " UNION ALL SELECT 'checkin' AS tabela, COUNT(id) AS total FROM checkin WHERE DATEPART(YEAR, agendamento) = DATEPART(YEAR, GETDATE()) AND DATEPART(MONTH, agendamento) = DATEPART(MONTH, GETDATE())" +
+                " UNION ALL SELECT 'checkout' AS tabela, COUNT(id) AS total FROM checkout WHERE DATEPART(YEAR, agendamento) = DATEPART(YEAR, GETDATE()) AND DATEPART(MONTH, agendamento) = DATEPART(MONTH, GETDATE());";
 
             try
             {
@@ -83,7 +86,7 @@ namespace AppLavaCar.Controller
 
         public string IndicadorModelo()
         {
-            string sql = "SELECT c.modelo, COUNT(*) as count FROM carro c, checkout ch WHERE c.placaCarro = ch.placaCarro GROUP BY c.modelo ORDER BY count DESC";
+            string sql = "SELECT c.modelo,c.marca, COUNT(*) as count FROM carro c, checkout ch WHERE c.placaCarro = ch.placaCarro GROUP BY c.modelo,c.marca ORDER BY count DESC";
             string result = "";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -95,7 +98,7 @@ namespace AppLavaCar.Controller
                     {
                         if (dr.Read())
                         {
-                            result = dr["modelo"].ToString();
+                            result = dr["modelo"].ToString().Trim() +" "+dr["marca"].ToString().Trim();
                         }
                     }
                 }
@@ -118,7 +121,7 @@ namespace AppLavaCar.Controller
                     {
                         if (dr.Read())
                         {
-                            result = dr["tipoTratamento"].ToString();
+                            result = dr["tipoTratamento"].ToString().Trim();
                         }
                     }
                 }
@@ -137,7 +140,7 @@ namespace AppLavaCar.Controller
                 {
                     conn.Open();
 
-                    string sql = "SELECT nomeCliente, cpf, COUNT(*) as count FROM checkout GROUP BY nomeCliente ORDER BY count DESC";
+                    string sql = "SELECT nomeCliente, cpf, COUNT(*) as count FROM checkout GROUP BY nomeCliente,cpf ORDER BY count DESC";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -145,9 +148,8 @@ namespace AppLavaCar.Controller
                         {
                             while (dr.Read())
                             {
-                                string nomeCliente = dr["nomeCliente"].ToString();
-                                string cpf = dr["cpf"].ToString();
-                                string count = dr["count"].ToString();
+                                string nomeCliente = dr["nomeCliente"].ToString().Trim();
+                                string cpf = dr["cpf"].ToString().Trim();                               
 
                                 string resultado = $"Nome: {nomeCliente},\n CPF: {cpf}";
                                 resultados.Add(resultado);

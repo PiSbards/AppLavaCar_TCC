@@ -78,8 +78,8 @@ namespace AppLavaCar.Controller
                 func.nome = dr["nome"].ToString();
                 func.senha = dr["senha"].ToString();
                 func.email = dr["email"].ToString();
-                int gerente = (int)dr["gerente"];
-                if (gerente == 1)
+                var gerente = dr["gerente"];
+                if (Convert.ToInt32(gerente) == 1)
                 {
                     func.gerente = "SIM";
                 }
@@ -87,7 +87,6 @@ namespace AppLavaCar.Controller
                 {
                     func.gerente = "NÃO";
                 }
-
                 li.Add(func);
             }
             dr.Close();

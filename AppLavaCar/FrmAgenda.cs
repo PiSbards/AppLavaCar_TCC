@@ -84,14 +84,14 @@ namespace AppLavaCar
             { 
                 ClienteController controller = new ClienteController();
                 Cliente cliente = controller.Localizar(mtxtCPF.Text.Trim());
-                txtNome.Text = cliente.nome;
-                mtxtTelefone.Text = cliente.telefone;
+                txtNome.Text = cliente.nome.Trim();
+                mtxtTelefone.Text = cliente.telefone.Trim();
 
                 CarroController carro = new CarroController();
                 List<string> li = carro.CarregaCbxCarro(mtxtCPF.Text);
                 foreach (string placa in li)
                 {
-                    cbxPlaca.Items.Add(placa);
+                    cbxPlaca.Items.Add(placa.Trim());
                 }
             }
             catch (Exception)
@@ -217,7 +217,7 @@ namespace AppLavaCar
                 Agenda agenda = new Agenda();
                 DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
                 this.dgvAgenda.Rows[e.RowIndex].Selected = true;                
-                if (row.Cells[2].Value.ToString().Length == 14)
+                if (row.Cells[2].Value.ToString().Trim().Length == 14)
                 {
                     chbxCNPJ.Checked = false;
                 }
@@ -306,7 +306,7 @@ namespace AppLavaCar
             List<string> li = carro.CarregaCbxCarro(mtxtCPF.Text);
             foreach (string placa in li)
             {
-                cbxPlaca.Items.Add(placa);
+                cbxPlaca.Items.Add(placa.Trim());
             }
         }
 
