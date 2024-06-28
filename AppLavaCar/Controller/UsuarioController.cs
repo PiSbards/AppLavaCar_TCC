@@ -23,7 +23,7 @@ namespace AppLavaCar.Controller
                 conn.Open();
             }
             using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {                                
+            {
                 cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
                 cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
                 cmd.CommandType = CommandType.Text;
@@ -31,10 +31,10 @@ namespace AppLavaCar.Controller
             }
             conn.Close();
         }
-        public Funcionario Login(string cpf, string senha)
+        public Funcionario Login(string cpf)
         {
             Funcionario funcionario = new Funcionario();
-            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'AND senha='"+senha+"'";
+            string sql = "SELECT * FROM funcionario WHERE cpf='" + cpf + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -45,8 +45,8 @@ namespace AppLavaCar.Controller
             {
                 funcionario.id = (int)dr["id"];
                 funcionario.nome = dr["nome"].ToString();
-                funcionario.cpf = dr["cpf"].ToString();
-                funcionario.senha = dr["senha"].ToString();
+                funcionario.cpf = dr["cpf"].ToString().Trim();
+                funcionario.senha = dr["senha"].ToString().Trim();
                 funcionario.email = dr["email"].ToString();
                 var gerente = dr["gerente"];
                 if (Convert.ToInt32(gerente) == 1)
@@ -114,9 +114,9 @@ namespace AppLavaCar.Controller
             conn.Close();
         }
 
-        public void Atualizar(int id,string nome, string cpf, string senha, string email, bool gerente)
+        public void Atualizar(int id, string nome, string cpf, string senha, string email, bool gerente)
         {
-            string sql = "UPDATE funcionario SET nome=@nome,cpf=@cpf,senha=@senha,gerente=@gerente WHERE id=@id";
+            string sql = "UPDATE funcionario SET nome=@nome,cpf=@cpf,senha=@senha,email=@email,gerente=@gerente WHERE id=@id";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
@@ -171,7 +171,7 @@ namespace AppLavaCar.Controller
                 {
                     funcionario.gerente = "NÃO";
                 }
-                
+
             }
             dr.Close();
             conn.Close();
@@ -197,7 +197,7 @@ namespace AppLavaCar.Controller
 
         public bool RegistroRepetido(string nome, string cpf, string email)
         {
-            string sql = "SELECT * FROM funcionario WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND email='"+email+"'";
+            string sql = "SELECT * FROM funcionario WHERE nome='" + nome + "' AND cpf='" + cpf + "' AND email='" + email + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();

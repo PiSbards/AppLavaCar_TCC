@@ -227,8 +227,8 @@ namespace AppLavaCar
             lblAgendamentoDia.Text = agendamento.Count.ToString();
             ControllerGeral geral = new ControllerGeral();
             geral.AtualizarGraficos(this.chTipoTratamento, this.chSituacao);
-            lblModelo.Text = geral.IndicadorModelo(); 
-            lblTratamento.Text = geral.IndicadorTipoTratamento();            
+            lblModelo.Text = geral.IndicadorModelo();
+            lblTratamento.Text = geral.IndicadorTipoTratamento();
             if (lblTratamento.Text == "Lavagem Completa + Enceramento - R$90,00")
             {
                 lblTratamento.Text = "Lavagem Completa + \n Enceramento - R$90,00";

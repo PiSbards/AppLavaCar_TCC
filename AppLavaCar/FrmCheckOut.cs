@@ -51,7 +51,7 @@ namespace AppLavaCar
             lblClienteCiente.Text = row.Cells[7].Value.ToString().Trim();
             lblDefeito.Text = row.Cells[8].Value.ToString().Trim();
             txtObservacao.Text = row.Cells[9].Value.ToString().Trim();
-            pbxFoto1.ImageLocation = row.Cells[10].Value.ToString().Trim();            
+            pbxFoto1.ImageLocation = row.Cells[10].Value.ToString().Trim();
             pbxFoto2.ImageLocation = row.Cells[11].Value.ToString().Trim();
             pbxFoto3.ImageLocation = row.Cells[12].Value.ToString().Trim();
             pbxFoto4.ImageLocation = row.Cells[13].Value.ToString().Trim();
@@ -68,8 +68,8 @@ namespace AppLavaCar
             {
                 string pago = "PAGO";
                 CheckController check = new CheckController();
-                check.InserirCheckOut(lblNomeCliente.Text, lblCPF.Text, lblTelefone.Text, lblPlacaCarro.Text, lblTipoTratamento.Text, Convert.ToDateTime(lblAgendamento.Text),pago,
-                     lblClienteCiente.Text, lblDefeito.Text,txtObservacao.Text, pbxFoto1.ImageLocation, pbxFoto2.ImageLocation, pbxFoto3.ImageLocation, pbxFoto4.ImageLocation,pbxFoto5.ImageLocation);
+                check.InserirCheckOut(lblNomeCliente.Text, lblCPF.Text, lblTelefone.Text, lblPlacaCarro.Text, lblTipoTratamento.Text, Convert.ToDateTime(lblAgendamento.Text), pago,
+                     lblClienteCiente.Text, lblDefeito.Text, txtObservacao.Text, pbxFoto1.ImageLocation, pbxFoto2.ImageLocation, pbxFoto3.ImageLocation, pbxFoto4.ImageLocation, pbxFoto5.ImageLocation);
                 check.ExcluirCheckin(Convert.ToInt32(lblID.Text));
                 MessageBox.Show("Check-out realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<CheckIn> chechin = check.listaCheckin();

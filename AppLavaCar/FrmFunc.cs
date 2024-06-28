@@ -30,14 +30,14 @@ namespace AppLavaCar
         private void btnAdiocionar_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 UsuarioController user = new UsuarioController();
                 VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
                 Funcionario func = new Funcionario();
                 var cpf = ve.IsCpf(mtxtCpf.Text);
                 if (cpf == true)
                 {
-                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim(),txtEmail.Text) == true)
+                    if (user.RegistroRepetido(txtNome.Text, mtxtCpf.Text.Trim(), txtEmail.Text) == true)
                     {
                         MessageBox.Show("Pessoa já existe em nossa base de dados!!\n" +
                             " CPF ou Email já cadastrados", "Registro Repetido", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -73,7 +73,7 @@ namespace AppLavaCar
                 }
                 else
                 {
-                    MetroMessageBox.Show(this,"CPF inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(this, "CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtId.Text = "";
                     txtNome.Text = "";
                     mtxtCpf.Text = "";
@@ -81,7 +81,7 @@ namespace AppLavaCar
                     txtEmail.Text = "";
                     chkbSim.Checked = false;
                     this.txtId.Focus();
-                }               
+                }
             }
             catch (Exception er)
             {
@@ -100,17 +100,17 @@ namespace AppLavaCar
                 List<Funcionario> li = controller.listaFuncionario();
                 dgvFunc.DataSource = li;
             }
-            catch (Exception er )
+            catch (Exception er)
             {
 
-                MessageBox.Show(er.Message,"erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(er.Message, "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtSenha.Text == "" || txtEmail.Text == "" )
+            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtSenha.Text == "" || txtEmail.Text == "")
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -145,7 +145,7 @@ namespace AppLavaCar
                             gerente = true;
                         }
                         string senha = b.Base64Encode(txtSenha.Text);
-                        controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), senha, txtEmail.Text, gerente);
+                        controller.Atualizar(Convert.ToInt32(txtId.Text.Trim()), txtNome.Text.Trim(), mtxtCpf.Text.Trim(), senha.Trim(), txtEmail.Text.Trim(), gerente);
                         MessageBox.Show("Cadastro de funcionário atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         List<Funcionario> funcionario = controller.listaFuncionario();
                         dgvFunc.DataSource = funcionario;
@@ -160,7 +160,7 @@ namespace AppLavaCar
                 }
                 else
                 {
-                    MessageBox.Show("CPF Inválido - Por Favor reescreva","ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("CPF Inválido - Por Favor reescreva", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtId.Text = "";
                     txtNome.Text = "";
                     mtxtCpf.Text = "";
@@ -170,7 +170,7 @@ namespace AppLavaCar
                     this.txtId.Focus();
                     return;
                 }
-                            
+
             }
             catch (Exception er)
             {
@@ -193,7 +193,7 @@ namespace AppLavaCar
                 else
                 {
                     return;
-                }                
+                }
                 MessageBox.Show("Funcionário excluído com sucesso!!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<Funcionario> funcionarios = controller.listaFuncionario();
                 dgvFunc.DataSource = funcionarios;
@@ -247,11 +247,11 @@ namespace AppLavaCar
             {
                 DataGridViewRow row = this.dgvFunc.Rows[e.RowIndex];
                 this.dgvFunc.Rows[e.RowIndex].Selected = true;
-                txtId.Text = row.Cells[0].Value.ToString();
-                txtNome.Text = row.Cells[1].Value.ToString();
-                mtxtCpf.Text = row.Cells[2].Value.ToString();
-                txtSenha.Text = row.Cells[3].Value.ToString();               
-                txtEmail.Text = row.Cells[4].Value.ToString();
+                txtId.Text = row.Cells[0].Value.ToString().Trim();
+                txtNome.Text = row.Cells[1].Value.ToString().Trim();
+                mtxtCpf.Text = row.Cells[2].Value.ToString().Trim();
+                txtSenha.Text = row.Cells[3].Value.ToString().Trim();
+                txtEmail.Text = row.Cells[4].Value.ToString().Trim();
                 if (row.Cells[5].Value.ToString() == "SIM")
                 {
                     chkbSim.Checked = true;

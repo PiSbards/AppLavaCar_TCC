@@ -1,4 +1,5 @@
 ﻿using AppLavaCar.Model;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -90,32 +91,46 @@ namespace AppLavaCar.Controller
 
         public Cliente Localizar(string cpf)
         {
-            Cliente cliente = new Cliente();
-            string sql = "SELECT * FROM cliente WHERE cpf=@cpf";
+            Cliente cliente = null;
+            string sql = "SELECT * FROM cliente WHERE cpf = @cpf";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
             }
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            try
             {
-                cmd.Parameters.Add("@cpf", SqlDbType.VarChar).Value = cpf;
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cliente.id = (int)dr["id"];
-                    cliente.nome = dr["nome"].ToString();
-                    cliente.cpf = dr["cpf"].ToString();
-                    cliente.telefone = dr["telefone"].ToString();
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            cliente = new Cliente
+                            {
+                                id = (int)dr["id"],
+                                nome = dr["nome"].ToString(),
+                                cpf = dr["cpf"].ToString(),
+                                telefone = dr["telefone"].ToString()
+                            };
+                        }
+                    }
                 }
-                dr.Close();
             }
-            conn.Close();
+            catch (Exception)
+            {
+                cliente = null;
+            }
+            finally
+            {
+                conn.Close();
+            }
             return cliente;
         }
 
         public bool RegistroRepetido(string cpf)
         {
-            string sql = "SELECT COUNT(*) FROM cliente WHERE cpf='"+cpf+"'";
+            string sql = "SELECT COUNT(*) FROM cliente WHERE cpf='" + cpf + "'";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();

@@ -43,7 +43,7 @@ namespace AppLavaCar
                     MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNome.Text = "";
                     mtxtCPF.Text = "";
-                    mtxtTelefone.Text = "";                    
+                    mtxtTelefone.Text = "";
                     this.mtxtCPF.Focus();
                     return;
                 }
@@ -55,7 +55,7 @@ namespace AppLavaCar
                     mtxtCPF.Text = "";
                     mtxtTelefone.Text = "";
                     this.mtxtCPF.Focus();
-                    return;                    
+                    return;
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace AppLavaCar
                     else
                     {
                         controller.Inserir(txtNome.Text.Trim(), mtxtCPF.Text.Trim(), mtxtTelefone.Text.Trim());
-                        MessageBox.Show("Cliente cadastrado com sucesso!","Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cliente cadastrado com sucesso!", "Registro Efetuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtNome.Text = "";
                         mtxtCPF.Text = "";
                         mtxtTelefone.Text = "";

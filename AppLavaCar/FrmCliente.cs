@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace AppLavaCar
 {
     public partial class FrmCliente : MetroFramework.Forms.MetroForm
-    {        
+    {
         public FrmCliente()
         {
             InitializeComponent();
@@ -23,13 +23,13 @@ namespace AppLavaCar
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Hide();
-        } 
+        }
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
             btnEditarCarro.Enabled = false;
-            btnExcluirCarro.Enabled = false;            
+            btnExcluirCarro.Enabled = false;
             Carro carro = new Carro();
             CarroController carroController = new CarroController();
             List<Carro> car = carroController.listaCarro();
@@ -43,13 +43,13 @@ namespace AppLavaCar
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtTelefone.Text == "" || txtModelo.Text == "" || txtMarca.Text == "" || txtPlaca.Text =="")
+            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtTelefone.Text == "")
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
-            {    
+            {
                 Cliente cliente = new Cliente();
                 ClienteController controller = new ClienteController();
                 VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
@@ -58,7 +58,20 @@ namespace AppLavaCar
                     var result = ve.IsCnpj(mtxtCpf.Text);
                     if (result == true)
                     {
-                        if (controller.RegistroRepetido(mtxtCpf.Text) == true)
+                        Cliente cli = controller.Localizar(mtxtCpf.Text);
+                        if (cli.cpf.Trim() == mtxtCpf.Text.Trim())
+                        {
+                            controller.Atualizar(Convert.ToInt32(lblIdCliente.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), txtTelefone.Text);
+                            MessageBox.Show("Cadastro de Cliente atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvCliente.DataSource = li;
+                            lblIdCliente.Text = "";
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            this.txtNome.Focus();
+                        }
+                        else if (controller.RegistroRepetido(mtxtCpf.Text) == true)
                         {
                             MessageBox.Show("Este CNPJ já esta em uso, por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -75,14 +88,27 @@ namespace AppLavaCar
                             txtTelefone.Text = "";
                             this.txtNome.Focus();
                         }
-                    }                    
+                    }
                 }
                 else
                 {
                     var result = ve.IsCpf(mtxtCpf.Text);
                     if (result == true)
                     {
-                        if (controller.RegistroRepetido(mtxtCpf.Text) == true)
+                        Cliente cli = controller.Localizar(mtxtCpf.Text);
+                        if (cli.cpf.Trim() == mtxtCpf.Text.Trim())
+                        {
+                            controller.Atualizar(Convert.ToInt32(lblIdCliente.Text.Trim()), txtNome.Text, mtxtCpf.Text.Trim(), txtTelefone.Text);
+                            MessageBox.Show("Cadastro de Cliente atualizado com sucesso!!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            List<Cliente> li = controller.listaCliente();
+                            dgvCliente.DataSource = li;
+                            lblIdCliente.Text = "";
+                            txtNome.Text = "";
+                            mtxtCpf.Text = "";
+                            txtTelefone.Text = "";
+                            this.txtNome.Focus();
+                        }
+                        else if (controller.RegistroRepetido(mtxtCpf.Text) == true)
                         {
                             MessageBox.Show("Este CPF já esta em uso, por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -101,7 +127,7 @@ namespace AppLavaCar
                         }
                     }
                 }
-                        
+
             }
             catch (Exception er)
             {
@@ -111,7 +137,7 @@ namespace AppLavaCar
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtTelefone.Text == "" || txtModelo.Text == "" || txtMarca.Text == "" || txtPlaca.Text == "")
+            if (txtNome.Text == "" || mtxtCpf.Text == "" || txtTelefone.Text == "")
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -130,13 +156,13 @@ namespace AppLavaCar
                 {
                     return;
                 }
-                MessageBox.Show("Cliente excluído com sucesso!!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);                
+                MessageBox.Show("Cliente excluído com sucesso!!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 List<Cliente> li = controller.listaCliente();
                 dgvCliente.DataSource = li;
                 lblIdCliente.Text = "";
                 txtNome.Text = "";
                 mtxtCpf.Text = "";
-                txtTelefone.Text = "";                
+                txtTelefone.Text = "";
                 this.txtNome.Focus();
             }
             catch (Exception er)
@@ -150,11 +176,11 @@ namespace AppLavaCar
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
             try
-            {  
+            {
                 ClienteController controller = new ClienteController();
-                Cliente cliente = controller.Localizar(mtxtCpf.Text.Trim());                 
+                Cliente cliente = controller.Localizar(mtxtCpf.Text.Trim());
                 txtNome.Text = cliente.nome;
-                txtTelefone.Text = cliente.telefone;                                
+                txtTelefone.Text = cliente.telefone;
             }
             catch (Exception er)
             {
@@ -176,10 +202,10 @@ namespace AppLavaCar
                 {
                     chbxCNPJ.Checked = true;
                 }
-                lblIdCliente.Text = row.Cells[0].Value.ToString();
-                txtNome.Text = row.Cells[1].Value.ToString();
-                mtxtCpf.Text = row.Cells[2].Value.ToString();
-                txtTelefone.Text = row.Cells[3].Value.ToString();
+                lblIdCliente.Text = row.Cells[0].Value.ToString().Trim();
+                txtNome.Text = row.Cells[1].Value.ToString().Trim();
+                mtxtCpf.Text = row.Cells[2].Value.ToString().Trim();
+                txtTelefone.Text = row.Cells[3].Value.ToString().Trim();
             }
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
@@ -215,17 +241,16 @@ namespace AppLavaCar
 
         private void btnEditarCarro_Click(object sender, EventArgs e)
         {
-            if (txtModelo.Text == "" || txtMarca.Text == "" || txtPlaca.Text == "" || txtNomeDono.Text == "" ||mktCpfDono.Text == "")
+            if (txtModelo.Text == "" || txtMarca.Text == "" || txtPlaca.Text == "" || txtNomeDono.Text == "" || mktCpfDono.Text == "")
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
             {
-                Carro carro = new Carro();
-                CarroController controller = new CarroController();                
+                CarroController controller = new CarroController();
                 if (controller.RegistroRepetido(txtPlaca.Text) == true)
-                {                    
+                {
                     MessageBox.Show("Este carro já esta em uso,a placa já consta cadastrada.\n Por favor corrija", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -243,7 +268,7 @@ namespace AppLavaCar
                     txtModelo.Text = "";
                     this.txtPlaca.Focus();
                 }
-                
+
             }
             catch (Exception er)
             {
@@ -331,12 +356,12 @@ namespace AppLavaCar
                 {
                     chbxCnpjCarro.Checked = true;
                 }
-                lblIdCarro.Text = row.Cells[0].Value.ToString();
-                txtPlaca.Text = row.Cells[1].Value.ToString();
-                txtNomeDono.Text = row.Cells[2].Value.ToString();
-                mktCpfDono.Text = row.Cells[3].Value.ToString();
-                txtMarca.Text = row.Cells[4].Value.ToString();
-                txtModelo.Text = row.Cells[5].Value.ToString();                
+                lblIdCarro.Text = row.Cells[0].Value.ToString().Trim();
+                txtPlaca.Text = row.Cells[1].Value.ToString().Trim();
+                txtNomeDono.Text = row.Cells[2].Value.ToString().Trim();
+                mktCpfDono.Text = row.Cells[3].Value.ToString().Trim();
+                txtMarca.Text = row.Cells[4].Value.ToString().Trim();
+                txtModelo.Text = row.Cells[5].Value.ToString().Trim();
             }
             btnEditarCarro.Enabled = true;
             btnExcluirCarro.Enabled = true;

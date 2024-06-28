@@ -23,24 +23,24 @@ namespace AppLavaCar
         public FrmCheckin()
         {
             InitializeComponent();
-        }   
+        }
         private void FrmCheckin_Load(object sender, EventArgs e)
         {
             txtDefeitos.Enabled = false;
-            AgendaController controller = new AgendaController();            
+            AgendaController controller = new AgendaController();
             List<Agenda> li = controller.listaAgendaDia();
             dgvAgenda.DataSource = li;
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }  
+        }
         private void cbxSim_CheckedChanged(object sender, EventArgs e)
         {
             if (cbxNao.Checked == true)
             {
-                cbxNao.Checked = false;                
-                
+                cbxNao.Checked = false;
+
             }
             txtDefeitos.Enabled = true;
             if (cbxSim.Checked == false)
@@ -54,7 +54,7 @@ namespace AppLavaCar
             if (cbxSim.Checked == true)
             {
                 cbxSim.Checked = false;
-                
+
             }
         }
 
@@ -63,8 +63,8 @@ namespace AppLavaCar
             if (cbxNao2.Checked == true)
             {
                 cbxNao2.Checked = false;
-                
-                
+
+
             }
         }
 
@@ -73,7 +73,7 @@ namespace AppLavaCar
             if (cbxSim2.Checked == true)
             {
                 cbxSim2.Checked = false;
-                
+
             }
         }
 
@@ -85,11 +85,11 @@ namespace AppLavaCar
             dialog.Multiselect = true;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string imagem = dialog.FileName;                
+                string imagem = dialog.FileName;
                 if (pbxFoto1.ImageLocation == null)
                 {
                     pbxFoto1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pbxFoto1.ImageLocation = imagem;                    
+                    pbxFoto1.ImageLocation = imagem;
                 }
                 else if (pbxFoto1.ImageLocation != null && pbxFoto2.ImageLocation == null)
                 {
@@ -110,9 +110,9 @@ namespace AppLavaCar
                 {
                     pbxFoto5.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbxFoto5.ImageLocation = imagem;
-                }                
+                }
             }
-            
+
         }
 
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace AppLavaCar
                 string foto4 = txtFoto4.Text.Replace(" ", "");
                 string foto5 = txtFoto5.Text.Replace(" ", "");
                 string caminho = "C:\\AppLavaCar\\AppLavaCar\\Fotos";
-                if (pbxFoto1.Image != null && pbxFoto1.Image !=null)
+                if (pbxFoto1.Image != null && pbxFoto1.Image != null)
                 {
                     string novoCaminho = caminho + "\\" + foto1 + ".jpg";
                     pbxFoto1.Image.Save(novoCaminho);
@@ -189,8 +189,8 @@ namespace AppLavaCar
                     clienteCiente = "NÃO";
                 }
 
-                check.InserirCheckIn(lblNomeCliente.Text,lblCPF.Text,lblTelefone.Text, lblPlacaCarro.Text, lblTipoTratamento.Text, Convert.ToDateTime(lblAgendamento.Text),
-                    clienteCiente, defeito, txtDefeitos.Text, foto1,foto2,foto3,foto4,foto5);
+                check.InserirCheckIn(lblNomeCliente.Text, lblCPF.Text, lblTelefone.Text, lblPlacaCarro.Text, lblTipoTratamento.Text, Convert.ToDateTime(lblAgendamento.Text),
+                    clienteCiente, defeito, txtDefeitos.Text, foto1, foto2, foto3, foto4, foto5);
 
                 MessageBox.Show("Check-in realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AgendaController agendaController = new AgendaController();
@@ -229,7 +229,7 @@ namespace AppLavaCar
         private void dgvAgenda_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {  
+            {
                 DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
                 this.dgvAgenda.Rows[e.RowIndex].Selected = true;
                 lblID.Text = row.Cells[0].Value.ToString();

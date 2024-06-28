@@ -33,10 +33,10 @@ namespace AppLavaCar
             {
                 MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (txtSenha1.Text == txtSenha2.Text )
+            if (txtSenha1.Text == txtSenha2.Text)
             {
                 bool result = controller.LocalizarPorCPF(mtxtCpf.Text);
-                if(result == true)
+                if (result == true)
                 {
                     string senha = b.Base64Encode(txtSenha2.Text);
                     controller.AlterarSenha(senha, mtxtCpf.Text.Trim());

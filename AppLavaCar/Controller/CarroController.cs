@@ -35,7 +35,7 @@ namespace AppLavaCar.Controller
             conn.Close();
             return li;
         }
-        public void Inserir(string placaCarro, string nomeDono, string cpfDono,string marca, string modelo)
+        public void Inserir(string placaCarro, string nomeDono, string cpfDono, string marca, string modelo)
         {
             string sql = "INSERT INTO carro(placaCarro,nomeDono,cpfDono,marca,modelo) VALUES(@placaCarro,@nomeDono,@cpfDono,@marca,@modelo)";
             if (conn.State == ConnectionState.Closed)
@@ -47,8 +47,8 @@ namespace AppLavaCar.Controller
                 cmd.Parameters.Add("@placaCarro", SqlDbType.VarChar).Value = placaCarro;
                 cmd.Parameters.Add("@nomeDono", SqlDbType.VarChar).Value = nomeDono;
                 cmd.Parameters.Add("@cpfDono", SqlDbType.VarChar).Value = cpfDono;
-                cmd.Parameters.Add("@marca",SqlDbType.VarChar).Value = marca;
-                cmd.Parameters.Add("@modelo",SqlDbType.VarChar).Value=modelo;
+                cmd.Parameters.Add("@marca", SqlDbType.VarChar).Value = marca;
+                cmd.Parameters.Add("@modelo", SqlDbType.VarChar).Value = modelo;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -86,7 +86,7 @@ namespace AppLavaCar.Controller
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        
+
         public Carro LocalizarPelaPlaca(string placaCarro)
         {
             Carro carro = new Carro();
@@ -129,15 +129,15 @@ namespace AppLavaCar.Controller
             return false;
         }
         public List<string> CarregaCbxCarro(string cpfDono)
-        {            
-            string sql = "SELECT * FROM carro WHERE cpfDono='"+cpfDono+"'";
+        {
+            string sql = "SELECT * FROM carro WHERE cpfDono='" + cpfDono + "'";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
             SqlDataReader dr = cmd.ExecuteReader();
             List<string> list = new List<string>();
             while (dr.Read())
-            {               
+            {
                 list.Add(dr["placaCarro"].ToString());
             }
             return list;

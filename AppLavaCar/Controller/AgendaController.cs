@@ -44,7 +44,7 @@ namespace AppLavaCar.Controller
             string sql = "SELECT * FROM agenda WHERE CAST(agendamento AS DATE) = @data";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add(new SqlParameter("@data",data));
+            cmd.Parameters.Add(new SqlParameter("@data", data));
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -61,7 +61,7 @@ namespace AppLavaCar.Controller
             dr.Close();
             conn.Close();
             return li;
-        }        
+        }
         public void AlterarAgendamento(int id, string nome, string cpf, string telefone, string placaCarro, string tipoTratamento, DateTime agendamento)
         {
             string sql = "UPDATE agenda SET nomeCliente=@nomeCliente,cpf=@cpf,telefone=@telefone,tipoTratamento=@tipoTratamento," +
@@ -91,7 +91,7 @@ namespace AppLavaCar.Controller
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
-            }            
+            }
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.Add("@nomeCliente", SqlDbType.VarChar).Value = nome;

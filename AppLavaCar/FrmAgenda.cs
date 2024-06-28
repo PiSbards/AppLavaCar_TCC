@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace AppLavaCar
 {
     public partial class FrmAgenda : MetroFramework.Forms.MetroForm
-    {        
+    {
         public FrmAgenda()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace AppLavaCar
         }
         public FrmAgenda(bool gerente)
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -31,19 +31,19 @@ namespace AppLavaCar
             this.Hide();
         }
         private void Calendario_DateChanged(object sender, DateRangeEventArgs e)
-        {            
+        {
             lblData.Text = Calendario.SelectionRange.Start.ToString("yyyy/MM/dd");
             AgendaController controller = new AgendaController();
             List<Agenda> agenda = controller.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
             dgvAgenda.DataSource = agenda;
-        }       
+        }
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
-            ControllerGeral geral= new ControllerGeral();
-            AgendaController controller = new AgendaController();            
+            ControllerGeral geral = new ControllerGeral();
+            AgendaController controller = new AgendaController();
             List<Agenda> li = controller.listaAgendaDia();
-            dgvAgenda.DataSource = li;            
+            dgvAgenda.DataSource = li;
             DateTime[] date = geral.BoldDates();
             Calendario.BoldedDates = date;
             lblData.Text = DateTime.Today.ToString("yyyy/MM/dd");
@@ -63,7 +63,7 @@ namespace AppLavaCar
             cboHoraAgenda.Text = "00:00";
             cbxPlaca.Items.Clear();
             this.txtNome.Focus();
-        }       
+        }
         private void chbxCNPJ_CheckedChanged(object sender, EventArgs e)
         {
             if (chbxCNPJ.Checked == false)
@@ -81,22 +81,33 @@ namespace AppLavaCar
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
+                if (mtxtCPF.Text == "")
+                {
+                    MessageBox.Show("CPF/CNPJ não pode estar vazio.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 ClienteController controller = new ClienteController();
                 Cliente cliente = controller.Localizar(mtxtCPF.Text.Trim());
-                txtNome.Text = cliente.nome.Trim();
-                mtxtTelefone.Text = cliente.telefone.Trim();
+                if (cliente == null)
+                {
+                    MessageBox.Show("CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                txtNome.Text = cliente.nome?.Trim() ?? string.Empty;
+                mtxtTelefone.Text = cliente.telefone?.Trim() ?? string.Empty;
 
                 CarroController carro = new CarroController();
                 List<string> li = carro.CarregaCbxCarro(mtxtCPF.Text);
+                cbxPlaca.Items.Clear();
                 foreach (string placa in li)
                 {
                     cbxPlaca.Items.Add(placa.Trim());
                 }
             }
-            catch (Exception)
+            catch (Exception er)
             {
-                MessageBox.Show("CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(er + "CPF/CNPJ informado, encontra-se incorreto ou não existe no banco de dados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -116,7 +127,7 @@ namespace AppLavaCar
                     if (dataHorario == item.agendamento)
                     {
                         MessageBox.Show("Infelizmente este horário já possui reserva, por favor selecione outro", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        horarioDisponivel = false;                        
+                        horarioDisponivel = false;
                     }
                 }
 
@@ -162,7 +173,7 @@ namespace AppLavaCar
             }
             try
             {
-                DateTime dataHorario = Convert.ToDateTime(lblData.Text +" "+ cboHoraAgenda.Text);                
+                DateTime dataHorario = Convert.ToDateTime(lblData.Text + " " + cboHoraAgenda.Text);
                 AgendaController agendaController = new AgendaController();
                 List<Agenda> ag = agendaController.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
                 bool horarioDisponivel = true;
@@ -198,7 +209,7 @@ namespace AppLavaCar
                     Calendario.BoldedDates = date;
                     this.txtNome.Focus();
                 }
-                
+
             }
             catch (Exception er)
             {
@@ -216,7 +227,7 @@ namespace AppLavaCar
                 AgendaController agendaController = new AgendaController();
                 Agenda agenda = new Agenda();
                 DataGridViewRow row = this.dgvAgenda.Rows[e.RowIndex];
-                this.dgvAgenda.Rows[e.RowIndex].Selected = true;                
+                this.dgvAgenda.Rows[e.RowIndex].Selected = true;
                 if (row.Cells[2].Value.ToString().Trim().Length == 14)
                 {
                     chbxCNPJ.Checked = false;
@@ -225,7 +236,7 @@ namespace AppLavaCar
                 {
                     chbxCNPJ.Checked = true;
                 }
-                lblID.Text = row.Cells[0].Value.ToString();                
+                lblID.Text = row.Cells[0].Value.ToString();
                 agenda = agendaController.localizarAgenda(Convert.ToInt32(lblID.Text));
                 string placa = row.Cells[5].Value.ToString();
                 carro = car.LocalizarPelaPlaca(placa);
@@ -240,8 +251,8 @@ namespace AppLavaCar
                 cbxPlaca.Text = agenda.placaCarro.ToString();
                 cbxTipo.Text = agenda.tipoTratamento.ToString();
                 var data = agenda.agendamento;
-                Calendario.SetDate(data);                
-                cboHoraAgenda.Text = data.ToString("t");                
+                Calendario.SetDate(data);
+                cboHoraAgenda.Text = data.ToString("t");
             }
         }
 
@@ -263,13 +274,13 @@ namespace AppLavaCar
                 cboHoraAgenda.Text = "00:00";
                 ControllerGeral geral = new ControllerGeral();
                 DateTime[] date = geral.BoldDates();
-                Calendario.BoldedDates = date;                
+                Calendario.BoldedDates = date;
                 return;
             }
             agenda.ExcluirAgendamento(Convert.ToInt32(lblID.Text));
             List<Agenda> li = agenda.listaAgendaSelecionada(Convert.ToDateTime(lblData.Text));
             dgvAgenda.DataSource = li;
-            MessageBox.Show("Agendamento cancelado com sucesso!","INFROMAÇÃO",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Agendamento cancelado com sucesso!", "INFROMAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cbxPlaca_SelectedIndexChanged(object sender, EventArgs e)
@@ -285,18 +296,18 @@ namespace AppLavaCar
             if (mtxtCPF.Text == "")
             {
                 FrmCarro carro = new FrmCarro();
-                carro.Show();                
+                carro.Show();
             }
             else
             {
-                FrmCarro carro = new FrmCarro(mtxtCPF.Text,txtNome.Text);
-                carro.Show();                
+                FrmCarro carro = new FrmCarro(mtxtCPF.Text, txtNome.Text);
+                carro.Show();
             }
         }
 
         private void mtxtCPF_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pbxRefreshPlaca_Click(object sender, EventArgs e)

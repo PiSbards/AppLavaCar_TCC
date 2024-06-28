@@ -21,25 +21,25 @@ namespace AppLavaCar
         public FrmInicial()
         {
             InitializeComponent();
-            b = new Cripto();            
-        }       
+            b = new Cripto();
+        }
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
-        {            
+        {
             VerificacaoCpfCnpj ve = new VerificacaoCpfCnpj();
             UsuarioController controller = new UsuarioController();
             bool cpf = ve.IsCpf(mtxtCPF.Text);
             if (cpf == true)
             {
                 string senha = b.Base64Encode(txtSenha.Text);
-                Funcionario func = controller.Login(mtxtCPF.Text.Trim(),senha);                
+                Funcionario func = controller.Login(mtxtCPF.Text.Trim());
                 if (func.cpf.Trim() == mtxtCPF.Text.Trim() && func.senha.Trim() == senha)
                 {
                     if (func.gerente == "SIM")
                     {
                         bool gerente = true;
                         string chefe = "sim";
-                        FrmPrincipal principalGerente = new FrmPrincipal(gerente,chefe);
+                        FrmPrincipal principalGerente = new FrmPrincipal(gerente, chefe);
                         principalGerente.Show();
                         this.Hide();
                     }
@@ -57,7 +57,7 @@ namespace AppLavaCar
             }
             else
             {
-                MessageBox.Show("CPF inválido, por favor reescreva!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("CPF inválido, por favor reescreva!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 mtxtCPF.Text = "";
                 txtSenha.Text = "";
             }
@@ -67,7 +67,7 @@ namespace AppLavaCar
         private void btnSair_Click_1(object sender, EventArgs e)
         {
             Environment.Exit(0);
-        }       
+        }
 
         private void llblSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

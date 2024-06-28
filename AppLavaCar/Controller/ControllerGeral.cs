@@ -98,7 +98,7 @@ namespace AppLavaCar.Controller
                     {
                         if (dr.Read())
                         {
-                            result = dr["modelo"].ToString().Trim() +" "+dr["marca"].ToString().Trim();
+                            result = dr["modelo"].ToString().Trim() + " " + dr["marca"].ToString().Trim();
                         }
                     }
                 }
@@ -149,7 +149,7 @@ namespace AppLavaCar.Controller
                             while (dr.Read())
                             {
                                 string nomeCliente = dr["nomeCliente"].ToString().Trim();
-                                string cpf = dr["cpf"].ToString().Trim();                               
+                                string cpf = dr["cpf"].ToString().Trim();
 
                                 string resultado = $"Nome: {nomeCliente},\n CPF: {cpf}";
                                 resultados.Add(resultado);

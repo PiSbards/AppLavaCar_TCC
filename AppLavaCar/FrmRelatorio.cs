@@ -53,11 +53,11 @@ namespace AppLavaCar
         }
         private void dgvHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
         private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         private void cbxTipo_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -72,7 +72,7 @@ namespace AppLavaCar
                 List<CheckOut> check = controller.FiltrarPorTipo(cbxTipo.SelectedItem.ToString());
                 dgvHistorico.DataSource = check;
             }
-                        
+
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
